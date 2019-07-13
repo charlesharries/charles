@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import App, { Container } from 'next/app';
 import { PageTransition } from 'next-page-transitions';
 import '../assets/css/base.css';
+import Head from '~components/Head';
 import Nav from '~components/Nav';
 
 class MyApp extends App {
@@ -14,6 +15,7 @@ class MyApp extends App {
     return (
       <Container>
         <div className="Page">
+          <Head />
           <Nav />
           <PageTransition timeout={300} classNames="fade">
             <Layout centered={isHome || isError}>

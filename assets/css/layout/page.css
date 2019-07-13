@@ -34,7 +34,7 @@ body {
   color: $white;
 }
 
-main:not(.Home) {
+main:not(.Full) {
   max-width: 600px;
   padding-top: 10rem;
   padding-right: $spacing;

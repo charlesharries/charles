@@ -3,7 +3,7 @@ import published from '~data/published';
 
 function Blog() {
   return (
-    <main className="Blog">
+    <div className="Blog">
       <h1 className="Blog__title">Glob</h1>
       <ul>
         {published.map(post => (
@@ -17,7 +17,7 @@ function Blog() {
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }
 

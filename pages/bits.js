@@ -16,7 +16,7 @@ const bits = [
 
 function Bits() {
   return (
-    <main className="Bits">
+    <div className="Bits">
       <h1 className="Bits__title">Various Bits</h1>
       <ul>
         {bits.map(bit => (
@@ -29,7 +29,7 @@ function Bits() {
           </a>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }
 

@@ -2,9 +2,9 @@ import BigName from '~components/BigName';
 
 function Home() {
   return (
-    <main className="Home">
+    <div className="Home">
       <BigName />
-    </main>
+    </div>
   );
 }
 

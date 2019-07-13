@@ -1,0 +1,145 @@
+Rails's default routing scheme is alright. `/posts/1`, `/posts/2`, etc. But it's not very good for SEO and it's doesn't look great to users, either. Let's change Rails's config to use a `slug` that we can define ourselves.
+
+> Obviously this can be used for any model. We're just using `posts` here because it's a common use-case for Rails. I mean just look at this site.
+
+## Add the slug column to our table
+
+First we need to generate the migration to add the column to the table, which Rails makes very easy:
+
+```
+$ rails g migration add_slug_to_posts slug:string
+```
+
+Don't migrate it just yet, though. We'll be setting Rails up to search for posts by `slug` (rather than by `id`), so we'll also want to add an index to the `slug` column. For performance.
+
+Make sure you add the highlighted part below:
+
+<pre>
+class AddSlugToPosts < ActiveRecord::Migration[5.0]
+  def change
+    add_column :posts, :slug, :string
+    <mark>add_index :posts, :slug, unique: true</mark>
+  end
+end
+</pre>
+
+_Now_ it's time to migrate.
+
+```
+$ rails db:migrate
+```
+
+## Add slugs to existing posts (optional)
+
+It may happen that you've already got posts on your site, all of which now have a `nil` `slug` field. Which will create problems. Let's fire up the rails console and add some _post hoc_ `slug`s.
+
+```
+$ rails c
+```
+
+Once in the console, we'll get all of your posts, iterate over them, and update the `slug`. In this case we're basing the post's `slug` off its `title` (since it presumably has a `title`).
+
+We're using Rails's `parameterize` function, which removes non-url-safe characters and adds hyphens where spaces exist. Viz. `'Sample Post No. 1'` will become `'sample-post-no-1'`
+
+```
+Post.find_each do |post|
+	post.update_attributes(slug: post.title.parameterize)
+end
+```
+
+> You can swap out the hyphen for something else by passing a hash with the `separator` key to `parameterize`. For example:
+> `'Sample Post No. 1'.parameterize(separator: '_')`
+> `=> "sample_post_no_1"`
+
+## Update the routes
+
+We have to make sure to let Rails know that our routes are going to use the `slug` rather than the `id`. Rails, of course, has a simple way of dealing with this:
+
+```
+# routes.rb
+
+resources :posts, param: :slug
+```
+
+## Update your model
+
+The model also has to know that we're using a `slug` instead of `id` as well. It's a good place to put a couple of methods for making sure that our `slug`s are all going to the right place in the right shape.
+
+We'll add some validation to make sure that our slugs are unique—no sense in having two posts with the same URL.
+
+We're also going to do a little bit of Ruby's famous monkeypatching to change the built-in `to_param` method to use our `slug` when building paths, rather than the default `id`.
+
+And finally, we're going to monkeypatch the `find` method to find by `slug` instead of by `id`. That way we can run calls like `Post.find('sample-post-no-1')`.
+
+```
+# post.rb
+
+validates :slug, uniqueness: true, presence: true
+
+def to_param
+	slug
+end
+
+def self.find(input)
+	find_by_slug(input)
+end
+```
+
+## Update your controller
+
+Now that our `find` method is finding by `slug`, our controller is going to run into a problem. You're probably `find`ing by `params[:id]`, which introduces two problems.
+
+1. `find` is expecting a `slug`, so it's going to choke unless your `slug` is `1` or `55` or something, but—
+2. You're no longer passing in a `params[:id]`, since in our `routes.rb` we configured the route to use `slug` as the param. So `params[:id]` will always be `nil`.
+
+The solution: just change the `params[:id]` to `params[:slug]`. So:
+
+<pre>
+  # posts_controller.rb def show
+  <mark>@post = Post.find(params[:slug])</mark>
+  ... end def edit
+  <mark>@post = Post.find(params[:slug])</mark>
+  ... end def update
+  <mark>@post = Post.find(params[:slug])</mark>
+  ... end
+</pre>
+
+Remember as well to add `:slug` to your `post_params`:
+
+```
+# posts_controller.rb
+
+def hike_params
+	params.require(:post).permit(:title, :slug, :content)
+end
+```
+
+## Bonus round: update your already-indexed pages (optional)
+
+It's possible that Google will have already indexed a couple of your e.g. `/posts/1`, which are all now 404ing. Which means Webmaster Tools will shortly start yelling at you, which is bad not only for your SEO but also for your self esteem.
+
+You could write up a hash or something to map each of your old `id`-based post URLs to your new `slug`-based ones, but I'm lazy and I just redirect them back to the posts index page.
+
+We'll add a route matching for `/posts/` followed by any numbers, using Rails's `constraints` option and matching with a regex. This will catch anything like `/posts/123` and `/posts/999` but won't catch our new `/posts/sample-post-no-1`.
+
+> Now that I think of it, I actually just covered [Rails redirect with regexes](/posts/rails-redirect-with-regex) like last week.
+
+```
+# routes.rb
+
+get 'posts/:id',   constraints: { id: /[0-9]+/ }, to: redirect('posts', status: 301)
+```
+
+## Heads up
+
+One thing we didn't cover here was adding a field to whatever form you're using to add new posts to handle `slug`s. It's not hard to add a field for a `slug`; or if you're feeling lazy, you could just write a bit of logic to generate a `slug` from the `title` in your `posts_controller.rb`, e.g.:
+
+```
+@post.slug = @post.title.parameterize
+```
+
+## Conclusion
+
+That's really all there is to it. It's a very simple way to make your blog a little bit friendlier to search engi—I mean good old users, flocking in droves to your blog.
+
+![The droves of users flocking to my blog](https://charlesharriesblog.s3.amazonaws.com/uploads/post/pictures/26/Screen_Shot_2018-05-26_at_7.56.03_PM.png)

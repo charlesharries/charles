@@ -1,0 +1,179 @@
+When I first started looking at React, I was absolutely blown away by how the actual page updated whenever you changed some internal data. I remember going into React dev tools and changing some state in there and watching the DOM reflect these changes instantly, magically, before my eyes. This management of state and props is fundamental to React but at the time it was something completely new and fantastic to me.
+
+> I'm not going to pretend that I had some long and illustrious career before this where I sat there endlessly reaching for `div.textContent = "whatever"` whenever something needed updating. Still, I had never in my short time putting together websites seen a page updated with so little friction as the automatic rerenders on state/props updates.
+
+I learned a lot of what I know about React from Wes Bos's [React for Beginners](https://reactforbeginners.com) course, which uses Firebase to handle the data layer. This was huge for me as well—and even today I feel a little tingle of giddiness every time I update something in a web app and see it update _in realtime_ within Firebase.
+
+Firebase, however, has its limits. Or, rather, I have my limits, financially. Firebase's free tier is super generous for small projects, but you don't have to look far before you start coming across tales of a site showing up on Hacker News or Reddit and auto-scaling up to hundreds of millions of requests and Firebase sending the webmasters a bill for a few thousand.
+
+Which naturally led me to wonder how you could build something with a similar functionality to Firebase's Realtime Database.
+
+## An overview
+
+Since Firebase makes no secrets of using websockets to handle sending data back and forth<sup>1</sup>, so I'm using [socket.io](https://socket.io/), which seems to be the easiest way to get started with websockets.
+
+There are two moving parts here: a websocket server, and a client. The server is the sort of 'supervisor' of the system. It talks to the database and it handles receiving and emitting messages over websockets. The client connects to the websocket server to receive data from the database, and sends messages back to the server when data is changed.
+
+Because this is just a proof of concept, I'm really just going to be managing a single piece of state: a `string` in a text `input`. But it should be relatively clear how you could scale this up by including the some sort of metadata about which fields need to be updated in the messages you emit from the client.
+
+## The server
+
+Socket.io makes it pretty easy to get a websocket server up and running. I just got the project up and running with good ol [`create-react-app`](https://github.com/facebook/create-react-app) and installed `socket.io` from `npm`. Assuming you've made it that far without incident, create a `server.js` file at the top of your file structure and write the following:
+
+```
+const io = require('socket.io')();
+
+io.on('connection' (client) => {
+	console.log('Someone just connected');
+});
+
+console.log('listening for websockets on port 8000');
+io.listen(8000);
+```
+
+Of course, this doesn't do much. Any clients that connect to this websocket aren't going to get any data from it. You could try connecting to your websocket<sup>2</sup> using some command line tool like [`wsc`](https://github.com/raphael/wsc):
+
+```
+$ wsc http://127.0.0.1:8000/socket.io/?transport=websocket
+```
+
+You'll see the logged message that someone has connected, but nothing much else will happen. What we need to configure the server to do is listen for a very specific _type_ of message: namely, a new state from a client (in our case, just whatever the new string is in the `input` (which we have yet to create)).
+
+Update your `server.js` to look like the following:
+
+<pre>
+const io = require('socket.io')();
+
+io.on('connection', client => {
+  console.log('someone has just connected');
+  console.log(`global message is ${global.message}`);
+
+  <mark>client.on('newState', state => {</mark>
+    <mark>global.message = global.message || '';</mark>
+   <mark> global.message = state;</mark>
+   <mark> console.log(`global message is ${global.message}`);</mark>
+    <mark>client.broadcast.emit('pushState', global.message);</mark>
+  <mark>});</mark>
+});
+
+const port = 8000;
+io.listen(port);
+console.log('listening for websockets on port', port);
+</pre>
+
+What we're doing here is waiting for the server to receive a `newState` message. When the a `newState` message arrives, the server initializes the `global.message` variable (we're just saving the message to the `global` scope here since, again, this is a proof of concept, but this could just as easily be a call to your database of choice). It then saves the whatever's come in in the message to our 'database'.
+
+Then (after a bit of logging), the server in turn _emits_ the same message back to all connected clients. Since it's pushing the global state back down to all connected clients, we're calling it a `pushState` message. _This_ is a little piece of magic. This is what keeps everything in sync.
+
+That's really all there is to it, though. On the client side, it's a little different.
+
+## Client-side
+
+Since we've scaffolded this out with `create-react-app`, we've got a bunch of stuff in our `App.js` that we don't really need.
+
+What we _do_ need, however, is another package from `npm`.
+
+```
+$ npm install socket.io-client
+```
+
+This just provides a nice interface on the client side for talking to our socket.io server on the other side.
+
+Now that that's out of the way, let's gut the basic `App` component. The basic outline of our `App.js` component should look like this:
+
+```
+import React, { Component } from 'react';
+import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:8000');
+
+class App extends Component {
+  state = {
+    message: ''
+  }
+
+  constructor(props) {
+    super(props);
+
+    // Set up our socket listener
+  }
+
+  handleChange = async (event) {
+	  // Update state
+	  // Emit new state to the server
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h3>Syncing state across multiple clients using websockets</h3>
+        <input type="text" name="message" value={this.state.message} onChange={this.handleChange} />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+There's a bit to unpack here. Hopefully the imports look familiar to you—we've removed a few of the defaults and added a couple of our own. We're opening the connection to the server right at the top so we have that connection available to us within the component.
+
+For simplicity's sake, we're initialising state to a blank message. If you were building something a little more robust, you'd probably take this opportunity pull the latest relevant state from the websocket server so everything starts up looking as it should. As it stands, however, I don't care so much about that.
+
+We've added an empty `handleChange` event that gets called when the `input` in the render function gets changed. React's `onChange` function acts much like the vanilla Javascript `input` event listener, in that it fires on every keypress inside the input, rather than just on lost focus. The `handleChange` function is an async function for reasons that will become clear shortly.
+
+The `render` function should look pretty standard if you've done literally any React, ever.
+
+### Handling changes
+
+We're going to look at handling changes first, since that's where we left off with the server. Recall the server is expecting a `newState` from the client, which it then saves to the database.
+
+Still, what we're going to be sending to the server is a bit of _new state_, which means that we have to update state first. This is where that `async` comes in. React's `setState` function is asynchronous, so we have to make sure to `await` it before we push the state up to the server. If we don't `await` the `setState` call, we'll just wind up pushing up a blank message to the server.
+
+```
+handleChange = async (event) => {
+  await this.setState({
+    message: event.target.value
+  });
+
+  socket.emit('newState', this.state.message);
+}
+```
+
+First we update state with the value from the `input`. Once state has been updated, we emit a `newState` to the server (which is expecting it).
+
+This isn't the whole picture, though. The server is now keeping track of the messages it's receiving from clients, but those clients aren't being kept in sync with each other, because the server isn't talking back to them.
+
+### Updating the client
+
+For that reason, we have to make sure that the client is listening too. They're expecting the server to _push state_ back down to them once it's done saving it in the database, so we'll set up a listener for a `pushState` message coming down from the server.
+
+Update your `constructor` function to look like the below:
+
+```
+constructor(props) {
+  super(props);
+
+  socket.on('pushState', (state) => {
+    this.setState({ message: state });
+  });
+}
+```
+
+Now our client is all set up to handle receiving `pushState` from the server. When new state comes down (including right after a client has pushed that state up _to_ the server), the client runs a quick `setState` to make sure that its local state is in sync with the state on the server (and in the database).
+
+## Conclusion
+
+That's all there is to it, really. There are some obvious holes here, not the least of them being that we're really only syncing a single field.
+
+Imagine, alternately, that two clients have been connected to the database sometime and have set the state to some string. If a third client connects and emits a `newState` before the others can `pushState` down to this new client, the state on the database will be reset to a blank string, since that's what the new client initialised with internally. Which is obviously a problem.
+
+Still, I think this is a relatively good jumping-off point for building some kind of realtime database you could use for small projects. I expect that a lot of trouble with this sort of setup would be in scaling it up. Not sure what sort of infrastructure you'd even need to get this sort of thing up and running seriously.
+
+<hr>
+
+<div style="font-size: 0.85rem;">
+<p><sup>1</sup>Which is what I think everyone means when they talk about 'two way data binding'.</p>
+
+<p><sup>2</sup> Not sure why you need the path and the 'transport protocol', but it was suggested in <a href="https://stackoverflow.com/questions/38583501/getting-socket-hang-up-using-nodejs-socket-io-and-wscat">this StackOverflow answer</a> and it just works.</p>
+
+</div>

@@ -1,0 +1,43 @@
+### Level Goal
+
+The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.
+
+### Commands you may need to solve this level
+
+ls, cd, cat, file, du, find
+
+## Password for the next level
+
+<code>
+  <mark>boJ9jbbUNNfktd78OOpsqOltutMc3MY1</mark>
+</code>
+
+## Solution
+
+Presumably you’re still logged into `bandit0@bandit.labs.overthewire.org` from the last level, but in case you’re not:
+
+<pre>
+$ ssh -p 2220 bandit0@bandit.labs.overthewire.org
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: <mark>bandit0<mark>
+</pre>
+
+You’re now in `bandit0`’s _home directory_, which is basically a folder which belongs to `bandit0` and contains all of their files. You’ll find any given user’s home directory at <code>/home/<mark>username</mark></code>.
+
+> If you look in `/home/`, you’ll probably find the home directories of all of the other users on the computer.
+
+But the file you need is in `bandit0`’s home directory. You can use the `ls` command to see what files exist in your ‘working directory’—that is, the directory you’re currently in.
+
+```
+$ ls
+readme
+```
+
+There’s that file, just like they said. Now you need a way to read it. The `cat` command (short for ‘concatenate’) has plenty of uses (find more [here](http://www.linfo.org/cat.html)) but right now we’re just going to use it to output the `readme` file to the terminal.
+
+```
+$ cat readme
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+```
+
+Success!

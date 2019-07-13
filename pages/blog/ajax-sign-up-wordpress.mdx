@@ -1,0 +1,165 @@
+Sometimes a client wants a Wordpress site so that they can write stuff themselves. And sometimes they want an AJAX form because AJAX forms look like magic. Here’s how to make an AJAX form work on Wordpress, without having to install any faffy 120MB plugins.
+
+(Except for it does use jQuery. But if you’re using Wordpress you’ve probably got jQuery loading anyway, and at the end of the day it’s only like 90KB, and if 90KB is a big deal to you then you’re probably not using Wordpress, are you?)
+
+I’m going to give a quick overview of how the data is going to fly around, mostly as a sanity check for myself, but also in case you’re not totally clear on how data gets from forms into databases in Wordpress. There are XXXX steps here:
+
+1. The user inputs their `user_data` into the form and hits ‘Submit’.
+2. A script on the page grabs the `user_data` from the form and sends it to some logic on the server.
+3. The logic on the server receives the `user_data`, stores it in the database, and sends back some `response_data` telling the user what happened (e.g. if it was successful, if there was a problem, etc.)
+4. Show the user that `response_data`.
+
+Where you put the form doesn’t really matter, so long as your Javascript/jQuery can access the form. The logic to save the `user_data` goes in good ol’ `functions.php`.
+
+## The form
+
+This is just a simple user registration form, but it can be repurposed.
+
+```
+<form action="<?php echo site_url('/wp-login.php?action=register', 'login_post') ?>" id="register-form"  method="post">
+
+	<h4>Register</h4>
+
+	<div class="form-option">
+		<label for="username"><?php _e('Username','framework'); ?><span>*</span></label>
+		<input id="username" name="username" type="text" required />
+	</div>
+
+	<div class="form-option">
+		<label for="user_email"><?php _e('Email','framework'); ?><span>*</span></label>
+		<input id="user_email" name="user_email" type="email" required />
+	</div>
+
+	<div class="form-option">
+		<label for="description"><?php _e('Short description','framework'); ?></label>
+		<textarea id="description" name="description"></textarea>
+	</div>
+
+	<input type="hidden" name="nonce" id="nonce" value="<?php echo wp_create_nonce('user_register_nonce'); ?>" />
+
+	<input type="submit" value="Submit" />
+
+	<div id="registration-results"></div>
+</form>
+```
+
+This should be relatively straightforward. It’s just a form.
+
+Pay attention to a hidden field I’ve included down at the bottom. We generate a nonce here that we’ll check on the backend to make sure that the user submission is actually coming from this page (rather than a naughty actor submitting the request from elsewhere).
+
+Note also that the form submits to where a new user would usually submit to (`/wp-login.php?action=register`). This is so that if a user doesn’t have Javascript enabled, Wordpress will still create a user for them and it won’t break anything.
+
+The `#registration-results` `<div>` down at the bottom is where we’ll show the user the results of their form submission.
+
+## The Javascript
+
+This is where the magic happens.
+
+```
+<script>
+	jQuery('#register-form').on('submit', function(e) {
+		// 1. Prevent the form from actually submitting
+		e.preventDefault();
+
+		// 2. Grab the values out of the form
+		var username = jQuery('#username').val();
+		var user_email = jQuery('#user_email').val();
+		var description = jQuery('#description').val();
+
+		// 3. Submit the AJAX request
+		jQuery.ajax({
+			type:"POST",
+			url:"/wordpress/wp-admin/admin-ajax.php",
+			data: {
+				action: "register_user_ajax",
+				username: username,
+				user_email: user_email,
+				description: description,
+				nonce: nonce
+			},
+			success: function(results){
+				console.log(results);
+				var json = JSON.parse(results);
+
+				if (json.status == "success") {
+						jQuery('#register-form')[0].reset();
+				}
+				jQuery('#registration-results').css('display', 'block');
+				jQuery('#registration-results').text(json.message).show();
+			},
+			error: function(results) {
+			}
+		});
+	});
+</script>
+```
+
+The way that Wordpress handles AJAX requests is pretty clever. You submit all of them to a script in Wordpress core called `admin-ajax.php`. You can then hook functions into this script using standard Wordpress hooks in `functions.php`. The two relevant hooks here are:
+
+- `wp_ajax_[$_REQUEST['action']]`
+- `wp_ajax_nopriv_[$_REQUEST['action']]`.
+
+You pass in the name of the function with the `action` variable in your `GET` or `POST` request.
+
+In our case, I’ve set `action` to `register_user_ajax`. So the two hooks we’ll need on the backend are:
+
+- `wp_ajax_register_user_ajax`
+- `wp_ajax_nopriv_register_user_ajax`
+
+On AJAX request success, we can `console.log` the results (for debugging) and then parse it into JSON, for reasons that will become clear when we get to the `functions.php` and you see what we’re sending in response.
+
+If user creation has been successful, then we reset the form; otherwise, we set the `#registration-results` element to display some error to guide the user into giving us what we want.
+
+## The functions.php
+
+```
+// Use the hooks created by our $_POST['action']
+add_action( 'wp_ajax_register_user_ajax', 'register_user_ajax' );
+add_action( 'wp_ajax_nopriv_register_user_ajax', 'register_user_ajax' );
+
+// Define the function
+function register_user_ajax() {
+	// If the nonces don't match up, don't create the user
+	if ( !wp_verify_nonce( $_POST['nonce'], 'user_register_nonce' ) ) {
+		exit(json_encode(array('status' => 'error', 'message' => 'No funny business buster');
+	}
+
+	// Grab all of the data from the request
+	$username = ( ! empty( $_POST['username'] ) ) ? sanitize_text_field( $_POST['username'] ) : '';
+	$user_email = ( ! empty( $_POST['user_email'] ) ) ? sanitize_text_field( $_POST['user_email'] ) : '';
+	$description = ( ! empty( $_POST['description'] ) ) ? sanitize_text_field( $_POST['description'] ) : '';
+
+	// Create the user
+	$user_id = wp_insert_user( array('user_login' => $username, 'user_email' => $user_email) );
+
+	// If the user was created successfully, add the description and echo out the results
+	if (!is_wp_error($user_id)) {
+
+        wp_new_user_notification($user_id, null, 'both');
+
+		update_user_meta( $user_id, 'description', $description );
+
+		echo json_encode(array('status' => 'success', 'message' => 'You dun it'));
+
+	// If the user wasn't created successfully, check for some common errors and echo those results out
+	} else {
+		if (isset($user_id->errors['empty_user_login'])) {
+			echo json_encode(array('status' => 'error', 'message' => 'Email and username are mandatory.'));
+		} elseif (isset($user_id->errors['existing_user_login'])) {
+			echo json_encode(array('status' => 'error', 'message' => 'This username already exists.'));
+		} elseif (isset($user_id->errors['existing_user_email'])) {
+			echo json_encode(array('status' => 'error', 'message' => 'That email is already used.'));
+		} else {
+			echo json_encode($user_id->errors);
+		}
+	}
+
+	die;
+}
+```
+
+The comments should explain most of what’s going on here. We `echo` out JSON since that makes it easy to check what the results are. Remember, if the user registration was successful, we need to reset the form. This also gives us the option of adding a CSS class corresponding to the response status if we want to color the output.
+
+You always want to put a `die;` at the end of your AJAX calls. This is because `admin-ajax.php` will return a -1 or a 0 depending on the logic performed, and you don't want that returned along with your results.
+
+And that’s basically all there is to it.

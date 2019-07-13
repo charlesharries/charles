@@ -1,6 +1,5 @@
 import React from 'react';
 import App, { Container } from 'next/app';
-import { useRouter } from 'next/router';
 import '../assets/css/base.css';
 import Nav from '~components/Nav';
 

@@ -22,7 +22,7 @@ Because this is just a proof of concept, I'm really just going to be managing a 
 
 Socket.io makes it pretty easy to get a websocket server up and running. I just got the project up and running with good ol [`create-react-app`](https://github.com/facebook/create-react-app) and installed `socket.io` from `npm`. Assuming you've made it that far without incident, create a `server.js` file at the top of your file structure and write the following:
 
-```
+```js
 const io = require('socket.io')();
 
 io.on('connection' (client) => {
@@ -43,25 +43,25 @@ You'll see the logged message that someone has connected, but nothing much else 
 
 Update your `server.js` to look like the following:
 
-<pre>
+```js
 const io = require('socket.io')();
 
 io.on('connection', client => {
   console.log('someone has just connected');
   console.log(`global message is ${global.message}`);
 
-  <mark>client.on('newState', state => {</mark>
-    <mark>global.message = global.message || '';</mark>
-   <mark> global.message = state;</mark>
-   <mark> console.log(`global message is ${global.message}`);</mark>
-    <mark>client.broadcast.emit('pushState', global.message);</mark>
-  <mark>});</mark>
+  client.on('newState', state => {
+    global.message = global.message || '';
+    global.message = state;
+    console.log(`global message is ${global.message}`);
+    client.broadcast.emit('pushState', global.message);
+  });
 });
 
 const port = 8000;
 io.listen(port);
-console.log('listening for websockets on port', port);
-</pre>
+console.log('listening for websockets on port', port);`}
+```
 
 What we're doing here is waiting for the server to receive a `newState` message. When the a `newState` message arrives, the server initializes the `global.message` variable (we're just saving the message to the `global` scope here since, again, this is a proof of concept, but this could just as easily be a call to your database of choice). It then saves the whatever's come in in the message to our 'database'.
 
@@ -83,7 +83,7 @@ This just provides a nice interface on the client side for talking to our socket
 
 Now that that's out of the way, let's gut the basic `App` component. The basic outline of our `App.js` component should look like this:
 
-```
+```js
 import React, { Component } from 'react';
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
@@ -131,14 +131,14 @@ We're going to look at handling changes first, since that's where we left off wi
 
 Still, what we're going to be sending to the server is a bit of _new state_, which means that we have to update state first. This is where that `async` comes in. React's `setState` function is asynchronous, so we have to make sure to `await` it before we push the state up to the server. If we don't `await` the `setState` call, we'll just wind up pushing up a blank message to the server.
 
-```
-handleChange = async (event) => {
+```js
+handleChange = async event => {
   await this.setState({
-    message: event.target.value
+    message: event.target.value,
   });
 
   socket.emit('newState', this.state.message);
-}
+};
 ```
 
 First we update state with the value from the `input`. Once state has been updated, we emit a `newState` to the server (which is expecting it).
@@ -151,7 +151,7 @@ For that reason, we have to make sure that the client is listening too. They're 
 
 Update your `constructor` function to look like the below:
 
-```
+```js
 constructor(props) {
   super(props);
 
@@ -171,9 +171,9 @@ Imagine, alternately, that two clients have been connected to the database somet
 
 Still, I think this is a relatively good jumping-off point for building some kind of realtime database you could use for small projects. I expect that a lot of trouble with this sort of setup would be in scaling it up. Not sure what sort of infrastructure you'd even need to get this sort of thing up and running seriously.
 
-<hr>
+<hr />
 
-<div style="font-size: 0.85rem;">
+<div style={{ fontSize: '1rem' }}>
 <p><sup>1</sup>Which is what I think everyone means when they talk about 'two way data binding'.</p>
 
 <p><sup>2</sup> Not sure why you need the path and the 'transport protocol', but it was suggested in <a href="https://stackoverflow.com/questions/38583501/getting-socket-hang-up-using-nodejs-socket-io-and-wscat">this StackOverflow answer</a> and it just works.</p>

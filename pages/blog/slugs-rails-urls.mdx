@@ -1,3 +1,5 @@
+# Rails routing with slugs
+
 Rails's default routing scheme is alright. `/posts/1`, `/posts/2`, etc. But it's not very good for SEO and it's doesn't look great to users, either. Let's change Rails's config to use a `slug` that we can define ourselves.
 
 > Obviously this can be used for any model. We're just using `posts` here because it's a common use-case for Rails. I mean just look at this site.
@@ -12,15 +14,13 @@ $ rails g migration add_slug_to_posts slug:string
 
 Don't migrate it just yet, though. We'll be setting Rails up to search for posts by `slug` (rather than by `id`), so we'll also want to add an index to the `slug` column. For performance.
 
-Make sure you add the highlighted part below:
-
 <pre>
-class AddSlugToPosts < ActiveRecord::Migration[5.0]
+  {`class AddSlugToPosts < ActiveRecord::Migration[5.0]
   def change
     add_column :posts, :slug, :string
-    <mark>add_index :posts, :slug, unique: true</mark>
+    add_index :posts, :slug, unique: true
   end
-end
+end`}
 </pre>
 
 _Now_ it's time to migrate.
@@ -48,8 +48,7 @@ end
 ```
 
 > You can swap out the hyphen for something else by passing a hash with the `separator` key to `parameterize`. For example:
-> `'Sample Post No. 1'.parameterize(separator: '_')`
-> `=> "sample_post_no_1"`
+> `'Sample Post No. 1'.parameterize(separator: '_')` > `=> "sample_post_no_1"`
 
 ## Update the routes
 
@@ -96,12 +95,25 @@ The solution: just change the `params[:id]` to `params[:slug]`. So:
 
 <pre>
   # posts_controller.rb def show
+  <br />
   <mark>@post = Post.find(params[:slug])</mark>
-  ... end def edit
-  <mark>@post = Post.find(params[:slug])</mark>
-  ... end def update
-  <mark>@post = Post.find(params[:slug])</mark>
+  <br />
   ... end
+  <br />
+  <br />
+  def edit
+  <br />
+  <mark>@post = Post.find(params[:slug])</mark>
+  <br />
+  ... end
+  <br />
+  <br />
+  def update
+  <br />
+  <mark>@post = Post.find(params[:slug])</mark>
+  <br />
+  ... end
+  <br />
 </pre>
 
 Remember as well to add `:slug` to your `post_params`:

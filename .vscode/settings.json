@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.css": "vue-postcss"
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#000000",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#000000",
+    "titleBar.inactiveForeground": "#888888"
+  }
+}

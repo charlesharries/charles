@@ -1,5 +1,6 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import { PageTransition } from 'next-page-transitions';
 import '../assets/css/base.css';
 import Nav from '~components/Nav';
 
@@ -13,23 +14,25 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps, isBlogPost };
+    return { pageProps, isBlogPost, path: ctx.pathname };
   }
 
   render() {
-    const { Component, pageProps, isBlogPost } = this.props;
+    const { Component, pageProps, isBlogPost, path } = this.props;
 
     return (
       <Container>
         <div className="Page">
           <Nav />
-          {isBlogPost ? (
-            <main className="Post">
-              <Component {...pageProps} />
-            </main>
-          ) : (
-            <Component {...pageProps} />
-          )}
+          <PageTransition timeout={300} classNames="fade">
+            {isBlogPost ? (
+              <main className="Post">
+                <Component {...pageProps} key={path} />
+              </main>
+            ) : (
+              <Component {...pageProps} key={path} />
+            )}
+          </PageTransition>
         </div>
       </Container>
     );

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import published from './published';
+import published from '~data/published';
 
 function Blog() {
   return (
@@ -9,7 +9,7 @@ function Blog() {
         {published.map(post => (
           <li>
             <Link href={`/blog/${post.slug}`}>
-              <a>
+              <a className="BlogLink">
                 {post.title}
                 <span className="BlogLink__date t-small">{post.date}</span>
               </a>

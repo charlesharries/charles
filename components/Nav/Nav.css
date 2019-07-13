@@ -1,24 +1,75 @@
+@import '~css/settings/vars';
+
 .Nav {
   position: fixed;
-  top: 50%;
+  bottom: 0;
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  padding-right: 40px;
-  padding-left: 40px;
-  transform: translateY(-50%);
+  border: 2px solid $white;
+  background-color: $black;
 
-  & > *:first-child {
-    transform: rotate(-90deg) translateX(-50%);
-    transform-origin: 0% 50%;
+  @media (--desktop) {
+    top: 50%;
+    bottom: initial;
+    z-index: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 40px;
+    padding-left: 40px;
+    border: none;
+    background-color: transparent;
+    transform: translateY(-50%);
+
+    & > *:first-child {
+      transform: rotate(-90deg) translateX(-50%);
+      transform-origin: 0% 50%;
+    }
+
+    & > *:last-child {
+      transform: rotate(90deg) translateX(50%);
+      transform-origin: 100% 50%;
+    }
   }
+}
 
-  & > *:last-child {
-    transform: rotate(90deg) translateX(50%);
-    transform-origin: 100% 50%;
+.Nav__left,
+.Nav__right {
+  display: flex;
+  justify-content: space-around;
+
+  @media (--desktop) {
+    display: block;
+  }
+}
+
+.Nav__left {
+  flex: 3;
+  border-right: 2px solid $white;
+
+  @media (--desktop) {
+    flex: initial;
+    border: none;
+  }
+}
+
+.Nav__right {
+  flex: 1;
+
+  @media (--desktop) {
+    flex: initial;
+  }
+}
+
+.Nav__link {
+  padding: 1rem $spacing;
+
+  @media (--desktop) {
+    padding: 0;
   }
 }
 
 .Nav__link:not(:last-child) {
-  margin-right: 4rem;
+  @media (--desktop) {
+    margin-right: 4rem;
+  }
 }

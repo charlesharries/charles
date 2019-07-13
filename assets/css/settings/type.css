@@ -75,3 +75,13 @@ strong,
   background: transparent;
   color: $red;
 }
+
+p a,
+.link {
+  border-bottom: 1px solid $red;
+  transition: color $speed1 ease;
+
+  &:hover {
+    color: $red;
+  }
+}

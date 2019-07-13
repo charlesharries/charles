@@ -7,6 +7,8 @@ $red: #f00;
 
 $font: 'Arimo', serif;
 
+$speed1: 0.15s;
+
 $spacing: 2rem;
 
 @custom-media --desktop (width > 1024px);

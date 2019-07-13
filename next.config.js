@@ -13,8 +13,7 @@ const nextConfig = {
       '~pages': resolve(__dirname, 'pages'),
       '~components': resolve(__dirname, 'components'),
       '~css': resolve(__dirname, 'assets', 'css'),
-      '~util': resolve(__dirname, 'util'),
-      '~config': resolve(__dirname, 'config'),
+      '~data': resolve(__dirname, 'data'),
     };
 
     return config;

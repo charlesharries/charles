@@ -7,7 +7,7 @@ function Blog() {
       <h1 className="Blog__title">Glob</h1>
       <ul>
         {published.map(post => (
-          <li>
+          <li key={post.slug}>
             <Link href={`/blog/${post.slug}`}>
               <a className="BlogLink">
                 {post.title}
@@ -20,7 +20,5 @@ function Blog() {
     </main>
   );
 }
-
-Blog.getInitialProps = async ctx => {};
 
 export default Blog;

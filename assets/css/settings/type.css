@@ -113,12 +113,13 @@ p code {
 
 pre {
   overflow-x: scroll;
+  font-size: 0.8em;
   padding: $spacing;
   margin-right: calc(5 * -$spacing);
   margin-left: calc(5 * -$spacing);
   background: $darkgrey;
 }
 
-.Post h2 {
+.Content h2 {
   margin-top: 6rem;
 }

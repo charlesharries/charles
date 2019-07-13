@@ -2,5 +2,5 @@
   "version": 2,
   "alias": "charles-harries",
   "name": "charles-harries-site",
-  "builds": [{ "src": "package.json", "use": "@now/static-build" }]
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
 }

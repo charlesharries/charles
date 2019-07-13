@@ -10,26 +10,26 @@ h2,
 
 h1,
 .t-h1 {
-  font-size: 4rem;
-  line-height: calc(60 / 40);
+  font-size: 2.5rem;
+  line-height: calc(40 / 25);
   letter-spacing: 0.12rem;
 
   @media (--desktop) {
-    font-size: 6rem;
-    line-height: calc(82 / 60);
+    font-size: 4rem;
+    line-height: calc(60 / 40);
     letter-spacing: 0.12rem;
   }
 }
 
 h2,
 .t-h2 {
-  font-size: 3.5rem;
-  line-height: calc(52 / 35);
+  font-size: 2rem;
+  line-height: calc(30 / 20);
   letter-spacing: 0.12rem;
 
   @media (--desktop) {
-    font-size: 5rem;
-    line-height: calc(68 / 50);
+    font-size: 3rem;
+    line-height: calc(45 / 30);
     letter-spacing: 0.12rem;
   }
 }
@@ -84,4 +84,41 @@ p a,
   &:hover {
     color: $red;
   }
+}
+
+blockquote {
+  padding: $spacing;
+  margin-right: -$spacing;
+  margin-left: -$spacing;
+  border: 1px solid $dimwhite;
+  color: $dimwhite;
+
+  & p {
+    font-size: 0.8em;
+    margin-bottom: 0;
+  }
+}
+
+pre,
+code {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+p code {
+  font-size: 0.9em;
+  padding: 1px 4px;
+  background: $darkgrey;
+  border-radius: 2px;
+}
+
+pre {
+  overflow-x: scroll;
+  padding: $spacing;
+  margin-right: calc(5 * -$spacing);
+  margin-left: calc(5 * -$spacing);
+  background: $darkgrey;
+}
+
+.Post h2 {
+  margin-top: 6rem;
 }

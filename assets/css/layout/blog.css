@@ -1,6 +1,6 @@
 .BlogLink__date {
   margin-left: 1rem;
-  color: color-mod($white a(0.8));
+  color: $dimwhite;
 }
 
 .Post h1 {

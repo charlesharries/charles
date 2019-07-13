@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import App, { Container } from 'next/app';
 import { PageTransition } from 'next-page-transitions';
 import '../assets/css/base.css';
@@ -28,5 +29,10 @@ class MyApp extends App {
 function Layout({ children, centered }) {
   return <main className={centered ? 'Full' : 'Content'}>{children}</main>;
 }
+
+Layout.propTypes = {
+  children: PropTypes.element,
+  centered: PropTypes.bool,
+};
 
 export default MyApp;

@@ -1,0 +1,77 @@
+/* Heading styles */
+
+h1,
+.t-h1,
+h2,
+.t-h2 {
+  font-family: $font;
+  font-weight: 700;
+}
+
+h1,
+.t-h1 {
+  font-size: 4rem;
+  line-height: calc(60 / 40);
+  letter-spacing: 0.12rem;
+
+  @media (--desktop) {
+    font-size: 6rem;
+    line-height: calc(82 / 60);
+    letter-spacing: 0.12rem;
+  }
+}
+
+h2,
+.t-h2 {
+  font-size: 3.5rem;
+  line-height: calc(52 / 35);
+  letter-spacing: 0.12rem;
+
+  @media (--desktop) {
+    font-size: 5rem;
+    line-height: calc(68 / 50);
+    letter-spacing: 0.12rem;
+  }
+}
+
+/* Text styles */
+p,
+.t-para {
+  font-size: 1.5rem;
+  line-height: calc(21 / 15);
+
+  @media (--desktop) {
+    font-size: 1.6rem;
+    line-height: calc(24 / 16);
+  }
+}
+
+.t-small {
+  font-size: 1rem;
+  line-height: calc(12 / 9);
+
+  @media (--desktop) {
+    font-size: 1.2rem;
+    line-height: calc(14 / 10);
+  }
+}
+
+b,
+strong,
+.t-strong {
+  font-weight: 700;
+}
+
+.t-outline {
+  color: $black;
+  text-shadow:
+    -1px -1px 0 $red,
+    1px -1px 0 $red,
+    -1px 1px 0 $red,
+    1px 1px 0 $red;
+}
+
+::selection {
+  background: transparent;
+  color: $red;
+}

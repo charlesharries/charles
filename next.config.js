@@ -1,7 +1,12 @@
 const withCSS = require('@zeit/next-css');
+const withPlugins = require('next-compose-plugins');
 const { resolve } = require('path');
 
-module.exports = withCSS({
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
+
+const nextConfig = {
   webpack(config) {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
@@ -14,4 +19,9 @@ module.exports = withCSS({
 
     return config;
   },
-});
+};
+
+module.exports = withPlugins(
+  [withCSS, [withMDX, { pageExtensions: ['js', 'jsx', 'mdx'] }]],
+  nextConfig
+);

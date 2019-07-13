@@ -1,5 +1,11 @@
+import BigName from '~components/BigName';
+
 function Home() {
-  return <h1>This is the home page</h1>;
+  return (
+    <main className="Home">
+      <BigName />
+    </main>
+  );
 }
 
 export default Home;

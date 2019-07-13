@@ -1,0 +1,44 @@
+/* Web page globals */
+
+html {
+  font-size: 62.5%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  padding-top: 0;
+  color: $white;
+  overscroll-behavior: none;
+  line-height: calc(21 / 15);
+	background-color: $black;
+
+  @media (--desktop) {
+    font-size: 1.6rem;
+    line-height: calc(24 / 16);
+  }
+}
+
+.Page {
+  position: relative;
+	height: 100%;
+	min-height: calc(100vh + 100px);
+  margin-top: -50px;
+  margin-bottom: -50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+	width: 100%;
+	color: $white;
+}
+
+main:not(.Home) {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 10rem;
+}

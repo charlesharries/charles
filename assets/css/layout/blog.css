@@ -1,0 +1,9 @@
+.BlogLink__date {
+  margin-left: 1rem;
+  color: color-mod($white a(0.8));
+}
+
+.Post h1 {
+  line-height: 1;
+  margin-bottom: 4rem;
+}

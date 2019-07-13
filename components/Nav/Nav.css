@@ -1,0 +1,24 @@
+.Nav {
+  position: fixed;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
+  transform: translateY(-50%);
+
+  & > *:first-child {
+    transform: rotate(-90deg) translateX(-50%);
+    transform-origin: 0% 50%;
+  }
+
+  & > *:last-child {
+    transform: rotate(90deg) translateX(50%);
+    transform-origin: 100% 50%;
+  }
+}
+
+.Nav__link:not(:last-child) {
+  margin-right: 4rem;
+}

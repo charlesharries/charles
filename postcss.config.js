@@ -18,7 +18,6 @@ module.exports = {
     'postcss-calc': {},
     'postcss-nested': {},
     'postcss-color-mod-function': {},
-    'postcss-conditionals': {},
     'postcss-preset-env': {},
     'postcss-custom-media': {},
   },

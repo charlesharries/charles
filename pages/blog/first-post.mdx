@@ -1,0 +1,11 @@
+# How I remade the site
+
+Struggling, with this blog.
+
+I want to write it in such a way that I can just write markdown into files. I want those files to translate then directly into pages on the site.
+
+Feels like with this `@next/mdx` plugin I can do that. A little bit of finangling with DOM structure, though. Since the `.mdx` files are being pulled in as actual pages, as far as Next is concerned. But I don't want to write any JSX in my blog posts. Even if it might make the structure story a little easier to manage.
+
+Annoying as well that I can't just import all of the components into the index to generate a list of posts.
+
+But as I write this it occurs to me that I could work around this. Write my posts in these pages, pull these pages(/components) into a `published.js` file or something, where I can hook them up to dates and `published` booleans so that I can manage their visibility. That might not be the worst way to do it.

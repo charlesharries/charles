@@ -1,0 +1,7 @@
+@import '~css/settings/vars';
+
+.BigName {
+	text-align: center;
+	font-size: 10vw;
+	line-height: 0.8;
+}

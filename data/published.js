@@ -9,4 +9,74 @@ export default [
     date: '29 May 19',
     slug: 'mans-search-for-meaning',
   },
+  {
+    title: "On 'Why We Sleep'",
+    date: '5 May 19',
+    slug: 'on-why-we-sleep',
+  },
+  {
+    title: 'Build a realtime database',
+    date: '22 Dec 18',
+    slug: 'build-a-realtime-database',
+  },
+  {
+    title: 'SFTP access in PHP',
+    date: '12 Sep 18',
+    slug: 'download-file-sftp-phpseclib',
+  },
+  {
+    title: "On 'Deep Work'",
+    date: '2 Jul 18',
+    slug: 'on-deep-work',
+  },
+  {
+    title: 'Use SQLite with PHP',
+    date: '23 Jun 18',
+    slug: 'on-deep-work',
+  },
+  {
+    title: 'Use slugs in Rails URLs',
+    date: '26 May 18',
+    slug: 'slugs-rails-urls',
+  },
+  {
+    title: 'Rails redirects with regex',
+    date: '17 May 18',
+    slug: 'rails-redirect-with-regex',
+  },
+  {
+    title: 'AJAX signups in WordPress',
+    date: '28 Apr 18',
+    slug: 'ajax-sign-up-wordpress',
+  },
+  {
+    title: 'Sharp Edge',
+    date: '4 Dec 17',
+    slug: 'ajax-sign-up-wordpress',
+  },
+  {
+    title: 'Publish a package for Atom editor',
+    date: '25 Nov 17',
+    slug: 'on-publishing-a-package-to-atom',
+  },
+  {
+    title: 'On wind',
+    date: '22 Nov 17',
+    slug: 'on-wind',
+  },
+  {
+    title: 'Create an Express app',
+    date: '21 Sep 17',
+    slug: 'creating-an-express-app',
+  },
+  {
+    title: 'On web fonts',
+    date: '25 Aug 17',
+    slug: 'on-web-fonts',
+  },
+  {
+    title: 'How to do a password reset',
+    date: '7 Jun 17',
+    slug: 'on-web-fonts',
+  },
 ];

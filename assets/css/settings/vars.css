@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+@font-face {
+  font-family: 'Sebaldus';
+  font-weight: normal;
+  font-style: normal;
+  src:
+    url('/static/fonts/Sebaldus-Gotisch.eot?#iefix') format('embedded-opentype'),
+    url('/static/fonts/Sebaldus-Gotisch.woff') format('woff'),
+    url('/static/fonts/Sebaldus-Gotisch.ttf')  format('truetype'),
+    url('/static/fonts/Sebaldus-Gotisch.svg#Sebaldus-Gotisch') format('svg');
+}
 
 $black: #000;
 $darkgrey: #3a3a3a;
@@ -7,7 +17,8 @@ $white: #fff;
 $dimwhite: color-mod($white a(0.65));
 $red: #f00;
 
-$font: 'Arimo', serif;
+$font: 'Arimo', sans-serif;
+$grotesk: 'Sebaldus', 'Arimo', sans-serif;
 
 $speed1: 0.15s;
 

@@ -82,6 +82,6 @@ export default [
   {
     title: 'How to do a password reset',
     date: "7 Jun '17",
-    slug: 'on-web-fonts',
+    slug: 'on-password-resets',
   },
 ];

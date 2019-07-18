@@ -120,6 +120,11 @@ pre {
   background: $darkgrey;
 }
 
+.Content h1,
+.Content h2 {
+  line-height: 1;
+}
+
 .Content h2 {
   margin-top: 6rem;
 }

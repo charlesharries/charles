@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": "charles-harries",
+  "alias": "v2.charlesharri.es",
   "name": "charles-harries-site",
   "builds": [{ "src": "package.json", "use": "@now/next" }]
 }

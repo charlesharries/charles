@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'Week of 8 July',
+    date: "18 Jul '19",
+    slug: 'things-i-learned-8-july',
+  },
+  {
     title: 'Remake the blog',
     date: "13 Jun '19",
     slug: 'first-post',

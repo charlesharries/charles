@@ -1,5 +1,87 @@
 {
   "version": 2,
   "name": "charles-harries-site",
-  "builds": [{ "src": "package.json", "use": "@now/next" }]
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "routes": [
+    {
+      "src": "/posts/write-it-down",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/exercise-almost-every-day",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/remember-you-will-die",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/things-going-well",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/independent-advertising",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/bandit-0-1",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/bandit-0",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/on-popup-shaming",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/on-creative-professionals",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/on-trump-ford-and-jobs",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/on-the-confederacy-briefly",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/cheeky-girls",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/on-hot-dogs",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/the-worst-thing-on-any-car",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/hyundai-v-kia",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    },
+    {
+      "src": "/posts/ford-expedition",
+      "status": 301,
+      "headers": { "Location": "https://charlesharri.es" }
+    }
+  ]
 }

@@ -128,3 +128,14 @@ pre {
 .Content h2 {
   margin-top: 6rem;
 }
+
+.Content > ul > li {
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    content: '\D7';
+    position: absolute;
+    left: 0;
+  }
+}

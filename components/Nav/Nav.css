@@ -6,7 +6,7 @@
   display: flex;
   width: 100%;
   border: 2px solid $white;
-  background-color: $black;
+  background-color: $darkgrey;
 
   @media (--desktop) {
     top: 50%;

@@ -15,7 +15,7 @@ body {
   font-style: normal;
   letter-spacing: 1px;
   padding-top: 0;
-  background-color: $black;
+  background-color: $darkgrey;
   color: $white;
   overscroll-behavior: none;
 

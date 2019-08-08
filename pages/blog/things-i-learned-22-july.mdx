@@ -1,0 +1,45 @@
+# Things I learned the week of 22 July
+
+Hmm lots of things on the list this week. Going to split it out since next week I'm in Canada.
+
+## Algebraic effects
+
+[This post](https://overreacted.io/algebraic-effects-for-the-rest-of-us/) by Dan Abramov.
+
+[Dan Abramov](https://overreacted.io) has such a way with explanation. Every post on his blog is a treat.
+
+This week he described something called _algebraic effects_. I don't know why they're called that. But the idea is that in the same way as you can `try` and wait for errors to bubble all the way up to the corresponding `catch`, the idea here would be that you could bubble up on certain events and pass the result back down.
+
+I'm not very good at describing it.
+
+It makes sense, though.
+
+Near the end of the article, Dan questions whether or not these would even be useful in Javascript. I think they might be. I haven't spent very long in this ecosystem but from what I've seen in the past few years, things are moving more in the direction of functional (rather than objective) programming. Maybe I'm wrong. But _algebraic effects_ seem to be an artifact from the nerdcore functional programming cellars of the Internet, and Javascript is a hungry beast that devours all the best, and a good deal of the worst, of other languages.
+
+That being said, it's telling how little I can understand from the ['further reading'](https://overreacted.io/algebraic-effects-for-the-rest-of-us/#learn-more) section of this post. Maybe they're a little advanced for my Javascript mind.
+
+## Memoization
+
+[This post](https://scotch.io/tutorials/understanding-memoization-in-javascript) at Scotch.io.
+
+From where I stand, most programming seems to be fairly easy once you get the basic concepts. Things like data types and objects and using functions judiciously. This is all the basic stuff that I learned in my first year.
+
+I think I spent my second year learning how to assemble all of that a little better. I'm learning every day, but I think that my code is reasonably readable, tidy, and organised. Some would say that I'm putting a little bit too much emphasis on developer experience.
+
+Now I'm ready for ~advanced techniques~, and memoization feels like one of the first.
+
+Everything is a bloody function now, and some of them are pretty computationally expensive. Especially things like searching, mapping over, or sorting through arrays. And since we're all writing _[idempotent](https://en.wikipedia.org/wiki/Idempotence) functions_, we shouldn't have to carry out the same expensive function if it's always going to return the same value.
+
+Memoization caches the result of a function so that next time the function is called, the cached value is returned rather than running the whole function again. Which results in huge perf gains, which you can tell your boss about. Everyone appreciates perf.
+
+## Run a mile
+
+[This article](https://www.gq.com/story/run-a-mile-race) from GQ.
+
+Yes, an article from GQ. Something a little different here.
+
+A marathon is way too far. Long distance running isn't great for you. Anything more than 10k is a huge time sink if you run regularly. I don't want to stop anyone else from running, but I've run a marathon before and I refuse to do it again.
+
+On the other hand, I've always really liked interval training. I used to run 10 100m sprints a few times a week, and those were always quick and painful. Which is how I like my exercise.
+
+Not much to say here. Haven't actually tried this yet. Gonna strap up and head out this weekend.

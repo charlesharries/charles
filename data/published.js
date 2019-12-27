@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'The Wood Beyond the World',
+    date: "27 Dec '19",
+    slug: 'the-wood-beyond-the-world',
+  },
+  {
     title: 'Week of 22 July',
     date: "8 Aug '19",
     slug: 'things-i-learned-22-july',

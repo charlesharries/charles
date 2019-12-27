@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Libre Franklin:400,400i,700,700i&display=swap');
 
 @font-face {
   font-family: 'Sebaldus';
@@ -13,11 +13,12 @@
 
 $black: #000;
 $darkgrey: #2a2730;
+$lightgrey: #ccc;
 $white: #fff;
 $dimwhite: color-mod($white a(0.65));
 $red: #f00;
 
-$font: 'Arimo', sans-serif;
+$font: 'Libre Franklin', sans-serif;
 $grotesk: 'Sebaldus', 'Arimo', sans-serif;
 
 $speed1: 0.15s;

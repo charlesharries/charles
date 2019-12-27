@@ -9,11 +9,11 @@ html {
 
 body {
   font-family: $font;
-  font-size: 1.5rem;
-  line-height: calc(21 / 15);
+  font-size: 1.6rem;
+  line-height: calc(25 / 15);
   font-weight: normal;
   font-style: normal;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   padding-top: 0;
   background-color: $darkgrey;
   color: $white;

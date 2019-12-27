@@ -37,12 +37,12 @@ h2,
 /* Text styles */
 p,
 .t-para {
-  font-size: 1.5rem;
-  line-height: calc(21 / 15);
+  font-size: 1.6rem;
+  line-height: calc(25 / 15);
 
   @media (--desktop) {
-    font-size: 1.6rem;
-    line-height: calc(24 / 16);
+    font-size: 1.7rem;
+    line-height: calc(28 / 16);
   }
 }
 
@@ -107,17 +107,19 @@ code {
 p code {
   font-size: 0.9em;
   padding: 1px 4px;
-  background: $darkgrey;
+  background: $lightgrey;
   border-radius: 2px;
+  color: $black;
 }
 
 pre {
-  overflow-x: scroll;
+  overflow-x: auto;
   font-size: 0.8em;
   padding: $spacing;
   margin-right: calc(5 * -$spacing);
   margin-left: calc(5 * -$spacing);
-  background: $darkgrey;
+  background: $lightgrey;
+  color: $black;
 }
 
 .Content h1,

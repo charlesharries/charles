@@ -67,6 +67,11 @@ function Meta() {
       />
       <link rel="shortcut icon" href="/static/images/favicon.ico" />
 
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Libre Franklin:400,400i,700,700i&display=swap"
+      />
+
       <link rel="dns-prefetch" href={process.env.API_ENDPOINT_URL} />
     </Head>
   );

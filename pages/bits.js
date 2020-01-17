@@ -12,6 +12,13 @@ const bits = [
     description:
       'A robot on the Internet that can tell exactly how you feel based on what you tell it.',
   },
+  {
+    link: 'https://regret.charlesharri.es',
+    date: "Jan '20",
+    title: 'i regret nothing',
+    description:
+      'Part nostalgia, part trying to figure out the simplest thing I could make with three.js',
+  },
 ];
 
 function Bits() {

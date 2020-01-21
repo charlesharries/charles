@@ -65,10 +65,10 @@ strong,
 .t-outline {
   color: $darkgrey;
   text-shadow:
-    -1px -1px 0 $red,
-    1px -1px 0 $red,
-    -1px 1px 0 $red,
-    1px 1px 0 $red;
+    -1px -1px 0 $lightgrey,
+    1px -1px 0 $lightgrey,
+    -1px 1px 0 $lightgrey,
+    1px 1px 0 $lightgrey;
 }
 
 ::selection {

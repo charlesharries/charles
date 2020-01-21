@@ -10,8 +10,8 @@
 }
 
 $black: #000;
-$darkgrey: #2a2730;
-$lightgrey: #ccc;
+$darkgrey: #222;
+$lightgrey: #F7EFE5;
 $white: #fff;
 $dimwhite: color-mod($white a(0.65));
 $red: #f00;
@@ -23,4 +23,4 @@ $speed1: 0.15s;
 
 $spacing: 2rem;
 
-@custom-media --desktop (width > 1024px);
+@custom-media --desktop (width > 768px);

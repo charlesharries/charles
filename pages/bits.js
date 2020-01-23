@@ -24,7 +24,7 @@ const bits = [
 function Bits() {
   return (
     <div className="Bits">
-      <h1 className="Bits__title">Various Bits</h1>
+      <h1 className="Bits__title">various bits</h1>
       <ul>
         {bits.map(bit => (
           <a key={bit.title} href={bit.link}>

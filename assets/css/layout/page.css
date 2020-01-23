@@ -39,5 +39,5 @@ main:not(.Full) {
   padding-top: 10rem;
   padding-right: $spacing;
   padding-left: $spacing;
-  margin: 0 auto;
+  margin-left: 100px;
 }

@@ -34,10 +34,18 @@ body {
   color: $white;
 }
 
+.Content {
+  position: relative;
+  z-index: 1;
+}
+
 main:not(.Full) {
   max-width: 600px;
   padding-top: 10rem;
   padding-right: $spacing;
   padding-left: $spacing;
-  margin-left: 100px;
+  
+  @media (--desktop) {
+    margin-left: 100px;
+  }
 }

@@ -72,7 +72,7 @@ strong,
 }
 
 ::selection {
-  background: transparent;
+  background: color-mod($white a(0.05));
   color: $red;
 }
 
@@ -122,6 +122,25 @@ pre {
   color: $black;
 }
 
+figure {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.small-caps {
+  font-size: 0.85em;
+  text-transform: uppercase;
+}
+
+.text-red {
+  color: $red;
+}
+
+.text-blackletter {
+  font-family: $grotesk;
+  font-size: 1.1em;
+}
+
 .Content h1,
 .Content h2 {
   line-height: 1;
@@ -140,4 +159,9 @@ pre {
     position: absolute;
     left: 0;
   }
+}
+
+.Content figcaption {
+  font-size: 0.85em;
+  margin-top: 4px;
 }

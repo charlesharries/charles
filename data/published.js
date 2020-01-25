@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'Pointy Serif Fonts',
+    date: "25 Dec '20",
+    slug: 'pointy-serif-fonts',
+  },
+  {
     title: 'The Wood Beyond the World',
     date: "27 Dec '19",
     slug: 'the-wood-beyond-the-world',

@@ -4,6 +4,15 @@
   "builds": [{ "src": "package.json", "use": "@now/next" }],
   "routes": [
     {
+      "src": "/(.*)",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'none'",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block"
+      }
+    },
+    {
       "src": "/posts/write-it-down",
       "status": 301,
       "headers": { "Location": "https://charlesharri.es" }

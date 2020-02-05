@@ -1,7 +1,12 @@
 export default [
   {
+    title: 'Shaving and the past',
+    date: "5 Feb '20",
+    slug: 'shaving-and-the-past',
+  },
+  {
     title: 'Pointy Serif Fonts',
-    date: "25 Dec '20",
+    date: "25 Jan '20",
     slug: 'pointy-serif-fonts',
   },
   {

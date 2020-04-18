@@ -1,5 +1,7 @@
 /* Heading styles */
 
+$slightly-lighter-dark-grey: color-mod($darkgrey lightness(20%));
+
 h1,
 .t-h1,
 h2,
@@ -107,19 +109,21 @@ code {
 p code {
   font-size: 0.9em;
   padding: 1px 4px;
-  background: $lightgrey;
+  background: $slightly-lighter-dark-grey;
+  box-shadow: 0 1px 1px $black;
   border-radius: 2px;
-  color: $black;
+  color: $white;
 }
 
 pre {
   overflow-x: auto;
   font-size: 0.8em;
   padding: $spacing;
-  margin-right: calc(5 * -$spacing);
-  margin-left: calc(5 * -$spacing);
-  background: $lightgrey;
-  color: $black;
+  margin-right: calc(9 * -$spacing);
+  margin-left: -$spacing;
+  background: $slightly-lighter-dark-grey;
+  box-shadow: 0 1px 1px $black;
+  color: $white;
 }
 
 figure {

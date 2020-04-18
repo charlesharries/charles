@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'On life optimisation',
+    date: "18 Apr '20",
+    slug: 'on-life-optimisation',
+  },
+  {
     title: 'Shaving and the past',
     date: "5 Feb '20",
     slug: 'shaving-and-the-past',

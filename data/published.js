@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'How to Read a Book',
+    date: "12 May '20",
+    slug: 'how-to-read-a-book',
+  },
+  {
     title: 'On life optimisation',
     date: "18 Apr '20",
     slug: 'on-life-optimisation',

@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'The Longest Day',
+    date: "3 Jun '20",
+    slug: 'the-longest-day',
+  },
+  {
     title: 'How to Read a Book',
     date: "12 May '20",
     slug: 'how-to-read-a-book',

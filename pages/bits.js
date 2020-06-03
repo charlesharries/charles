@@ -19,6 +19,13 @@ const bits = [
     description:
       'Part nostalgia, part trying to figure out the simplest thing I could make with three.js',
   },
+  {
+    link: 'https://jernl.space',
+    date: "Feb '20",
+    title: 'Jernl',
+    description:
+      'Daily journaling with a calendar.',
+  },
 ];
 
 function Bits() {

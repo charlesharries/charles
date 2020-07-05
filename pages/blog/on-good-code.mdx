@@ -1,0 +1,37 @@
+# What makes good code?
+
+Someone once asked me what heuristics I use to determine whether code was good. At the time, I said something like, "It prioritises readability over cleverness," and then said that same thing again, but in different words, then said that it was clear what it did, and then sort of riffed on the idea that good code is readable some more.
+
+This question returns to me weirdly regularly. Especially now that we've hired a new developer at work and I'm back on the PR review grind. When I come across a bit of code that I would have written differently: how do I determine whether to change it? When I read some code that's not immediately clear to me: how can I tell whether or not this is a defect of the code or of myself?
+
+I wish there was a checklist to point me in the right direction. Makes me think of the [Dreyfus model of skill acquisition](https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition) (which I just encountered in swyx's Coding Career Handbook): I feel that I'm still a **novice** (or maybe an **advanced beginner**) at judging code quality. Reliance on checklists and methodology is a distinctly **novice** thing to do.
+
+Lacking nice checklists I can run through, the next best thing I've found is the [Google eng-practices](https://github.com/google/eng-practices) GitHub repo, where engineers at Google have documented their best practices. Specifically I've found their code review section to be helpful. There, they've outlined how good code conforms to expectations across six basic metrics: functionality, complexity, tests, naming, comments, and style.
+
+## google/eng-practices
+
+So I'm going to be honest here: I just discovered [google/eng-practices](https://github.com/google/eng-practices) this weekend. I've read little enough of it that I don't even know the full extent of it. But I've read _enough_ enough of it to feel like I get a good sense of what it's after.
+
+But I have read through [the section on code reviews](https://google.github.io/eng-practices/review/reviewer/), because like I said I do a lot of that these days. And along with a lot of great advice on how to handle the relationship between the code reviewer and reviewee (highlights: **be kind, explain yourself, be prompt, encourage progress**), this section also enumerates a reasonable set of criteria for judging overall **code health**.
+
+> Code health sounds like a bit of a loaded term somehow, but I feel like I can generally determine unhealthy code from healthy code. Don't tell me how I can do this yet, though.
+
+In the [*what to look for in a code review*](https://google.github.io/eng-practices/review/reviewer/looking-for.html) section, Google seems to think that nice, healthful code generally checks boxes across 6 basic metrics:
+
+**1. Functionality.** Does the code do what the writer intended?
+
+**2. Complexity.** Is the code more complex than it needs to be? Is it easy to grok? How easy is it to introduce bugs when building on this code?
+
+**3. Tests.** Are there appropriate tests? If the code changes beneath them, will the tests start returning false positives?
+
+**4. Naming.** Do the names in the code communicate what the code does?
+
+**5. Comments.** Do the comments describe why the code exists? Not just what it does?
+
+**6. Style.** Does the code match the styleguide? Is it consistent with the rest of the code in the codebase?
+
+I feel that these are better places to start than really subjective qualitative judgments like "Is the code well-designed?" (Which, to be fair, the Google eng-practices guidelines also advocates asking whether the code is well-designed, which I don't think is very helpful.) But these questions dip at least a couple of toes in the pool of objective judgment (e.g. **does the code do what it says it does?**: this is a measurable criteria) instead of resting the burden solely on the reviewer.
+
+That all being said, I don't think this is by any means an end-all-be-all. These are super general to begin with (for example, does *functionality* imply *performance*?) and don't prescribe solutions. There's nothing here about how to solve poorly functioning code (unless maybe 'reduce complexity' is a solution)? The lack of domain specificity means that you (or I) might have a bit of trouble actually *applying* these rules.
+
+But this section isn't called *How to fix bad code*: it's *What to look for in a code review:* which can maybe be read as *How to find code that needs to be changed*. And finding that code is always the first step.

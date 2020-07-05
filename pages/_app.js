@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import { PageTransition } from 'next-page-transitions';
 import '../assets/css/base.css';
 import Head from '~components/Head';
@@ -13,7 +13,6 @@ class MyApp extends App {
     const isError = router.pathname === '/_error';
 
     return (
-      <Container>
         <div className="Page">
           <Head />
           <Nav />
@@ -23,7 +22,6 @@ class MyApp extends App {
             </Layout>
           </PageTransition>
         </div>
-      </Container>
     );
   }
 }

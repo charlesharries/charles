@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'BEM + utilities: a hybrid methodology',
+    date: "16 Jul '20",
+    slug: 'bem-utilities-hybrid',
+  },
+  {
     title: 'On good code',
     date: "5 Jul '20",
     slug: 'on-good-code',

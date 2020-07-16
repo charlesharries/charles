@@ -3,10 +3,10 @@
   font-weight: normal;
   font-style: normal;
   src:
-    url('/static/fonts/Sebaldus-Gotisch.eot?#iefix') format('embedded-opentype'),
-    url('/static/fonts/Sebaldus-Gotisch.woff') format('woff'),
-    url('/static/fonts/Sebaldus-Gotisch.ttf')  format('truetype'),
-    url('/static/fonts/Sebaldus-Gotisch.svg#Sebaldus-Gotisch') format('svg');
+    url('/fonts/Sebaldus-Gotisch.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/Sebaldus-Gotisch.woff') format('woff'),
+    url('/fonts/Sebaldus-Gotisch.ttf')  format('truetype'),
+    url('/fonts/Sebaldus-Gotisch.svg#Sebaldus-Gotisch') format('svg');
 }
 
 $black: #000;

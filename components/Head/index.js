@@ -6,7 +6,7 @@ function Meta() {
     'Frontend Javascript developer. React, Vue, WordPress, PHP, headless CMSes, synergy, driving growth, buzzword, buzzword, buzzword.';
   const color = '#000000';
   const baseUrl = 'https://charlesharri.es';
-  const image = '/static/images/cover.jpg';
+  const image = '/images/cover.jpg';
 
   return (
     <Head>
@@ -45,27 +45,27 @@ function Meta() {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/static/images/apple-icon-180x180.png"
+        href="/images/apple-icon-180x180.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/static/images/favicon-32x32.png"
+        href="/images/favicon-32x32.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/static/images/favicon-16x16.png"
+        href="/images/favicon-16x16.png"
       />
-      <link rel="manifest" href="/static/images/site.webmanifest" />
+      <link rel="manifest" href="/images/site.webmanifest" />
       <link
         rel="mask-icon"
-        href="/static/images/safari-pinned-tab.svg"
+        href="/images/safari-pinned-tab.svg"
         color="#000000"
       />
-      <link rel="shortcut icon" href="/static/images/favicon.ico" />
+      <link rel="shortcut icon" href="/images/favicon.ico" />
 
       <link
         rel="stylesheet"

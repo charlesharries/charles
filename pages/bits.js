@@ -1,5 +1,24 @@
 const bits = [
   {
+    link: 'https://edit-gpx.netlify.app',
+    date: "Jul '20",
+    title: 'Edit GPX',
+    description: 'Extremely simple GPX editor.',
+  },
+  {
+    link: 'https://jernl.space',
+    date: "Feb '20",
+    title: 'Jernl',
+    description: 'Daily journaling with a calendar.',
+  },
+  {
+    link: 'https://regret.charlesharri.es',
+    date: "Jan '20",
+    title: 'i regret nothing',
+    description:
+      'Part nostalgia, part trying to figure out the simplest thing I could make with three.js',
+  },
+  {
     link: 'https://squarez.charlesharri.es',
     date: "Jul '19",
     title: 'Squarez',
@@ -11,20 +30,6 @@ const bits = [
     title: 'Feeling',
     description:
       'A robot on the Internet that can tell exactly how you feel based on what you tell it.',
-  },
-  {
-    link: 'https://regret.charlesharri.es',
-    date: "Jan '20",
-    title: 'i regret nothing',
-    description:
-      'Part nostalgia, part trying to figure out the simplest thing I could make with three.js',
-  },
-  {
-    link: 'https://jernl.space',
-    date: "Feb '20",
-    title: 'Jernl',
-    description:
-      'Daily journaling with a calendar.',
   },
 ];
 

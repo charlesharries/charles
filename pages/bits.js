@@ -31,6 +31,12 @@ const bits = [
     description:
       'A robot on the Internet that can tell exactly how you feel based on what you tell it.',
   },
+  {
+    link: 'https://hangman-on-sinatra.herokuapp.com/',
+    date: "Nov '16",
+    title: 'Hangman',
+    description: 'Hangman on the internet. Sinatra.',
+  },
 ];
 
 function Bits() {

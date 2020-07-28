@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'The good, the bad, & the confusing Javascript',
+    date: "28 Jul '20",
+    slug: 'good-bad-confusing-js',
+  },
+  {
     title: 'BEM + utilities: a hybrid methodology',
     date: "16 Jul '20",
     slug: 'bem-utilities-hybrid',

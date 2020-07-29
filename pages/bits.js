@@ -37,6 +37,20 @@ const bits = [
     title: 'Hangman',
     description: 'Hangman on the internet. Sinatra.',
   },
+  {
+    link: 'https://charlesharries.wordpress.com/',
+    date: "Nov '15 - Aug '16",
+    title: 'Hills & Letters',
+    description:
+      'Short stores I picked up, Hokkaido hiking guides, odds & ends.',
+  },
+  {
+    link: 'https://everythingyouhaveheard.blogspot.com/',
+    date: "Aug '12 - Aug '14",
+    title: 'Everything You Have Heard is True',
+    description:
+      'Blog covering the first 104 weeks of my life on the JET Programme in Yubetsu, Japan.',
+  },
 ];
 
 function Bits() {

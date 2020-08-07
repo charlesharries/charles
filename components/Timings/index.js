@@ -5,7 +5,7 @@ function Timings({ timings }) {
   return (
     <ol className="Timings">
       {timings.map(t => (
-        <li className="Timings__time">
+        <li className="Timings__time" key={t.label}>
           <span>{t.label}</span>
           <span>{t.time}</span>
         </li>

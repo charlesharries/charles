@@ -1,0 +1,44 @@
+@import '~css/settings/vars';
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.Modal__bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $darkgrey;
+  opacity: 0.8;
+}
+
+.Modal__content {
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  position: relative;
+
+  img {
+    position: absolute;
+    pointer-events: initial;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}

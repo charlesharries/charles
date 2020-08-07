@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'Cross Fell loop from Garrigill',
+    date: "6 Aug '20",
+    slug: 'cross-fell-loop-garrigill',
+  },
+  {
     title: 'The good, the bad, & the confusing Javascript',
     date: "28 Jul '20",
     slug: 'good-bad-confusing-js',

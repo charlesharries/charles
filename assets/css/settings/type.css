@@ -124,8 +124,12 @@ pre {
 }
 
 figure {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  img {
+    box-shadow: 0 1px 1px $black;
+  }
 }
 
 .small-caps {

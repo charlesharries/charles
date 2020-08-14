@@ -1,0 +1,40 @@
+import Date from '../../components/Date';
+import Image from '../../components/Image';
+
+<Date>
+14 August '20
+</Date>
+
+# Recently: early August
+
+In the style of [Tom MacWright](https://macwright.com).
+
+## Company
+Done a terrible job keeping up with podcasts lately, so I've been getting less than my normal fix of the [Brothers McElroy (& company)](https://www.themcelroy.family/). Long been a fan of their [Monster Factory YouTube series](https://www.youtube.com/playlist?list=PLt5zc-HxINkpAr9Ri_qJtzklB9YK2Eunh); but they've been remarkably prolific during the lockdown. Most of the videos don't seem written to inform or instruct; they're just little glimpses into other people's lives, little bits of what's going on with them.
+
+It's nice. It feels like company. Which I don't know about you but I haven't had a ton of lately.
+
+I appreciate that people are putting stuff out there for no further objective than company. I sat around for 55 minutes watching [Griffin McElroy play Animal Crossing](https://www.youtube.com/watch?v=bbShP4oXO48) this evening. I appreciate that he keeps the chatter minimal: present but unobtrusive. Never overenthusiastic in the manner of YouTube hypebeasts. My tolerances are all a lot narrower these days.
+
+I'm not much of a video maker, but I hope I can aspire to write enough, and write publically enough, that I can provide some company, in some small way.
+
+## Logflare
+Trying out [Logflare](https://logflare.app/). I'm not particularly interested in putting analytics on my website but I've always been a little bit curious about whether or not anyone actually visits at all. Always sort of assumed that no one does.
+
+<Image src="logflare.gif">
+	Pretty snappy little data graphic
+</Image>
+
+But Vercel offers an integration with this Logflare, allowing you to track up to 5.2 million events, which seems like maybe a few more than my website is going to get. And but so since my website is hosted on Vercel, I figured: why not configure this thing and leave it up for a week and see what happens.
+
+First impressions (after like 10 minutes):
+
+**The dashboard is sort of tech-brutalist.** It's not _bad_, but it's putting me off a little bit. The header is this electric green like they're going for the hacker look; but buttons are a really generic-looking blue that makes me think it's using some CSS framework behind the scenes. And `<input>` elements are white, which is very jarring against the black background. Maybe this is a bit shallow of me.
+
+<Image src="logflare-buttons.jpg">
+	Brutalist, unpolished
+</Image>
+
+**Logs are still hard to read.** At least, they're no easier to read when they're part of some SaaS product than when I'm `less`-ing them from `/var/log/nginx`. I wish there was some way to just filter out HTTP requests to the application itself (rather than requests for supporting assets). Maybe analytics isn't really the use case here.
+
+**Couple of slow requests on the site.** A little slower than I'm used to, anyway. I'm used to things being pretty snappy on my website, and I've had one or two requests this evening take around a second, which is unusual. Not sure if it has anything to do with Logflare. To be fair it's a Friday night: so it's not inconcievable that the Internet is just running slowly.

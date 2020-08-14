@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'Recently: early August',
+    date: "14 Aug '20",
+    slug: 'recently-early-august',
+  },
+  {
     title: 'Cross Fell loop from Garrigill',
     date: "6 Aug '20",
     slug: 'cross-fell-loop-garrigill',

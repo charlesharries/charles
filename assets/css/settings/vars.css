@@ -11,6 +11,7 @@
 
 $black: #000;
 $darkgrey: #222;
+$grey: #aaa;
 $lightgrey: #F7EFE5;
 $white: #fff;
 $dimwhite: color-mod($white a(0.65));

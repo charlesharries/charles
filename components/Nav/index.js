@@ -14,6 +14,9 @@ function Nav() {
       </div>
 
       <div className="Nav__right">
+        <Link href="/sam">
+          <a className="Nav__link Nav__link--blog">Sam</a>
+        </Link>
         <Link href="/bits">
           <a className="Nav__link Nav__link--bits">Bits</a>
         </Link>

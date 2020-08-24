@@ -1,0 +1,57 @@
+import Date from '../../components/Date';
+
+<Date>
+24 August '20
+</Date>
+
+# Mid-August
+
+A little bit about what I've been thinking about lately:
+
+## Extremely brief thoughts on the American 2020 election
+I don't think that the election is going to be won by the better candidate. Hold on: I know what that sounds like. Bear with.
+
+The election isn't going to be won by the better candidate. It's not going to be won by the candidate with the better platform. Not by the candidate who does better in debates; nor by the candidate whose VP does better in the debates. Not by the candidate with the smarter, more effective canvassers. Not by the candidate with the better branding, the better marketing team.
+
+I don't even think that many people are going to change their minds re: their vote between now and November. I think that 99% of people who are going to vote, already know who they're going to vote for.
+
+Which, there's the rub: the people who are going to vote. The election is going to be won by the candidate that gets people to check their box on some little card, and have that card counted. I think that one of the candidates knows this very well, and that's why that candidate is trying to prevent people from voting in parts of the country where the other candidate is favoured to win.
+
+Which so my whole point here is: please vote. I know that you probably can't behind either of the two candidates. But refusing to vote is not the political statement that you think it is. Don't listen to pollsters: the election has not been won yet. Pollsters seek out opinions; voters aren't sought out; voters must seek to vote.
+
+And the election will be won by the candidate who can get more people to vote.
+
+## Logflare
+Wrote about Logflare [last week](/blog/recently-early-august) and was concerned that I felt like it was causing a bit of a delay on loads. So I wrote a quick web crawler in Go to measure page load speeds. It's basically just Colly with a tiny benchmarking function. I ran it across the whole site and averaged the response times, then ran it 4 times, 10 minutes apart (so the Vercel cache had time to cool down), at around 10pm at night.
+
+Here are the results:
+
+|With Logflare|Without Logflare|
+|:--:|:--:|
+|410ms|295ms|
+|318ms|129ms|
+|441ms|45ms|
+|271ms|56ms|
+
+Sample size here is tiny, so take this with your daily recommended dose of sodium. I tried to space out the requests by 10 minutes or so each to force cold starts, but it feels like the results are... significant? If just barely. ~300ms feels a little bit too slow for what is effectively a set of static HTML files.
+
+And [here's](https://github.com/charlesharries/perf-tester) the source code for the testing tool.
+
+## Accelerationism
+Had only heard of this in passing before a friend brought it up the other day, but it's this idea that the right way to like overthrow the status quo (esp. w/r/t capitalism) is to just absolutely _lean into_ capitalism.
+
+More from Wikipedia [here.](https://en.wikipedia.org/wiki/Accelerationism)
+
+I think it's an interesting theory but I'm not sure how viable it is. Could you argue that the French Revolution was an example of how accelerationism worked? Maybe.
+
+But I think the real issue here is that this sort of disruption of the status quo—viz. by loading massive amounts of power in the hands of the capital-rich few—generally doesn't benefit those at the lowest rungs of society (French Rev. notwithstanding; but now that I think of it, actually a little bit withstanding). The poor, the underrepresented, and the powerless, usually wind up as cannon fodder for the elites of the warring factions in status quo upsets.
+
+## Data encryption on Jernl
+Got my first taste of the world of data security last week when I added per-user data encryption to my journaling app, [Jernl](https://jernl.space). I'm certain that there's a proper technical term for it, but the basic idea is this: users need to be able to encrypt their data in such a way that the owner of the data can read it, but no one else can—even the owner of the database (i.e. me).
+
+I'm going to do a more thorough write-up in a bit (esp. how it can be done in [Laravel](https://laravel.com/), which is the framework I'm using on Jernl), but the sort solution is to encrypt the user's data using their password.
+
+More to come.
+
+## Sam
+Adding a corner of the website for Sam to put stuff that she writes. First post on the GCSE/A-levels fiasco that went down last week is available here.

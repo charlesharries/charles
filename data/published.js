@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'Recently: mid August',
+    date: "27 Aug '20",
+    slug: 'recently-mid-august',
+  },
+  {
     title: 'Recently: early August',
     date: "14 Aug '20",
     slug: 'recently-early-august',

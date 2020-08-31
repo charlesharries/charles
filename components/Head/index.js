@@ -9,6 +9,7 @@ function Meta() {
   const image = '/images/cover.jpg';
 
   const isDev = process.env.NODE_ENV === 'development';
+  const isBrowser = typeof window !== 'undefined';
 
   return (
     <Head>
@@ -76,7 +77,7 @@ function Meta() {
 
       <link rel="dns-prefetch" href={process.env.API_ENDPOINT_URL} />
 
-      {!isDev && (
+      {!isDev && isBrowser && (
         <script
           async
           defer

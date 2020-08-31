@@ -8,6 +8,8 @@ function Meta() {
   const baseUrl = 'https://charlesharri.es';
   const image = '/images/cover.jpg';
 
+  const isDev = process.env.NODE_ENV === 'development';
+
   return (
     <Head>
       <title>Charles Harries</title>
@@ -73,6 +75,15 @@ function Meta() {
       />
 
       <link rel="dns-prefetch" href={process.env.API_ENDPOINT_URL} />
+
+      {!isDev && (
+        <script
+          async
+          defer
+          data-website-id="f163f9d6-58e1-41f2-bc17-e99d4e76e8d8"
+          src="https://stats.charlesharri.es/umami.js"
+        ></script>
+      )}
     </Head>
   );
 }

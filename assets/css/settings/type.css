@@ -133,6 +133,18 @@ figure {
   }
 }
 
+ol {
+  list-style: numeric;
+  padding-left: 15px;
+  font-size: 1.6rem;
+  line-height: calc(25 / 15);
+
+  @media (--desktop) {
+    font-size: 1.7rem;
+    line-height: calc(28 / 16);
+  }
+}
+
 .small-caps {
   font-size: 0.85em;
   text-transform: uppercase;

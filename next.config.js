@@ -2,10 +2,6 @@ const withCSS = require('@zeit/next-css');
 const { resolve } = require('path');
 const withMdxEnhanced = require('next-mdx-enhanced');
 
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-});
-
 module.exports = withMdxEnhanced({
   layoutPath: 'layouts',
   defaultLayout: true,

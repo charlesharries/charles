@@ -1,6 +1,7 @@
 # build output
 dist
 .next
+.mdx-data
 
 # dependencies
 node_modules

@@ -1,13 +1,13 @@
 import Head from 'next/head';
 
-function Meta() {
-  const title = 'Charles Harries';
-  const description =
-    'Frontend Javascript developer. React, Vue, WordPress, PHP, headless CMSes, synergy, driving growth, buzzword, buzzword, buzzword.';
-  const color = '#000000';
-  const baseUrl = 'https://charlesharri.es';
-  const image = '/images/cover.jpg';
+export const title = 'Charles Harries';
+export const description =
+  'Frontend Javascript developer. React, Vue, WordPress, PHP, headless CMSes, synergy, driving growth, buzzword, buzzword, buzzword.';
+export const color = '#000000';
+export const baseUrl = 'https://charlesharri.es';
+export const image = '/images/cover.jpg';
 
+function Meta() {
   const isDev = process.env.NODE_ENV === 'development';
   const isBrowser = typeof window !== 'undefined';
 

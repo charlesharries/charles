@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^1.0.27",
-    "@next/mdx": "^9.0.1",
     "@zeit/next-css": "^1.0.1",
     "date-fns": "^2.16.1",
     "next": "^9.3.2",
+    "next-mdx-enhanced": "^4.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

@@ -1,0 +1,47 @@
+# Jernl authentication
+I [recently wrote](/blog/recently-mid-august) about how I implemented per-user encryption on my journaling side project, [Jernl](https://jernl.space). In that post, I went into the reasoning behind this sort of encryption; in this one, I'm going to explain how it works.
+
+## User key
+A naive implementation would be to use a user's password to encrypt that user's data. This, however, has two main issues:
+
+1. If the user ever changes their password, you'd have to decrypt all of their data using the previous password and then re-encrypt it using the new password. Which is data-heavy.
+2. If the user's using a weak password, their data could be decryptable. Which we obviously don't want.
+
+Instead, we use a special cryptographically-secure `user_key` to encrypt user data. We have to set this when the user is created, because this `user_key` is going to stay assigned to this user forever.
+
+> If a user was created before I implemented this encryption, the `user_key` is created when they next sign in.
+
+You may have spotted an issue with this, however: if the `user_key` is stored in the database, and the database is compromised: anyone could use that `user_key` to decrypt the other data associated with the user.
+
+## Encrypting the user_key
+The way that we get around this issue is to encrypt the user key, using the user's password—which we have on hand when the user is signing up or signing in anyway. Specifically, we generate a `SHA-256` hash of the password (again, trying to get around potential weak passwords) and use this `password_key` (the hashed password) to encrypt our `user_key`.
+
+Once we've got this encrypted `user_key`, we save that to the database. Now our `user_key` is safe, and we can use it to encrypt and decrypt our data.
+
+But that's not all: we need to keep track of this `password_key` so that we can encrypt and decrypt our data further down the line. So whenever we generate the `password_key`, we save it to a cookie for the user.
+
+Because we're only using this `password_key` to encrypt/decrypt the `user_key`, it's useless on its own: you can't get the password out of it, you can't use it to authenticate, and you can't use it to decrypt data.
+
+## Reading and writing data
+Quick recap time:
+
+1. When a user signs up, we generate a `user_key`, hash their password to create a `password_key`, encrypt the `user_key` with the `password_key`, and save the encrypted `user_key` to the database.
+2. When a user signs in, we hash their password to create that same `password_key` and save it to a cookie.
+
+So imagine a user has just signed up for Jernl. They have no data in the database yet, but they've just written up their first journal entry and hit `Save`. What happens?
+
+Their data is sent to the server (encrypted, since I'm using HTTPS), along with the `password_key` saved to the cookie. On the server, we use their `password_key` to decrypt their `user_key`. Then we use that `user_key` to encrypt the user's data before saving it to the database.
+
+Now they're redirected to the main `/calendar` page, where we want to show them that their entry has been saved. We query the database for the user's still-encrypted data, use the `password_key` (which, remember, was sent with the request) to decrypt the user's `user_key`, and use that `user_key` to decrypt the user's data—which is sent back over HTTPS to the user. Nice and readable.
+
+## Encrypting on the client
+While writing this post, I did a little reading on other encrypted journaling applications out there, and one or two ([like this one](https://www.monkkee.com/en/)) that I came across make a point of encrypting data on the client (that is, on your browser), and sending it over encrypted.
+
+The benefit of this is that your data is never unencrypted on the server. Unencrypted data on the server is potentially loggable, which sort of defeats the purpose.
+
+The downside, however, is that it demands that the client do a bunch of expensive encryption/decryption on their local machine, which isn't great for users with less performant computers. It also means that you have to send that `user_key` down to the client so that data can be encrypted & decrypted. Which sort of feels dangerous to me.
+
+## In practice
+All of the code for Jernl is open-source and available on GitHub. If you want to see how this works with Laravel, you'll want to check out the [Entry](https://github.com/charlesharries/jernl/blob/master/app/Entry.php) and [User](https://github.com/charlesharries/jernl/blob/master/app/User.php) models first. The [RegisterController](https://github.com/charlesharries/jernl/blob/master/app/Http/Controllers/Auth/RegisterController.php) and [LoginController](https://github.com/charlesharries/jernl/blob/master/app/Http/Controllers/Auth/LoginController.php) are also good to see where the keys are originally set, too.
+
+Laravel gives you a handful of great helpers for running logic when reading and writing data: check out [Eloquent accessors and mutators](https://laravel.com/docs/8.x/eloquent-mutators) at the official Laravel docs.

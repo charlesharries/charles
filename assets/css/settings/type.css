@@ -134,7 +134,7 @@ figure {
 }
 
 ol {
-  list-style: numeric;
+  list-style: decimal;
   padding-left: 15px;
   font-size: 1.6rem;
   line-height: calc(25 / 15);

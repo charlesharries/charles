@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'Recently: early September',
+    date: "16 Sep '20",
+    slug: 'recently-early-september',
+  },
+  {
     title: 'Per-user data encryption',
     date: "13 Sep '20",
     slug: 'per-user-data-encryption',

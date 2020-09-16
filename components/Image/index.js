@@ -1,19 +1,15 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/router';
 import Modal from '../Modal';
 
 function Image({ src, children }) {
-  const router = useRouter();
-  const slug = router.route.replace('/blog/', '');
   const [isOpen, setIsOpen] = useState(false);
 
   const url = size =>
-    `https://assets.charlesharri.es/${size}/https://assets.charlesharri.es/src/${slug}/${src}`;
+    `https://assets.charlesharri.es/${size}/https://assets.charlesharri.es/src${src}`;
 
   function openModal(e) {
     e.preventDefault();
-    console.log('opening modal');
     setIsOpen(true);
   }
 

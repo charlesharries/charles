@@ -19,6 +19,30 @@
     height: 0;
     border-bottom: 4px double color-mod($white a(0.5));
   }
+
+  &:focus {
+    outline: none;
+    color: $red;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      display: block;
+      height: 2px;
+      width: 15px;
+      background-color: $red;
+      top: 6px;
+    }
+
+    &::after {
+      border-color: color-mod($red a(0.5));
+    }
+
+    .BlogLink__date {
+      color: $red;
+    }
+  }
 }
 
 .BlogLink__text {

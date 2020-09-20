@@ -59,7 +59,7 @@ function Bits() {
       <h1 className="Bits__title">various bits</h1>
       <ul>
         {bits.map(bit => (
-          <a key={bit.title} href={bit.link}>
+          <a className="Bit__link" key={bit.title} href={bit.link}>
             <p className="Bit__title">
               <strong>{bit.title}</strong>
               <span className="Bit__date">{bit.date}</span>

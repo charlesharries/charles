@@ -1,3 +1,27 @@
+.Bit__link {
+  position: relative;
+
+  &:focus {
+    color: $red;
+    outline: none;
+
+    .Bit__date {
+      color: $red;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      display: block;
+      height: 2px;
+      width: 15px;
+      background-color: $red;
+      top: 12px;
+    }
+  }
+}
+
 .Bit__title {
   margin-bottom: 0;
 }

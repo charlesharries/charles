@@ -65,6 +65,10 @@
   @media (--desktop) {
     padding: 0;
   }
+
+  &:focus {
+    outline: 2px solid $red;
+  }
 }
 
 .Nav__link:not(:last-child) {

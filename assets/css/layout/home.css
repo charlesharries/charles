@@ -4,4 +4,11 @@
 	justify-content: center;
 	height: 100%;
 	min-height: 100vh;
+	margin-bottom: -50px;
+}
+
+.Home p {
+	padding-left: $spacing;
+	padding-right: $spacing;
+	text-align: center;
 }

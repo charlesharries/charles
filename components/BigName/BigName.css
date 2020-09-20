@@ -2,6 +2,6 @@
 
 .BigName {
 	text-align: center;
-	font-size: 10vw;
+	font-size: max(10vw, 64px);
 	line-height: 0.8;
 }

@@ -1,13 +1,14 @@
 @import '~css/settings/vars';
+@import '~css/layout/button';
 
 .Nav {
   position: fixed;
   bottom: 0;
   z-index: 2;
   display: flex;
+  justify-content: center;
   width: 100%;
-  border-top: 1px solid $white;
-  background-color: $darkgrey;
+  padding-bottom: 10px;
 
   @media (--desktop) {
     top: 50%;
@@ -44,9 +45,6 @@
 }
 
 .Nav__left {
-  flex: 3;
-  border-right: 2px solid $white;
-
   @media (--desktop) {
     flex: initial;
     border: none;
@@ -54,15 +52,15 @@
 }
 
 .Nav__right {
-  flex: 1;
-
   @media (--desktop) {
     flex: initial;
   }
 }
 
 .Nav__link {
-  padding: 1rem $spacing;
+  @media (--mobile) {
+    @mixin button;
+  }
 
   @media (--desktop) {
     padding: 0;

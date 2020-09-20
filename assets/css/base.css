@@ -11,6 +11,7 @@
 
 /* Layout */
 @import './layout/page';
+@import './layout/button';
 @import './layout/home';
 @import './layout/blog';
 @import './layout/bits';

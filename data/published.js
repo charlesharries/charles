@@ -1,5 +1,10 @@
 export default [
   {
+    title: 'Cleveland Way: Square Corner to Sneck Yate and back',
+    date: "20 Sep '20",
+    slug: 'cleveland-way-square-corner-sneck-yate',
+  },
+  {
     title: 'Recently: early September',
     date: "16 Sep '20",
     slug: 'recently-early-september',

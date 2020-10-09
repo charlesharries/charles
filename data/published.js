@@ -1,23 +1,33 @@
 export default [
   {
+    title: 'On The Devil Wears Prada',
+    date: "10 Oct '20",
+    slug: 'on-the-devil-wears-prada',
+    tags: ['Films', 'Media'],
+  },
+  {
     title: 'Cleveland Way: Square Corner to Sneck Yate and back',
     date: "20 Sep '20",
     slug: 'cleveland-way-square-corner-sneck-yate',
+    tags: ['Walking'],
   },
   {
     title: 'Recently: early September',
     date: "16 Sep '20",
     slug: 'recently-early-september',
+    tags: ['Recently'],
   },
   {
     title: 'Per-user data encryption',
     date: "13 Sep '20",
     slug: 'per-user-data-encryption',
+    tags: ['Computers', 'PHP'],
   },
   {
     title: 'Recently: mid August',
     date: "27 Aug '20",
     slug: 'recently-mid-august',
+    tags: ['Recently'],
   },
   {
     title: 'Recently: early August',

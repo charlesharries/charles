@@ -6,7 +6,7 @@ h1,
 .t-h1,
 h2,
 .t-h2 {
-  font-family: $grotesk;
+  font-family: $serif;
   font-weight: 700;
 }
 
@@ -158,8 +158,8 @@ ol {
   color: $red;
 }
 
-.text-blackletter {
-  font-family: $grotesk;
+.text-serif {
+  font-family: $serif;
   font-size: 1.1em;
 }
 
@@ -171,6 +171,9 @@ ol {
 
 .Content h2 {
   margin-top: 6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .Content > ul > li {

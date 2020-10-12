@@ -1,7 +1,7 @@
 .BlogLink {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 12px;
 
@@ -13,7 +13,7 @@
   &::after {
     content: "";
     position: absolute;
-    bottom: 6px;
+    top: 8px;
     left: 0;
     width: 100%;
     height: 0;

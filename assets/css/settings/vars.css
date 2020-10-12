@@ -1,12 +1,10 @@
 @font-face {
-  font-family: 'Sebaldus';
-  font-weight: normal;
-  font-style: normal;
-  src:
-    url('/fonts/Sebaldus-Gotisch.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/Sebaldus-Gotisch.woff') format('woff'),
-    url('/fonts/Sebaldus-Gotisch.ttf')  format('truetype'),
-    url('/fonts/Sebaldus-Gotisch.svg#Sebaldus-Gotisch') format('svg');
+    font-family: 'Goudy Bookletter 1911';
+    src: url('/fonts/goudybookletter1911-webfont.woff2') format('woff2'),
+         url('/fonts/goudybookletter1911-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 $black: #000;
@@ -18,7 +16,7 @@ $dimwhite: color-mod($white a(0.65));
 $red: #f00;
 
 $font: 'Libre Franklin', sans-serif;
-$grotesk: 'Sebaldus', 'Arimo', sans-serif;
+$serif: 'Goudy Bookletter 1911', 'Arimo', sans-serif;
 
 $speed1: 0.15s;
 

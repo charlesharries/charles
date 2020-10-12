@@ -1,5 +1,11 @@
 export default [
   {
+    title: "Midnight's Children",
+    date: "12 Oct '20",
+    slug: 'midnights-children',
+    tags: ['Books', 'Media'],
+  },
+  {
     title: 'On The Devil Wears Prada',
     date: "10 Oct '20",
     slug: 'on-the-devil-wears-prada',

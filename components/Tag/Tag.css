@@ -1,0 +1,13 @@
+.Tag {
+  font-size: 0.7em;
+  display: inline-block;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  background-color: color-mod(#fff a(0.1));
+}
+
+.BlogLink .Tag {
+  margin-left: 8px;
+}

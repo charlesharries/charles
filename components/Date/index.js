@@ -5,7 +5,7 @@ function Date({ children }) {
 }
 
 Date.propTypes = {
-  children: PropTypes.oneOf([PropTypes.element, PropTypes.string]),
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
 export default Date;

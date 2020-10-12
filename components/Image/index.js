@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../Modal';
+import './Image.css';
 
 function Image({ src, children }) {
   const [isOpen, setIsOpen] = useState(false);

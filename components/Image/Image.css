@@ -1,0 +1,8 @@
+@import '~css/settings/vars';
+
+.Image__link {
+  &:focus,
+  &:active {
+    outline: 2px dotted $red;
+  }
+}

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Tag from '../../components/Tag';
 import published from '~data/published';
 
 function Blog() {

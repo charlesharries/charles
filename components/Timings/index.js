@@ -4,8 +4,8 @@ import './timings.css';
 function Timings({ timings }) {
   return (
     <ol className="Timings">
-      {timings.map(t => (
-        <li className="Timings__time" key={t.label}>
+      {timings.map((t, i) => (
+        <li className="Timings__time" key={`${i}:${t.label}`}>
           <span>{t.label}</span>
           <span>{t.time}</span>
         </li>

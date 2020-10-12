@@ -19,7 +19,7 @@ function BlogPage({ children, frontMatter }) {
 }
 
 BlogPage.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   frontMatter: PropTypes.object,
 };
 

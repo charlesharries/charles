@@ -1,12 +1,18 @@
 export default [
   {
+    title: 'Cleveland Way: Kildale Forest',
+    date: "25 Oct '20",
+    slug: 'cleveland-way-kildale-forest',
+    tags: ['Walking', 'Cleveland Way'],
+  },
+  {
     title: "Midnight's Children",
     date: "12 Oct '20",
     slug: 'midnights-children',
     tags: ['Books', 'Media'],
   },
   {
-    title: 'On The Devil Wears Prada',
+    title: 'The Devil Wears Prada',
     date: "10 Oct '20",
     slug: 'on-the-devil-wears-prada',
     tags: ['Films', 'Media'],
@@ -15,7 +21,7 @@ export default [
     title: 'Cleveland Way: Square Corner to Sneck Yate and back',
     date: "20 Sep '20",
     slug: 'cleveland-way-square-corner-sneck-yate',
-    tags: ['Walking'],
+    tags: ['Walking', 'Cleveland Way'],
   },
   {
     title: 'Recently: early September',

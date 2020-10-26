@@ -42,7 +42,7 @@ const bits = [
     date: "Nov '15 - Aug '16",
     title: 'Hills & Letters',
     description:
-      'Short stores I picked up, Hokkaido hiking guides, odds & ends.',
+      'Short stories I picked up, Hokkaido hiking guides, odds & ends.',
   },
   {
     link: 'https://everythingyouhaveheard.blogspot.com/',

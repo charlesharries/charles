@@ -20,12 +20,14 @@ export default async function(req, res) {
     const date = parse(`${post.date} 12:00`, "d LLL ''yy H:mm", new Date());
     const link = `https://charlesharri.es/blog/${post.slug}`;
 
-    rss += `<item>
-      <title>${post.title.replace('&', '&amp;')}</title>
-      ${isValidDate(date) ? `<pubDate>${date.toUTCString()}</pubDate>` : ''}
-      <link>${link}</link>
-      <guid isPermaLink="false">${link}</guid>
-    </item>`;
+    if (isValidDate(date)) {
+      rss += `<item>
+        <title>${post.title.replace('&', '&amp;')}</title>
+        <pubDate>${date.toUTCString()}</pubDate>
+        <link>${link}</link>
+        <guid isPermaLink="false">${link}</guid>
+      </item>`;
+    }
   });
 
   rss += '</channel></rss>';

@@ -36,6 +36,12 @@ h2,
   }
 }
 
+h3,
+.t-h3 {
+  font-size: 2rem;
+  line-height: calc(30 / 20);
+}
+
 /* Text styles */
 p,
 .t-para {
@@ -174,6 +180,11 @@ ol {
   border-bottom: 1px solid rgba(255,255,255,0.15);
   padding-bottom: 1rem;
   margin-bottom: 1rem;
+}
+
+.Content h3 {
+  margin-bottom: 0.7rem;
+  margin-top: 3rem;
 }
 
 .Content > ul > li {

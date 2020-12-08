@@ -1,5 +1,11 @@
 export default [
   {
+    title: 'Recently: Early December',
+    date: "8 Dec '20",
+    slug: 'recently-early-december',
+    tags: ['Recently'],
+  },
+  {
     title: 'Foundation',
     date: "31 Oct '20",
     slug: 'foundation',

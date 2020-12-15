@@ -1,0 +1,44 @@
+---
+title: 'WordPress in 2020 | Charles Harries'
+description: "In 2020, WordPress remains relevant and dynamic as ever. But it's still got a few pain points."
+---
+
+import Date from '../../components/Date';
+
+<Date>
+  15 December '20
+</Date>
+
+# WordPress in 2020
+
+WordPress has historically gotten a pretty bad wrap--and in 2020, it continues to do so. I think that this is due to WordPress, just like PHP itself, having an extremely low barrier to entry, which attracts the rabble. Nevermind that more than a third of sites on the web are WordPress: most of them are a plugin-laden heap of rubbish.
+
+Still, it's no mean feat to build such a resilient framework that it can withstand the rabble. Much like PHP, WordPress is notoriously un-knock-over-able--even more so nowadays, when the site will automatically go into maintenance mode and email a copy of the error to the site administrator. Since WordPress 5, the WP Core team has done a great job beefing up WordPress as a serious 2020 framework.
+
+## Themes & plugins
+I'm going to start with the new default WordPress theme: [Twenty Twenty-One](https://make.wordpress.org/core/2020/09/23/introducing-twenty-twenty-one/). It's a stunning piece of work from a design perspective: fresh and current without feeling like a Squarespace theme, all whitespace and really widely-tracked typography. And this is nothing new: [Twenty Twenty](https://wordpress.com/theme/twentytwenty) was also an attractive, Gutenberg-capable theme; [Twenty Nineteen](https://wordpress.com/theme/twentynineteen), while being a little bit more along the lines of that Squarespace-style theme, is still a great choice today. And while it's getting a little dated now, I think that [Twenty Seventeen](https://wordpress.com/theme/twentyseventeen) stands up to design scrutiny today, so long as your website is mostly written-content-oriented.
+
+But enough about themes: the plugin ecosystem continues to be _awful_. But! there are diamonds in that great unadulterated rough. [WooCommerce](https://woocommerce.com/) stands out as a terrific work of code; it's open to extension and closed to modification; it tries to impose a little bit of modern object orientation on top. I haven't dug my way through Automattic's other first-party plugins, but from what I've heard, they're also quite well-written. I've never heard anyone say anything bad about [Advanced Custom Fields](https://www.advancedcustomfields.com/) either, and have personally used it to great effect. It's such a good, reliable plugin, that's it's generated [a whole ecosystem](https://wordpress.org/plugins/search/advanced+custom+fields/) unto itself.
+
+I think WordPress really suffers from leaving its plugin ecosystem open to contribution from hacks and adoption by people who don't know what they're doing. Mind, WordPress should absolutely _not_ do anything about this: the openness of the ecosystem is one of the winning ingredients. You just wish that it wasn't so clogged up with crud.
+
+## Headless
+WordPress has also come a long way as a headless option. The WP REST API, while not perfect, is perfectly serviceable for most applications. It's a well-considered, reliable piece of work. And the community has responsed: Gatsby has released [a first-party plugin](https://www.gatsbyjs.com/docs/glossary/wpgraphql/) for running a GraphQL server from WordPress; and [Typescript type definitions](https://github.com/johnbillion/wp-json-schemas) are available for common WordPress objects.
+
+## Gutenberg
+Don't let the headless option fool you, though: Gutenberg has also come a long way. I'm seeing a _lot_ more Gutenberg-oriented themes on the marketplace--themes that now don't have to package some sort of page builder in them (though, don't get me wrong: for all the bloat it adds, [Divi](https://www.elegantthemes.com/gallery/divi/) works _very_ well). I've long been a fan of Gutenberg from a user-experience point of view; from the developer experience perspective it's a bit clunky. I think packages like [create-guten-block](https://github.com/ahmadawais/create-guten-block) are good at abstracting that difficulty away but it's got some way to go before it reaches the simplicity of a raw React component.
+
+And at any rate, WordPress has always prioritised user experience over developer experience. That's one of the things that makes it so popular.
+
+## For devs
+That being said, the ecosystem around WordPress for 'real' developers has also really grown over the last few years. [John Bloch's WordPress composer starter](https://github.com/johnpbloch/wordpress) is still a great choice for developers who want a more Laravel-esque experience. If you really want to lean into DX, [Sage from Roots](https://github.com/roots/sage) is alright (a little opinionated if you ask me), and [Flynt](https://flyntwp.com/) looks pretty slick as well, though I haven't used it. And if you're not into frameworks, PHP actually makes it pretty easy to componentise your templates with `require` statements.
+
+This isn't quite the 'WordPress way'--the templating system on WordPress continues to need a little finessing. But that's the burden of relentlessly pursuing backwards-compatibility like WordPress does. And with such a huge user base, they have to expect that if they change the way that themes or plugins are loaded, they're either adding some performance overhead or breaking millions of sites across the web.
+
+## A couple of other pain points
+I don't know that I'm a huge fan of the hooks-based approach, though this might be a personal preference. Like, I can appreciate the functional approach, but I found myself often wishing that I could just grab some sort of object out of a service container and do a little manipulation on it there. Practically, it also leads to your logic being spread across the app in what is generally an ad-hoc fashion, even if you're trying. If  you need to filter a bit of WooCommerce product data, where do you do that? Short of writing your own class that wraps `WC_Product`--but then you're in for a world of hurt.
+
+This also gestures to a larger structural problem: WordPress offers very little in the way of application structure guidelines, short of some directory names for templates in your theme. Not committing to any _magic_ in the framework is a nice token, but it also means that there's no standard way to do anything: just leading to further fragmentation across the tens of themes and plugins you could have installed on any given site.
+
+## Should you use it?
+So: should you use WordPress in 2020? I think there's a bit of a sweet spot for WordPress. If your site is content-oriented, potentially without too much weird business logic, and wants to shine with non-technical users, WordPress is absolutely your best bet. I think of [CSS-Tricks](https://css-tricks.com/): a WordPress site that wouldn't work better under the banner of any other framework. If your site looks a little like CSS-Tricks, go for it. If not... maybe look elsewhere.

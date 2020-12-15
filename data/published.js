@@ -1,5 +1,11 @@
 export default [
   {
+    title: 'Wordpress in 2020',
+    date: "15 Dec '20",
+    slug: 'wordpress-in-2020',
+    tags: ['Computers', 'PHP', 'WordPress'],
+  },
+  {
     title: 'Recently: Early December',
     date: "8 Dec '20",
     slug: 'recently-early-december',

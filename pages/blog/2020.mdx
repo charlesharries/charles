@@ -1,0 +1,68 @@
+---
+title: "2020 | Charles Harries"
+description: "A quick overview of what happened to me in 2020."
+---
+
+import Date from '../../components/Date';
+import Image from '../../components/Image';
+
+<Date>
+  31 December '20
+</Date>
+
+# 2020
+You already know how 2020 went. The world's been falling apart, and the poor schmucks on the street are holding it together at the fraying seams while the powerful take the credit on television. It's a sorry state of affairs and I think that's all I want to say about that.
+
+This is what else happened on the Charles front over the course of the last year.
+
+## Hobbies
+Sam and I walked the whole [Cleveland Way](https://www.nationaltrail.co.uk/en_GB/trails/cleveland-way/), a 175-kilometer walking trail around the North York Moors.
+
+<Image src="/2020-12/cleveland-way.png">
+  The route of the Cleveland Way around the north sides of the North York Moors.
+</Image>
+
+We walked it over the course of a series of day hikes, most of which I've written quick guides for (though I haven't posted them on the blog). Was my first experience with walking a long-distance trail and I've been bitten by the bug. The Weardale Way is coming up next.
+
+## Career
+I have a bad habit of conflating my work life with my actual, full, whole life, and from that standpoint, the biggest thing that happened this year was that I changed jobs.
+
+**The job I left:** I'd worked for [Creator](https://wearecreator.uk) since I moved here in 2017. It was my first job in this country, which meant quite a good deal; and at that point I was still a novice web developer. The position was very generalist and gave me the opportunity to take responsibility for building the whole stack that a website gets built on. That sounds like a sentence that belongs on a CV, but that's really how it worked. Leaving the job was probably the toughest professional decision I've had to make, and certainly the toughest I've had to make since moving here.
+
+**The job I took:** I took a software engineer position at [Komodo](https://komododigital.co.uk) in Newcastle. It's a little bit more focused, a little bit more structured than Creator was, which I think is what I need right now. The support that comes with a larger team is invaluable, too. I think that at the moment I do my best work with a pair of headphones on and my Slack notifications disabled, but working in a small team on a large project allows me to work on my interpersonal, organisational skills. And the onboarding system was world-class; I don't expect that Google or Basecamp could do any better at getting a remote worker up to speed.
+
+### Couple of other thoughts
+I think that the working-from-home scenario has generated enough tech-guy navel-gazing over the past 10 months or so, but here's my quick personal takeaway:
+
+**I'm not working from home: I'm living at work.** Having my work constantly accessible to me, in any part of my house, makes it _extremely_ difficult to shut off.
+
+**Building 'work culture' is simultaneously more difficult & more important when working from home.** Without other employees around you, without a building to go to, without the work _experience_, it's very hard to build a work culture, meaning that changing jobs could just feel like moving from one project and one manager to another. Komodo's done a good job by keeping Slack active and hosting online events to make sure that the non-working-related banter keeps flowing.
+
+## Side projects
+In the past year, I've gotten ever so slightly more serious about my side projects. I think there are two ways to approach side projects: as serious tools to increase your personal productivity, or as techno-gymnastic equipment on which you get to practice your ability. I've tended to treat my side projects more as the latter than the former; but maybe 2021 is the year I start really committing to them (or at least commit to coming up with better names for them).
+
+[**Jernl**](https://jernl.space) is by far the project with the most hours on it. It's a pretty simple journaling app, but where it sort of sits above your basic Laravel CRUD starter is that it comes with per-user data encryption. The idea here being that users should be able to write in their journal secure in the knowledge that no one but them can read their entries—not even the person who owns the database. I've written a little bit more about that [here.](https://charlesharri.es/blog/per-user-data-encryption)
+
+[**Podcast Stats**](https://podcast-stats.charlesharri.es) is an extremely work-in-progress application for tracking various statistics related to listening to podcasts. The idea here is that a user can feed it a bunch of podcasts that they listen to and keep track of which episodes they've listened to. Under the hood, it hits Apple's podcast search API and uses some clever caching tricks to keep requests to that API down. It provides some metrics relating to a user's listening habits at the moment, but I need to sit down and give it a proper think to make it _useful_. It also occupies a weird position as a podcast-related application _without_ the ability to actually play podcasts. I don't think I want to go into the logistics of podcast _playback_ but at the moment it means that I can't automate listening, which makes this whole thing a little bit more cumbersome than it needs to be. It'd be nice if [Overcast](https://overcast.fm) had an API.
+
+[**GPX Editor**](https://gpx-editor.charlesharri.es) is a very simple GPX file editor. Most of the other ones I've found online are either paid or offer some wacky feature set with an outdated UI. This one just lets you trim points from the start or end of your GPX file (usually because I forget to stop my watch after a hike) and download the new file.
+
+I also built a couple of smaller little bits on the side:
+
+- A super-small Go application for running sentiment analysis based on [AFINN-111](https://github.com/fnielsen/afinn/blob/master/afinn/data/AFINN-111.txt) a dataset of words and relative sentiments.
+- [A Windows-XP-style screensaver of the word that wobbles back and forth.](https://regret.charlesharri.es/)
+
+## Learning & remembering stuff
+This year was the year that the Get Things Done (®®®®®®®) mentality sort of clicked for me. I've started treating my brain like RAM: really quick, impermanent storage for data that I need to hold on to short term. Everything else has started to go into applications on my computer. The key to all of this is a little ubiquitous spot that can receive raw thoughts at a moment's notice, with extremely little mental overhead. This could be anything from a little notebook your carry around with you, to a text file, to a dedicated application. In my case, I'm using [Things](https://culturedcode.com/things/), since it's available on my phone _and_ computer, and can be called up with a clever little keybinding, no matter what I'm up to. I know [Todoist](https://todoist.com/) has the same functionality, and is free and available in the browser as well.
+
+The nice thing about this is that it's allowed me to become _significantly_ more productive with my actual, mushy, grey-matter, day-to-day brainium. Rather than trying to remember every discrete bit of information I come across during the day (people's birthdays, chores around the house, what I think of the book I'm reading, articles I want to read on the Internet), I've taught myself instead to write an extremely minimal note with the relevant information, to store away for later. 
+
+Then, a few times a day I run through those notes and move them around to where they need to be. This might be Contacts.app or [The Archive](https://zettelkasten.de/the-archive/) or this very blog. But that's the easy part.
+
+## Goals
+I don't think I made any resolutions at the beginning of 2020. I remember that somewhere around the end of January, I decided to try and read 20 books, but I'm not sure I accomplished that, because for most of the year I wasn't taking very good notes about what I had and hadn't read. I know that I've read 4 books since about mid-November. I'm putting 20 books back on the list for 2021--and this time I'm going to keep good notes.
+
+I'm also going to try and run 1000 km. Strava indicated that I ran 921 km this year, so I'm not far off. In 2019 I walked to work, but since working remotely, I've been doing significantly less--and I can feel it in my back. So alongside a stricter running schedule, I'm also going to try and get back into the gym a little more regularly.
+
+## And that's basically it
+I don't have high hopes for 2021. I don't think there's much that any of us can do at this point but take things week to week—or day to day. That's how I intend to take the next year, and maybe 12 months from now we'll be in a better position than we're in right now.

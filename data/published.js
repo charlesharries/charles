@@ -1,5 +1,11 @@
 export default [
   {
+    title: '2020',
+    date: "31 Dec '20",
+    slug: '2020',
+    tags: ['Recently'],
+  },
+  {
     title: 'Wordpress in 2020',
     date: "15 Dec '20",
     slug: 'wordpress-in-2020',

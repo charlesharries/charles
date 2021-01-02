@@ -1,5 +1,11 @@
 export default [
   {
+    title: 'Eugene Onegin',
+    date: "2 Jan '21",
+    slug: 'eugene-onegin',
+    tags: ['Books', 'Media'],
+  },
+  {
     title: '2020',
     date: "31 Dec '20",
     slug: '2020',

@@ -85,6 +85,15 @@ strong,
   color: $red;
 }
 
+.Post {
+  hr {
+    height: 1px;
+    margin-bottom: 2rem;
+    border: 0;
+    background-color: color-mod($grey a(0.3));
+  }
+}
+
 p a,
 .Post li a,
 .link {

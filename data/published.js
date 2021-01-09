@@ -1,5 +1,11 @@
 export default [
   {
+    title: 'Hackers',
+    date: "9 Jan '21",
+    slug: 'hackers',
+    tags: ['Films', 'Media'],
+  },
+  {
     title: '1998 space disaster movies',
     date: "8 Jan '21",
     slug: '1998-space-disaster-movies',

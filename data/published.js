@@ -1,5 +1,11 @@
 export default [
   {
+    title: 'Metropolis (2001)',
+    date: "17 Jan '21",
+    slug: 'metropolis',
+    tags: ['Films', 'Media'],
+  },
+  {
     title: 'Hackers',
     date: "9 Jan '21",
     slug: 'hackers',

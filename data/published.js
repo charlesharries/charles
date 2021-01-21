@@ -1,5 +1,11 @@
 export default [
   {
+    title: 'Ad Astra (2019)',
+    date: "21 Jan '21",
+    slug: 'ad-astra',
+    tags: ['Films', 'Media'],
+  },
+  {
     title: 'Soul',
     date: "20 Jan '21",
     slug: 'soul',

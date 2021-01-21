@@ -198,6 +198,10 @@ ol {
   margin-bottom: 0.7rem;
 }
 
+.Post ol {
+  padding-left: 2.5rem;
+}
+
 .Post ul > li {
   position: relative;
   padding-left: 20px;

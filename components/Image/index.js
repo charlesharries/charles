@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import './Image.css';
 
-function Image({ src, children }) {
+function Image({ src, children, format = 'jpg' }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const url = size =>
-    `https://assets.charlesharri.es/${size}/https://assets.charlesharri.es/src${src}`;
+    `https://assets.charlesharri.es/${size},${format}/https://assets.charlesharri.es/src${src}`;
 
   function openModal(e) {
     e.preventDefault();
@@ -32,6 +32,7 @@ function Image({ src, children }) {
 Image.propTypes = {
   src: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  format: PropTypes.string,
 };
 
 export default Image;

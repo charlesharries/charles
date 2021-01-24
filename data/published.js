@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     title: 'Ad Astra (2019)',
     date: "21 Jan '21",

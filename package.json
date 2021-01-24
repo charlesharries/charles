@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev -p 1234",
     "build": "next build",
-    "now-build": "next build"
+    "now-build": "next build",
+    "postbuild": "node ./scripts/generateSitemap.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.0.27",

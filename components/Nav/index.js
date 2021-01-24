@@ -20,7 +20,7 @@ function Nav() {
         <Link href="/bits">
           <a className="Nav__link Nav__link--bits">Bits</a>
         </Link>
-        <Link href="/api/rss">
+        <Link href="/feed.xml">
           <a className="Nav__link Nav__link--rss">RSS</a>
         </Link>
       </div>

@@ -27,6 +27,8 @@ Error.getInitialProps = async ({ res, err, asPath }) => {
     err,
   });
 
+  errorInitialProps.hasGetInitialPropsRun = true;
+
   if (res?.statusCode === 404) {
     return { statusCode: 404 };
   }

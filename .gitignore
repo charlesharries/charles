@@ -27,3 +27,4 @@ test/**/out*
 
 # example output
 examples/**/out
+.vercel

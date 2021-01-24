@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NextErrorComponent from 'next/error';
 import * as Sentry from '@sentry/node';
-import Error404 from '../components/Error404';
 
 function Error({ statusCode, hasGetInitialPropsRun, err }) {
   if (!hasGetInitialPropsRun && err) {
     Sentry.captureException(err);
   }
-
-  // if (statusCode === 404) {
-  //   return <Error404 />;
-  // }
 
   return <NextErrorComponent statusCode={statusCode} />;
 }

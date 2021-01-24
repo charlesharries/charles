@@ -9,9 +9,9 @@ function Error({ statusCode, hasGetInitialPropsRun, err }) {
     Sentry.captureException(err);
   }
 
-  if (statusCode === 404) {
-    return <Error404 />;
-  }
+  // if (statusCode === 404) {
+  //   return <Error404 />;
+  // }
 
   return <NextErrorComponent statusCode={statusCode} />;
 }

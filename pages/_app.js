@@ -2,14 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import App from 'next/app';
 import '../assets/css/base.css';
+import * as Sentry from '@sentry/node';
 import Head from '~components/Head';
 import Nav from '~components/Nav';
+
+if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
+  Sentry.init({
+    enabled: process.env.NODE_ENV === 'production',
+    dns: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  });
+}
 
 class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
     const isHome = router.pathname === '/';
     const isError = router.pathname === '/_error';
+
+    something();
 
     return (
       <div className="Page">

@@ -28,3 +28,5 @@ test/**/out*
 # example output
 examples/**/out
 .vercel
+
+.env.local

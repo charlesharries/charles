@@ -1,28 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import NextErrorComponent from 'next/error';
+import * as Sentry from '@sentry/node';
 import Error404 from '../components/Error404';
-import Error500 from '../components/Error500';
 
-function Error({ statusCode, error }) {
-  const fiveHundreds = [500, 501, 502, 503, 504];
-  return (
-    <>
-      {statusCode === 404 && <Error404 />}
-      {fiveHundreds.includes(statusCode) && <Error500 error={error} />}
-    </>
-  );
+function Error({ statusCode, hasGetInitialPropsRun, err }) {
+  if (!hasGetInitialPropsRun && err) {
+    Sentry.captureException(err);
+  }
+
+  if (statusCode === 404) {
+    return <Error404 />;
+  }
+
+  return <NextErrorComponent statusCode={statusCode} />;
 }
 
-Error.getInitialProps = ({ res, err, error }) => {
-  // eslint-disable-next-line no-nested-ternary
-  const statusCode = res ? res.statusCode : err ? err.statusCode : null;
+/**
+ * Handle error page.
+ *
+ * @link https://leerob.io/blog/configuring-sentry-for-nextjs-apps
+ */
+Error.getInitialProps = async ({ res, err, asPath }) => {
+  const errorInitialProps = await NextErrorComponent.getInitialProps({
+    res,
+    err,
+  });
 
-  return { statusCode, error };
+  if (res?.statusCode === 404) {
+    return { statusCode: 404 };
+  }
+
+  if (err) {
+    Sentry.captureException(err);
+    await Sentry.flush(2000);
+    return errorInitialProps;
+  }
+
+  Sentry.captureException(
+    new Error(`_error.js getInitialProps is missing data at path: ${asPath}`)
+  );
+  await Sentry.flush(2000);
+
+  return errorInitialProps;
 };
 
 Error.propTypes = {
   statusCode: PropTypes.number,
-  error: PropTypes.object,
+  err: PropTypes.object,
+  hasGetInitialPropsRun: PropTypes.bool,
 };
 
 export default Error;

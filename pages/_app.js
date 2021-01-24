@@ -19,8 +19,6 @@ class MyApp extends App {
     const isHome = router.pathname === '/';
     const isError = router.pathname === '/_error';
 
-    something();
-
     return (
       <div className="Page">
         <Head />

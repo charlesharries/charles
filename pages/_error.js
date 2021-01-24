@@ -21,13 +21,13 @@ function Error({ statusCode, hasGetInitialPropsRun, err }) {
  *
  * @link https://leerob.io/blog/configuring-sentry-for-nextjs-apps
  */
-Error.getInitialProps = async ({ res, err, asPath }) => {
+Error.getInitialProps = async ({ res, err, asPath, ...rest }) => {
   const errorInitialProps = await NextErrorComponent.getInitialProps({
     res,
     err,
   });
 
-  console.log({ err, errorInitialProps });
+  console.log({ err, rest, asPath, errorInitialProps });
 
   errorInitialProps.hasGetInitialPropsRun = true;
 
@@ -44,7 +44,7 @@ Error.getInitialProps = async ({ res, err, asPath }) => {
   console.log('no err object found for some reason');
 
   Sentry.captureException(
-    new Error(`_error.js getInitialProps is missing data at path: ${asPath}`)
+    new Error(`_error.js getInitialProps is missing data`)
   );
   await Sentry.flush(2000);
 

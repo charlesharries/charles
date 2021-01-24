@@ -1,7 +1,12 @@
 {
   "version": 2,
   "name": "charles-harries-site",
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
@@ -13,6 +18,10 @@
       }
     },
     {
+      "src": "/feed.xml",
+      "dest": "/pages/api/rss.js"
+    },
+    {
       "src": "/api/rss",
       "headers": {
         "Cache-Control": "s-maxage=86400 stale-while-revalidate stale-if-error"
@@ -21,177 +30,247 @@
     {
       "src": "/posts/write-it-down",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/exercise-almost-every-day",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/remember-you-will-die",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/things-going-well",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/independent-advertising",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/bandit-0-1",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/bandit-0",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/on-popup-shaming",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/on-creative-professionals",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/on-trump-ford-and-jobs",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/on-the-confederacy-briefly",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/cheeky-girls",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/on-hot-dogs",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/the-worst-thing-on-any-car",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/hyundai-v-kia",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts/ford-expedition",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/write-it-down",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/exercise-almost-every-day",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/remember-you-will-die",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/things-going-well",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/independent-advertising",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/bandit-0-1",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/bandit-0",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/on-popup-shaming",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/on-creative-professionals",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/on-trump-ford-and-jobs",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/on-the-confederacy-briefly",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/cheeky-girls",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/on-hot-dogs",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/the-worst-thing-on-any-car",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/hyundai-v-kia",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/ford-expedition",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/blog/ford-expedition",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es" }
+      "headers": {
+        "Location": "https://charlesharri.es"
+      }
     },
     {
       "src": "/posts",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es/blog" }
+      "headers": {
+        "Location": "https://charlesharri.es/blog"
+      }
     },
     {
       "src": "/posts/(.*)",
       "status": 301,
-      "headers": { "Location": "https://charlesharri.es/blog/$1" }
+      "headers": {
+        "Location": "https://charlesharri.es/blog/$1"
+      }
     }
   ]
 }

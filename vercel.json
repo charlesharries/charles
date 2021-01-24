@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "charles-harries-site",
   "builds": [
     {
       "src": "package.json",

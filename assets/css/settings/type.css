@@ -14,6 +14,7 @@ h1,
 .t-h1 {
   font-size: 3.6rem;
   line-height: calc(40 / 25);
+  font-weight: 400;
   letter-spacing: 0.12rem;
 
   @media (--desktop) {
@@ -27,6 +28,7 @@ h2,
 .t-h2 {
   font-size: 2.8rem;
   line-height: calc(30 / 20);
+  font-weight: 400;
   letter-spacing: 0.12rem;
 
   @media (--desktop) {
@@ -65,6 +67,26 @@ li,
   }
 }
 
+.t-large {
+  font-size: 1.8rem;
+
+  @media (--desktop) {
+    font-size: 2rem;
+  }
+}
+
+.t-xlarge {
+  font-size: 2.2rem;
+
+  @media (--desktop) {
+    font-size: 2.6rem;
+  }
+}
+
+.t-serif {
+  font-family: $serif;
+}
+
 b,
 strong,
 .t-strong {
@@ -82,7 +104,7 @@ strong,
 
 ::selection {
   background: color-mod($white a(0.05));
-  color: $red;
+  color: $primary;
 }
 
 .Post {
@@ -97,21 +119,21 @@ strong,
 p a,
 .Post li a,
 .link {
-  border-bottom: 1px solid $red;
+  border-bottom: 1px solid $primary;
   transition: color $speed1 ease;
 
   &:hover {
-    color: $red;
+    color: $primary;
   }
 
   &:focus {
-    outline: 1px solid $red;
+    outline: 1px solid $primary;
   }
 }
 
 blockquote {
   padding: $spacing;
-  border-right: 2px solid $red;
+  border-right: 2px solid $primary;
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 1px 1px $black;
 
@@ -172,7 +194,7 @@ ol {
 }
 
 .text-red {
-  color: $red;
+  color: $primary;
 }
 
 .text-serif {
@@ -216,4 +238,19 @@ ol {
 .Content figcaption {
   font-size: 0.85em;
   margin-top: 4px;
+}
+
+.font-sm {
+  font-size: 1.6rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.keyline {
+  padding-bottom: 1rem;
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }

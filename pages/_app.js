@@ -6,6 +6,8 @@ import * as Sentry from '@sentry/node';
 import Head from '~components/Head';
 import Nav from '~components/Nav';
 
+import Links from '../components/Links';
+
 if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   Sentry.init({
     enabled: process.env.NODE_ENV === 'production',
@@ -20,13 +22,17 @@ class MyApp extends App {
     const isError = router.pathname === '/_error';
 
     return (
-      <div className="Page">
-        <Head />
-        <Nav />
-        <Layout centered={isHome || isError}>
-          <Component {...pageProps} key={router.pathname} />
-        </Layout>
-      </div>
+      <>
+        <div className="Page">
+          <Head />
+          <Nav />
+          <Layout centered={isHome || isError}>
+            <Component {...pageProps} key={router.pathname} />
+          </Layout>
+        </div>
+
+        <Links />
+      </>
     );
   }
 }

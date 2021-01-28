@@ -1,0 +1,21 @@
+.cluster {
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: -2rem;
+  margin-bottom: -2rem;
+
+  & > * {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &--lg {
+    margin-right: -4rem;
+    margin-bottom: -4rem;
+
+    & > * {
+      margin-right: 4rem;
+      margin-bottom: 4rem;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.AnimatedName {
+  width: 300px;
+  height: auto;
+
+  @media (--desktop) {
+    width: 375px;
+  }
+
+  @media (--fullscreen) {
+    transform: translateX(-9%);
+  }
+}
+
+.stroke {
+  --coefficient: 1800;
+
+  animation: draw calc(var(--length) * 1s / var(--coefficient)) linear;
+  animation-delay: calc(1s * var(--before) / var(--coefficient));
+  animation-fill-mode: forwards;
+  stroke-dasharray: var(--length);
+  stroke-dashoffset: var(--length);
+}
+
+.stroke-c {
+  --before: 0;
+  --length: 1140;
+}
+
+.stroke-h {
+  --before: 1140;
+  --length: 1175;
+}
+
+.stroke-ar {
+  --before: calc(1140 + 1175);
+  --length: 1150;
+}
+
+.stroke-l {
+  --before: calc(1140 + 1175 + 1150);
+  --length: 480;
+}
+
+.stroke-es-start {
+  --before: calc(1140 + 1175 + 1150 + 480);
+  --length: 135;
+}
+
+.stroke-es-end {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135);
+  --length: 630;
+}
+
+.stroke-h1 {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135 + 630);
+  --length: 575;
+}
+
+.stroke-h2 {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135 + 630 + 575);
+  --length: 1330;
+}
+
+.stroke-h3 {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135 + 630 + 575 + 1330);
+  --length: 640;
+}
+
+.stroke-arr {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135 + 630 + 575 + 1330 + 640);
+  --length: 1135;
+}
+
+.stroke-i {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135 + 630 + 575 + 1330 + 640 + 1135);
+  --length: 230;
+}
+
+.stroke-i-dot {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135 + 630 + 575 + 1330 + 640 + 1135 + 230);
+  --length: 85;
+}
+
+.stroke-es {
+  --before: calc(1140 + 1175 + 1150 + 480 + 135 + 630 + 575 + 1330 + 640 + 1135 + 230 + 85);
+  --length: 770;
+}

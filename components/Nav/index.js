@@ -3,17 +3,17 @@ import './Nav.css';
 
 function Nav() {
   return (
-    <nav className="Nav">
-      <div className="Nav__left">
+    <nav className="Nav cluster cluster--lg">
+      <div className="Nav__left cluster">
         <Link href="/">
           <a className="Nav__link Nav__link--blog">Home</a>
         </Link>
         <Link href="/blog">
           <a className="Nav__link Nav__link--blog">Blog</a>
         </Link>
-      </div>
 
-      <div className="Nav__right">
+        <div className="divider-vert"></div>
+
         <Link href="/sam">
           <a className="Nav__link Nav__link--blog">Sam</a>
         </Link>

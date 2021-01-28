@@ -1,19 +1,19 @@
 @font-face {
-    font-family: 'Goudy Bookletter 1911';
-    src: url('/fonts/goudybookletter1911-webfont.woff2') format('woff2'),
-         url('/fonts/goudybookletter1911-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'Goudy Bookletter 1911';
+  font-weight: normal;
+  font-style: normal;
+  src:
+    url('/fonts/goudybookletter1911-webfont.woff2') format('woff2'),
+    url('/fonts/goudybookletter1911-webfont.woff') format('woff');
 }
 
 $black: #000;
 $darkgrey: #222;
 $grey: #aaa;
-$lightgrey: #F7EFE5;
+$lightgrey: #f7efe5;
 $white: #fff;
 $dimwhite: color-mod($white a(0.65));
-$red: #f00;
+$primary: #ef2700;
 
 $font: 'Libre Franklin', sans-serif;
 $serif: 'Goudy Bookletter 1911', 'Arimo', sans-serif;
@@ -24,3 +24,4 @@ $spacing: 2rem;
 
 @custom-media --mobile (width <= 768px);
 @custom-media --desktop (width > 768px);
+@custom-media --fullscreen (width > 1240px);

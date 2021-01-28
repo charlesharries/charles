@@ -28,9 +28,14 @@ body {
 .Page {
   position: relative;
   width: 100%;
+  max-width: 1200px;
   height: 100%;
   min-height: 100vh;
+  padding-right: 2rem;
   padding-bottom: 50px;
+  padding-left: 2rem;
+  margin-right: auto;
+  margin-left: auto;
   color: $white;
 }
 
@@ -41,11 +46,17 @@ body {
 
 main:not(.Full) {
   max-width: 600px;
-  padding-top: 10rem;
-  padding-right: $spacing;
-  padding-left: $spacing;
-  
+  padding-top: 6rem;
+
   @media (--desktop) {
-    margin-left: 100px;
+    padding-top: 10rem;
   }
+}
+
+.hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
 }

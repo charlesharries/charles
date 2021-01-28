@@ -2,22 +2,22 @@
   position: relative;
 
   &:focus {
-    color: $red;
+    color: $primary;
     outline: none;
 
     .Bit__date {
-      color: $red;
+      color: $primary;
     }
 
     &::before {
       content: '';
       position: absolute;
+      top: 12px;
       left: -25px;
       display: block;
-      height: 2px;
       width: 15px;
-      background-color: $red;
-      top: 12px;
+      height: 2px;
+      background-color: $primary;
     }
   }
 }

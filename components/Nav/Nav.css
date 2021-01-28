@@ -2,77 +2,17 @@
 @import '~css/layout/button';
 
 .Nav {
-  position: fixed;
-  bottom: 0;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-bottom: 10px;
-
-  @media (--desktop) {
-    top: 50%;
-    bottom: initial;
-    z-index: 1;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 40px;
-    padding-left: 40px;
-    border: none;
-    background-color: transparent;
-    transform: translateY(-50%);
-
-    & > *:first-child {
-      transform: rotate(-90deg) translateX(-50%);
-      transform-origin: 0% 50%;
-    }
-
-    & > *:last-child {
-      transform: rotate(90deg) translateX(50%);
-      transform-origin: 100% 50%;
-    }
-  }
-}
-
-.Nav__left,
-.Nav__right {
-  display: flex;
-  justify-content: space-around;
-
-  @media (--desktop) {
-    display: block;
-  }
-}
-
-.Nav__left {
-  @media (--desktop) {
-    flex: initial;
-    border: none;
-  }
-}
-
-.Nav__right {
-  @media (--desktop) {
-    flex: initial;
-  }
+  padding-top: 4rem;
 }
 
 .Nav__link {
-  @media (--mobile) {
-    @mixin button;
-  }
-
-  @media (--desktop) {
-    padding: 0;
-  }
-
   &:focus {
-    outline: 2px solid $red;
+    outline: 2px solid $primary;
   }
 }
 
-.Nav__link:not(:last-child) {
-  @media (--desktop) {
-    margin-right: 4rem;
-  }
+.divider-vert {
+  width: 1px;
+  height: 2.5rem;
+  background-color: white;
 }

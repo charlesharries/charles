@@ -21,26 +21,26 @@
   }
 
   &:focus {
+    color: $primary;
     outline: none;
-    color: $red;
 
     &::before {
       content: '';
       position: absolute;
+      top: 6px;
       left: -25px;
       display: block;
-      height: 2px;
       width: 15px;
-      background-color: $red;
-      top: 6px;
+      height: 2px;
+      background-color: $primary;
     }
 
     &::after {
-      border-color: color-mod($red a(0.5));
+      border-color: color-mod($primary a(0.5));
     }
 
     .BlogLink__date {
-      color: $red;
+      color: $primary;
     }
   }
 }

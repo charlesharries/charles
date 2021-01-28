@@ -22,6 +22,8 @@ $speed1: 0.15s;
 
 $spacing: 2rem;
 
+$width: 1200px;
+
 @custom-media --mobile (width <= 768px);
 @custom-media --desktop (width > 768px);
 @custom-media --fullscreen (width > 1240px);

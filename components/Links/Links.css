@@ -1,6 +1,19 @@
+@import '~css/settings/vars';
+
 .Links {
-  padding-top: 1rem;
-  margin-right: 2rem;
-  margin-left: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: $width;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  & > :first-child {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    @media (--desktop) {
+      padding-top: 2rem;
+    }
+  }
 }

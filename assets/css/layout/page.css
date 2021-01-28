@@ -28,7 +28,7 @@ body {
 .Page {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: $width;
   height: 100%;
   min-height: 100vh;
   padding-right: 2rem;

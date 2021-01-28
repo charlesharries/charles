@@ -24,7 +24,7 @@ function Home() {
 
         <ul>
           {latest.map(post => (
-            <li className="BlogPost">
+            <li className="BlogPost" key={post.description}>
               <article className="BlogPost">
                 <p className="t-large mb-0">
                   <Link href={`/${post.__resourcePath.replace('.mdx', '')}`}>

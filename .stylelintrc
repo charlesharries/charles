@@ -72,6 +72,7 @@
       ],
       { "unspecified": "bottomAlphabetical" }
     ],
-    "at-rule-no-unknown": null
+    "at-rule-no-unknown": null,
+    "declaration-block-trailing-semicolon": null
   }
 } 

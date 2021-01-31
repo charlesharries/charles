@@ -1,5 +1,11 @@
 module.exports = [
   {
+    title: 'Recently: January',
+    date: "31 Jan '20",
+    slug: 'recently-january',
+    tags: ['Recently'],
+  },
+  {
     title: 'Ad Astra (2019)',
     date: "21 Jan '21",
     slug: 'ad-astra',

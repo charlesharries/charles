@@ -2,8 +2,8 @@ module.exports = [
   {
     title: 'Jobs at Twilio',
     date: "10 Feb '21",
-    slug: 'recently-january',
-    tags: ['Recently'],
+    slug: 'twilio-jobs',
+    tags: ['Jobs'],
   },
   {
     title: 'Recently: January',

@@ -28,7 +28,7 @@ function Home() {
               <article className="BlogPost">
                 <p className="t-large mb-0">
                   <Link href={`/${post.__resourcePath.replace('.mdx', '')}`}>
-                    {post.title.replace(' | Charles Harries', '')}
+                    {post.title.replace('', '')}
                   </Link>
                 </p>
                 <p className="font-sm">{post.description}</p>

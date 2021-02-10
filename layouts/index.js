@@ -6,7 +6,7 @@ function BlogPage({ children, frontMatter }) {
   return (
     <div className="Post">
       <Head>
-        <title>{frontMatter.title || title}</title>
+        <title>{frontMatter.title || title} | Charles Harries</title>
         <meta
           name="description"
           content={frontMatter.description || description}

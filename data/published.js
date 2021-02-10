@@ -1,7 +1,13 @@
 module.exports = [
   {
+    title: 'Jobs at Twilio',
+    date: "10 Feb '21",
+    slug: 'recently-january',
+    tags: ['Recently'],
+  },
+  {
     title: 'Recently: January',
-    date: "31 Jan '20",
+    date: "31 Jan '21",
     slug: 'recently-january',
     tags: ['Recently'],
   },

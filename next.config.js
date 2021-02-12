@@ -38,7 +38,7 @@ module.exports = withMdxEnhanced({
   withSourceMaps(
     withCSS({
       pageExtensions: ['js', 'jsx', 'mdx'],
-      webpack(config, options) {
+      webpack(config, { dev, isServer }) {
         config.resolve.alias = {
           ...(config.resolve.alias || {}),
           '~pages': resolve(__dirname, 'pages'),
@@ -47,7 +47,7 @@ module.exports = withMdxEnhanced({
           '~data': resolve(__dirname, 'data'),
         };
 
-        if (!options.isServer) {
+        if (!isServer) {
           config.resolve.alias['@sentry/node'] = '@sentry/browser';
         }
 
@@ -67,6 +67,16 @@ module.exports = withMdxEnhanced({
               release: COMMIT_SHA,
             })
           );
+        }
+
+        // Replace React with Preact in client production build
+        // @link https://github.com/leerob/leerob.io/blob/main/next.config.js
+        if (!dev && !isServer) {
+          Object.assign(config.resolve.alias, {
+            react: 'preact/compat',
+            'react-dom': 'preact/compat',
+            'react-dom/test-utils': 'preact/test-utils',
+          });
         }
 
         return config;

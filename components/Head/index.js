@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 export const title = 'Charles Harries';
 export const description =
@@ -10,7 +11,11 @@ export const image = '/images/cover.jpg';
 export function PostHead({ frontMatter }) {
   const { title: pageTitle, description: pageDescription } = frontMatter;
   const canonical = `${baseUrl}/${frontMatter.__resourcePath.replace('.mdx', '')}`;
-  const published = new Date(frontMatter.date).toISOString();
+  let published = null;
+
+  if (frontMatter.date) {
+    published = new Date(frontMatter.date).toISOString();
+  }
 
   return (
     <Head>
@@ -28,10 +33,19 @@ export function PostHead({ frontMatter }) {
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={image} />
 
-      <meta name="article:published_time" content={published} />
+      {published && <meta name="article:published_time" content={published} />}
     </Head>
   );
 }
+
+PostHead.propTypes = {
+  frontMatter: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    __resourcePath: PropTypes.string,
+    date: PropTypes.string,
+  }),
+};
 
 function Meta() {
   const isDev = process.env.NODE_ENV === 'development';

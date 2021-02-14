@@ -6,7 +6,7 @@ export const description =
   'Frontend Javascript developer. React, Vue, WordPress, PHP, headless CMSes, synergy, driving growth, buzzword, buzzword, buzzword.';
 export const color = '#000000';
 export const baseUrl = 'https://charlesharri.es';
-export const image = '/images/cover.jpg';
+export const image = 'https://charlesharri.es/images/cover.jpg';
 
 export function PostHead({ frontMatter }) {
   const { title: pageTitle, description: pageDescription } = frontMatter;

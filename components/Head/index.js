@@ -7,6 +7,32 @@ export const color = '#000000';
 export const baseUrl = 'https://charlesharri.es';
 export const image = '/images/cover.jpg';
 
+export function PostHead({ frontMatter }) {
+  const { title: pageTitle, description: pageDescription } = frontMatter;
+  const canonical = `${baseUrl}/${frontMatter.__resourcePath.replace('.mdx', '')}`;
+  const published = new Date(frontMatter.date).toISOString();
+
+  return (
+    <Head>
+      <title>{pageTitle}</title>
+
+      <meta name="description" content={pageDescription} />
+
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:image" content={image} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:url" content={canonical} />
+
+      <meta name="twitter:url" content={canonical} />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={image} />
+
+      <meta name="article:published_time" content={published} />
+    </Head>
+  );
+}
+
 function Meta() {
   const isDev = process.env.NODE_ENV === 'development';
   const isBrowser = typeof window !== 'undefined';
@@ -21,22 +47,13 @@ function Meta() {
       <meta name="theme-color" content={color} />
       <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <meta name="dcterms.Contributor" content={title} />
-      <meta name="dcterms.Coverage" content={baseUrl} />
-      <meta name="dcterms.Creator" content={title} />
-      <meta name="dcterms.Description" content={description} />
-      <meta name="dcterms.Format" content="text/html" />
-      <meta name="dcterms.Identifier" content={baseUrl} />
-      <meta name="dcterms.Language" content="en_GB" />
-      <meta name="dcterms.Publisher" content={title} />
-      <meta name="dcterms.Type" content="website" />
-      <meta name="og:description" content={description} />
-      <meta name="og:image" content={image} />
-      <meta name="og:locale" content="en_GB" />
-      <meta name="og:site_name" content={title} />
-      <meta name="og:title" content={title} />
-      <meta name="og:type" content="website" />
-      <meta name="og:url" content={baseUrl} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:site_name" content={title} />
+      <meta property="og:title" content={title} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={baseUrl} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={baseUrl} />
       <meta name="twitter:title" content={title} />
@@ -45,28 +62,10 @@ function Meta() {
       <meta name="twitter:image:src" content={image} />
 
       <link rel="canonical" href={baseUrl} key="canonical" />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/images/apple-icon-180x180.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/images/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/images/favicon-16x16.png"
-      />
-      <link
-        rel="mask-icon"
-        href="/images/safari-pinned-tab.svg"
-        color="#000000"
-      />
+      <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+      <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#000000" />
       <link rel="shortcut icon" href="/images/favicon.ico" />
 
       <link

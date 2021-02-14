@@ -19,7 +19,12 @@ module.exports = {
       "allowTernary": true
     }],
     "react/no-danger": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "printWidth": 100,
+      "trailingComma": true,
+    }]
   },
   settings: {
     'import/resolver': {

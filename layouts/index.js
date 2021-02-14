@@ -1,17 +1,10 @@
 import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { title, description } from '../components/Head';
+import { PostHead } from '../components/Head';
 
 function BlogPage({ children, frontMatter }) {
   return (
     <div className="Post">
-      <Head>
-        <title>{frontMatter.title || title} | Charles Harries</title>
-        <meta
-          name="description"
-          content={frontMatter.description || description}
-        />
-      </Head>
+      <PostHead frontMatter={frontMatter} />
 
       {children}
     </div>

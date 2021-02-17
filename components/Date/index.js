@@ -1,49 +1,21 @@
 import PropTypes from 'prop-types';
+import { shortDate, longDate } from '../../util/date';
 
-/**
- * Get the English month for the given date.
- *
- * @param {Date} d - The date to get the month for.
- */
-function month(d) {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  return months[d.getMonth()];
-}
-
-/**
- * Format a date like "1 January 2021".
- *
- * @param   {Date} date - The date to format.
- * @returns {string}
- */
-const format = date => {
-  const y = date.getFullYear() % 100;
-  const m = month(date);
-  const d = date.getDate();
-
-  return `${d} ${m} '${y}`;
+const shortStyle = {
+  textTransform: 'uppercase',
+  fontSize: '0.85em',
 };
 
-function DateComponent({ children, date: dateString }) {
-  const style = { fontStyle: 'italic' };
+const longStyle = { fontStyle: 'italic' };
+
+function DateComponent({ children, date: dateString, short = false }) {
+  const style = short ? shortStyle : longStyle;
 
   if (children) {
     return <p style={style}>{children}</p>;
   }
+
+  const format = short ? shortDate : longDate;
 
   return (
     <p style={style}>
@@ -55,6 +27,7 @@ function DateComponent({ children, date: dateString }) {
 DateComponent.propTypes = {
   date: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  short: PropTypes.bool,
 };
 
 export default DateComponent;

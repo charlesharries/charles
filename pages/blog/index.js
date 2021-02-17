@@ -1,20 +1,41 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import published from '~data/published';
+import DateComponent from '../../components/Date';
+import * as posts from './*.mdx';
+
+/**
+ * Get the frontmatter off a post.
+ *
+ * @param {{ frontmatter: Object }} post
+ */
+const getFrontmatter = post => post.frontMatter;
+
+/**
+ * Compare two post dates for sorting.
+ *
+ * @param   {{ date: string }} p1
+ * @param   {{ date: string }} p2
+ * @returns {number}
+ */
+function byDate(p1, p2) {
+  return p1.date < p2.date ? 1 : -1;
+}
 
 /**
  * A single blog item.
  *
  * @todo Once we've got all of the dates set, use the DateComponent here.
- * @param {{ slug: string, title: string, date: string }} post
+ * @param {{ __resourcePath: string, title: string, date: string }} post
  */
-function BlogItem({ slug, title, date }) {
+function BlogItem({ __resourcePath, title, date }) {
+  const path = __resourcePath.replace('.mdx', '');
+
   return (
     <li>
       <article>
-        <Link href={`/blog/${slug}`}>
+        <Link href={`/${path}`}>
           <a className="BlogLink t-para">
-            <span className="BlogLink__date t-small">{date}</span>
+            <DateComponent date={date} short element="span" className="BlogLink__date t-small" />
             <span className="BlogLink__text">{title}</span>
           </a>
         </Link>
@@ -24,7 +45,7 @@ function BlogItem({ slug, title, date }) {
 }
 
 BlogItem.propTypes = {
-  slug: PropTypes.string,
+  __resourcePath: PropTypes.string,
   title: PropTypes.string,
   date: PropTypes.string,
 };
@@ -34,9 +55,12 @@ function Blog() {
     <div className="Blog">
       <h1 className="Blog__title">the blog</h1>
       <ul>
-        {published.map(p => (
-          <BlogItem {...p} />
-        ))}
+        {posts
+          .map(getFrontmatter)
+          .sort(byDate)
+          .map(frontMatter => (
+            <BlogItem key={frontMatter.__resourcePath} {...frontMatter} />
+          ))}
       </ul>
     </div>
   );

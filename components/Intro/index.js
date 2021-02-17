@@ -40,7 +40,7 @@ export default function Intro() {
 
       <p className="t-large">
         I write software with PHP and JavaScript for {komodo}. Previously I worked at {creator} in
-        Castle Eden. After hours I write a bit of {Go}, watch more {movies} than I ought to, and
+        Castle Eden. After hours I write a bit of {Go}, watch more {movies} than I ought to, and{' '}
         {read} less than I should.
       </p>
     </a>

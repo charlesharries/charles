@@ -6,7 +6,7 @@ const bits = [
     description: 'Extremely simple GPX editor.',
   },
   {
-    link: 'https://jernl.space',
+    link: 'https://jernl.charlesharri.es',
     date: "Feb '20",
     title: 'Jernl',
     description: 'Daily journaling with a calendar.',

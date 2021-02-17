@@ -35,7 +35,7 @@ export default function Intro() {
   );
 
   return (
-    <a>
+    <>
       <p className="t-large">I'm a developer working on the web in the North East of England.</p>
 
       <p className="t-large">
@@ -43,6 +43,6 @@ export default function Intro() {
         Castle Eden. After hours I write a bit of {Go}, watch more {movies} than I ought to, and{' '}
         {read} less than I should.
       </p>
-    </a>
+    </>
   );
 }

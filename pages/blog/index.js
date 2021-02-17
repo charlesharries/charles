@@ -10,6 +10,11 @@ import * as posts from './*.mdx';
  */
 const getFrontmatter = post => post.frontMatter;
 
+// Disable client-side JS.
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 /**
  * Compare two post dates for sorting.
  *

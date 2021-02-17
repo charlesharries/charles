@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import articles from '../../data/sam-published';
 
+// Disable client-side JS.
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 function Blog() {
   return (
     <div className="Blog">

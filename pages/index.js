@@ -4,6 +4,11 @@ import Intro from '~components/Intro';
 
 const published = require('../data/published.js');
 
+// Disable client-side JS.
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 const latest = [
   require(`../pages/blog/${published[0].slug}.mdx`),
   require(`../pages/blog/${published[1].slug}.mdx`),

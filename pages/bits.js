@@ -41,8 +41,7 @@ const bits = [
     link: 'https://charlesharries.wordpress.com/',
     date: "Nov '15 - Aug '16",
     title: 'Hills & Letters',
-    description:
-      'Short stories I picked up, Hokkaido hiking guides, odds & ends.',
+    description: 'Short stories I picked up, Hokkaido hiking guides, odds & ends.',
   },
   {
     link: 'https://everythingyouhaveheard.blogspot.com/',
@@ -52,6 +51,11 @@ const bits = [
       'Blog covering the first 104 weeks of my life on the JET Programme in Yubetsu, Japan.',
   },
 ];
+
+// Disable client-side JS.
+export const config = {
+  unstable_runtimeJS: false,
+};
 
 function Bits() {
   return (

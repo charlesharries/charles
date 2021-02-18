@@ -1,11 +1,11 @@
-.Bit__link {
+.Project__link {
   position: relative;
 
   &:focus {
     color: $primary;
     outline: none;
 
-    .Bit__date {
+    .Project__date {
       color: $primary;
     }
 
@@ -22,11 +22,11 @@
   }
 }
 
-.Bit__title {
+.Project__title {
   margin-bottom: 0;
 }
 
-.Bit__date {
+.Project__date {
   font-size: 0.8em;
   margin-left: 1rem;
   color: $dimwhite;

@@ -1,4 +1,4 @@
-const bits = [
+const projects = [
   {
     link: 'https://edit-gpx.netlify.app',
     date: "Jul '20",
@@ -57,18 +57,18 @@ export const config = {
   unstable_runtimeJS: false,
 };
 
-function Bits() {
+function Projects() {
   return (
-    <div className="Bits">
-      <h1 className="Bits__title">various bits</h1>
+    <div className="Projects">
+      <h1 className="Projects__title">various bits</h1>
       <ul>
-        {bits.map(bit => (
-          <a className="Bit__link" key={bit.title} href={bit.link}>
-            <p className="Bit__title">
-              <strong>{bit.title}</strong>
-              <span className="Bit__date">{bit.date}</span>
+        {projects.map(project => (
+          <a className="Project__link" key={project.title} href={project.link}>
+            <p className="Project__title">
+              <strong>{project.title}</strong>
+              <span className="Project__date">{project.date}</span>
             </p>
-            <p className="Bit_description">{bit.description}</p>
+            <p className="Project_description">{project.description}</p>
           </a>
         ))}
       </ul>
@@ -76,4 +76,4 @@ function Bits() {
   );
 }
 
-export default Bits;
+export default Projects;

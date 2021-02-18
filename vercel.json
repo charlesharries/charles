@@ -25,6 +25,7 @@
   ],
   "redirects": [
     { "source": "/posts", "destination": "https://charlesharri.es/blog" },
+    { "source": "/bits", "destination": "https://charlesharri.es/projects" },
     { "source": "/posts/(.*)", "destination": "https://charlesharri.es/blog/$1" }
   ],
   "rewrites": [

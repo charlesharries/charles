@@ -17,8 +17,8 @@ function Nav() {
         <Link href="/sam">
           <a className="Nav__link Nav__link--blog">Sam</a>
         </Link>
-        <Link href="/bits">
-          <a className="Nav__link Nav__link--bits">Bits</a>
+        <Link href="/projects">
+          <a className="Nav__link Nav__link--projects">Projects</a>
         </Link>
         <Link href="/feed.xml">
           <a className="Nav__link Nav__link--rss">RSS</a>

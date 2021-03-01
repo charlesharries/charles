@@ -1,0 +1,47 @@
+---
+title: As Much JavaScript as Possible
+date: "2021-03-01"
+description: Some thoughts on JavaScript outside of the browser and its unpopularity in Big Tech.
+---
+
+import Date from '../../components/Date';
+
+<Date date="2021-03-01" />
+
+# As Much JavaScript as Possible
+
+Right.
+
+I've got some nascent-type thoughts circulating in my head. They're about JavaScript: which is dangerous. But I want to write them down. I want to grapple with the notions floating around in the old brainulum and this is the best way to do it.
+
+So here's the short story of JavaScript outside of the browser:
+
+In like 2009 or something, someone, somewhere, building software on the Internet, took a step back and thought to themselves:
+
+> It's not fair that if you want to program computers for the Internet, you have to learn three different languages. I don't want to write sometimes in HTML, and sometimes in CSS, and sometimes in Javascript, and God help me if I have to learn _another_ language on the server side, like Ruby or PHP or Python or something. I just want to learn _one_ language.
+
+Which is a valid complaint. A lot of data science geeks write As Much Python as Possible, and some enterprisey systems engineers write As Much Java as Possible, and some people who work deep down in the mines right up next to the bare metal write As Much C As Possible, and God bless them.
+
+But up at the top of the stack on the very thin sugary wrapper around the web that we all know and love, web developers write HTML sometimes, and CSS sometimes, and JavaScript sometimes, and every now and again some serverside language. And each of those languages comes with its own quirks and features, and no one seems to be particularly good at all three.
+
+But what if there were a way to learn to write JavaScript and JavaScript only? If you could write some JavaScript to turn JavaScript into HTML, and JavaScript into CSS? & so the Holy Grail of web development became: As Much JavaScript as Possible.
+
+I think we got pretty good at it, too. There's now a way to JavaScriptify just about any part of the web. Servers? JS. Template builders? JS. CSS frameworks? JS. Task runners? Cron jobs? Microservices? Mobile applications? Serverless functions? Spaceship interfaces? JS.
+
+## I know what you're thinking
+This isn't another blog post about JavaScript fatigue. No doubt that it's real. No doubt that the 1700-odd dependencies installed by `create-react-app` is beyond fathoming. No doubt.
+
+But the [seminal JS fatigue article](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f) was written in 2016 so writing about this in 2021 is Old Hat in a major way.
+
+## What I'm really here to figure out
+I've started [reading job postings](https://charlesharri.es/blog/twilio-jobs) at big tech companies lately, and it seems like none of them are asking for any experience with JavaScript outside of the browser. 
+
+In fact, as far as JS goes, most of them just want React (and Typescript if they're feeling adventurous). Which is fair: component-based UI builders really are the nicest to use, and 2-way data binding with state makes lots of basic stuff really easy. And the ecosystem around React means that smarter people than you have already solved like 98% of the problems you'll face outside of the labs at Google and Facebook and Stripe.
+
+But the rest use some other stack on the "backend". A much higher number than I would have thought are looking for something that runs on the JVM—plain ol' Java, more often than not. If the company is forward-looking and scale-oriented, they might also ask for Go.
+
+It feels like the tech companies that have Figured It Out (or at least, appear to have Figured It Out from the outside) are operating not on the premise of As Much Javascript as Possible but instead on the premise of As _Little_ JavaScript as Possible. And I'm not totally sure why.
+
+Contrast this with web agencies, which seems to be investing pretty heavily in As Much JavaScript as Possible, and the ecosystem growing up around the AMJSaP mentality: databases as a service, serverless functions as a service, authentication as a service, cloud hosting as a service. These wouldn't be here if the Right Answer really was to write everything in Scala.
+
+So what do the big shakers at the top of the tech pyramid know that I don't?

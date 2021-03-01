@@ -60,7 +60,7 @@ export const config = {
 function Projects() {
   return (
     <div className="Projects">
-      <h1 className="Projects__title">various bits</h1>
+      <h1 className="Projects__title">side projects</h1>
       <ul>
         {projects.map(project => (
           <a className="Project__link" key={project.title} href={project.link}>

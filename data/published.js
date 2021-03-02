@@ -1,5 +1,10 @@
 module.exports = [
   {
+    title: 'As Much JS As Possible',
+    date: "1 Mar '21",
+    slug: 'as-much-js-as-possible',
+  },
+  {
     title: 'Jobs at Twilio',
     date: "10 Feb '21",
     slug: 'twilio-jobs',

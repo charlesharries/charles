@@ -1,5 +1,10 @@
 module.exports = [
   {
+    title: 'February 2021',
+    date: "6 Mar '21",
+    slug: 'february-2021',
+  },
+  {
     title: 'As Much JS As Possible',
     date: "1 Mar '21",
     slug: 'as-much-js-as-possible',

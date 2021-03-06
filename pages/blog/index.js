@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
-import * as allPosts from './*.mdx';
+import { frontMatter as allPosts } from './*.mdx';
 
 /**
  * Get the frontmatter off a post.
@@ -56,7 +56,8 @@ BlogItem.propTypes = {
 };
 
 function Blog() {
-  const posts = allPosts.map(getFrontmatter);
+  // const posts = [...allPosts.map(getFrontmatter)];
+  const posts = [...allPosts];
 
   return (
     <div className="Blog">

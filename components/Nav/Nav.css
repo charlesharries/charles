@@ -2,6 +2,7 @@
 @import '~css/layout/button';
 
 .Nav {
+  width: 100%;
   padding-top: 4rem;
 }
 
@@ -31,8 +32,18 @@
     transition: filter 500s ease-in-out;
   }
 
+  .ThemeToggle__label {
+    display: none;
+  }
+
   &:active,
   &:focus {
     outline: 2px solid var(--primary);
+  }
+
+  @media (--desktop) {
+    .ThemeToggle__label {
+      display: inline-block;
+    }
   }
 }

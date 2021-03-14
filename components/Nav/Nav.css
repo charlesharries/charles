@@ -14,5 +14,25 @@
 .divider-vert {
   width: 1px;
   height: 2.5rem;
-  background-color: white;
+  background-color: var(--text);
+}
+
+[data-element="ThemeToggle"] {
+  display: flex;
+
+  .icon {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+    background: var(--icon);
+    filter: var(--icon-filter);
+    transform: translateY(2px);
+    transition: filter 500s ease-in-out;
+  }
+
+  &:active,
+  &:focus {
+    outline: 2px solid var(--primary);
+  }
 }

@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import capitalise from '../../util/capitalise';
 import './Nav.css';
 
 function Nav() {
-  console.log('initting nav!');
+  let theme = 'dark';
+
+  if (process.browser) {
+    theme = localStorage.getItem('user-color-scheme');
+  }
 
   return (
     <nav className="Nav cluster cluster--lg">
@@ -25,6 +30,13 @@ function Nav() {
         <Link href="/feed.xml">
           <a className="Nav__link Nav__link--rss">RSS</a>
         </Link>
+
+        <div className="divider-vert"></div>
+
+        <button type="button" data-element="ThemeToggle">
+          <span className="icon"></span>
+          <span className="ThemeToggle__label">{capitalise(theme)}</span>
+        </button>
       </div>
     </nav>
   );

@@ -7,6 +7,7 @@ import Head from '~components/Head';
 import Nav from '~components/Nav';
 
 import Links from '../components/Links';
+import Scripts from '../components/Scripts';
 
 if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   Sentry.init({
@@ -32,6 +33,7 @@ class MyApp extends App {
         </div>
 
         <Links />
+        <Scripts />
       </>
     );
   }

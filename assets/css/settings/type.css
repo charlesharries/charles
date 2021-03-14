@@ -132,13 +132,19 @@ p a,
 }
 
 blockquote {
+  font-style: italic;
   padding: $spacing;
-  border-right: 2px solid var(--primary);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--shadow);
+  border-radius: 6px;
   box-shadow: 0 1px 1px var(--shadow);
 
   & p {
     margin-bottom: 0;
+  }
+
+  @media (--desktop) {
+    margin-right: -$spacing;
+    margin-left: -$spacing;
   }
 }
 
@@ -150,9 +156,8 @@ code {
 p code {
   font-size: 0.9em;
   padding: 3px 4px;
-  background: $slightly-lighter-dark-grey;
+  background: var(--shadow);
   border-radius: 2px;
-  box-shadow: 0 1px 1px var(--shadow);
   color: var(--text);
 }
 
@@ -212,7 +217,7 @@ ol {
   padding-bottom: 1rem;
   margin-top: 6rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid var(--faded)
 }
 
 .Content h3 {

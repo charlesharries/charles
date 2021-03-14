@@ -5,6 +5,7 @@
 
 /* Settings */
 @import './settings/vars';
+@import './settings/icons';
 @import './settings/type';
 @import './settings/spacing';
 @import './settings/anim';

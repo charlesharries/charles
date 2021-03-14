@@ -9,10 +9,11 @@
 
 $black: #000;
 $darkgrey: #222;
+$midgrey: #777;
 $grey: #aaa;
 $lightgrey: #f7efe5;
 $white: #fff;
-$dimwhite: color-mod($white a(0.65));
+$dimwhite: color-mod($white a(0.2));
 $primary: #ef2700;
 
 $font: 'Libre Franklin', sans-serif;
@@ -27,18 +28,20 @@ $width: 1000px;
 :root {
   /* Default/dark styles */
   --color-mode: 'dark';
-  --shadow: $black;
+  --shadow: color-mod($black tint(8%));
   --background: $darkgrey;
   --accent: $grey;
   --faded: $dimwhite;
   --text: $white;
   --primary: $primary;
+  --icon: var(--icon-moon);
+  --icon-filter: var(--icon-sun-filter);
 
   /* Light settings */
-  --shadow-light: $darkgrey;
+  --shadow-light: $lightgrey;
   --background-light: $white;
   --accent-light: $darkgrey;
-  --faded-light: $grey;
+  --faded-light: $midgrey;
   --text-light: $black;
   --primary-light: $primary;
 }
@@ -55,16 +58,20 @@ $width: 1000px;
     --faded: var(--faded-light);
     --text: var(--text-light);
     --primary: var(--primary-light);
+    --icon: var(--icon-sun);
+    --icon-filter: var(--icon-sun-filter);
   }
+}
 
-  [data-user-color-scheme='light'] {
-    --shadow: var(--shadow-light);
-    --background: var(--background-light);
-    --accent: var(--accent-light);
-    --faded: var(--faded-light);
-    --text: var(--text-light);
-    --primary: var(--primary-light);
-  }
+[data-user-color-scheme='light'] {
+  --shadow: var(--shadow-light);
+  --background: var(--background-light);
+  --accent: var(--accent-light);
+  --faded: var(--faded-light);
+  --text: var(--text-light);
+  --primary: var(--primary-light);
+  --icon: var(--icon-sun);
+  --icon-filter: var(--icon-sun-filter);
 }
 
 @custom-media --mobile (width <= 768px);

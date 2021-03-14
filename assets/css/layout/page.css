@@ -54,6 +54,10 @@ main:not(.Full) {
 }
 
 .hidden {
+  display: none;
+}
+
+.visually-hidden {
   position: absolute;
   width: 0;
   height: 0;

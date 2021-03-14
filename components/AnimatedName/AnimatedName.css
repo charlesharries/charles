@@ -17,6 +17,7 @@
   animation: draw calc(var(--length) * 1s / var(--coefficient)) linear;
   animation-delay: calc(1s * var(--before) / var(--coefficient));
   animation-fill-mode: forwards;
+  stroke: var(--text);
   stroke-dasharray: var(--length);
   stroke-dashoffset: var(--length);
 }

@@ -110,7 +110,6 @@ export default function AnimatedName({ color = '#dadada' }) {
             fill="none"
             clipPath="url(#clip-c)"
             strokeWidth="30"
-            stroke={color}
           />
           <path
             className="stroke stroke-h"
@@ -213,7 +212,7 @@ export default function AnimatedName({ color = '#dadada' }) {
         </g>
       </svg>
 
-      <h1 className="hidden" id="title">
+      <h1 className="visually-hidden" id="title">
         Charles Harries
       </h1>
     </>

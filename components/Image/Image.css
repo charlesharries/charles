@@ -3,6 +3,6 @@
 .Image__link {
   &:focus,
   &:active {
-    outline: 2px dotted $primary;
+    outline: 2px dotted var(--primary);
   }
 }

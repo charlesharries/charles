@@ -7,7 +7,7 @@
 
 .Nav__link {
   &:focus {
-    outline: 2px solid $primary;
+    outline: 2px solid var(--primary);
   }
 }
 

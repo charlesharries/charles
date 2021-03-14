@@ -1,10 +1,10 @@
 @define-mixin button {
   padding: 1rem;
-  background: color-mod($darkgrey tint(5%));
-  box-shadow: 0px 1px 1px $black;
-  margin-left: 5px;
   margin-right: 5px;
+  margin-left: 5px;
+  background: color-mod(var(--background) tint(5%));
   border-radius: 3px;
+  box-shadow: 0 1px 1px var(--shadow);
 }
 
 .button {

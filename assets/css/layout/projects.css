@@ -2,11 +2,11 @@
   position: relative;
 
   &:focus {
-    color: $primary;
+    color: var(--primary);
     outline: none;
 
     .Project__date {
-      color: $primary;
+      color: var(--primary);
     }
 
     &::before {
@@ -17,7 +17,7 @@
       display: block;
       width: 15px;
       height: 2px;
-      background-color: $primary;
+      background-color: var(--primary);
     }
   }
 }
@@ -29,5 +29,5 @@
 .Project__date {
   font-size: 0.8em;
   margin-left: 1rem;
-  color: $dimwhite;
+  color: var(--faded);
 }

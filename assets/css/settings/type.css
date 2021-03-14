@@ -1,6 +1,6 @@
 /* Heading styles */
 
-$slightly-lighter-dark-grey: color-mod($darkgrey lightness(20%));
+$slightly-lighter-dark-grey: color-mod(var(--background) lightness(20%));
 
 h1,
 .t-h1,
@@ -94,7 +94,7 @@ strong,
 }
 
 .t-outline {
-  color: $darkgrey;
+  color: var(--background);
   text-shadow:
     -1px -1px 0 $lightgrey,
     1px -1px 0 $lightgrey,
@@ -103,8 +103,8 @@ strong,
 }
 
 ::selection {
-  background: color-mod($white a(0.05));
-  color: $primary;
+  background: color-mod(var(--text) a(0.05));
+  color: var(--primary);
 }
 
 .Post {
@@ -112,30 +112,30 @@ strong,
     height: 1px;
     margin-bottom: 2rem;
     border: 0;
-    background-color: color-mod($grey a(0.3));
+    background-color: color-mod(var(--accent) a(0.3));
   }
 }
 
 p a,
 .Post li a,
 .link {
-  border-bottom: 1px solid $primary;
+  border-bottom: 1px solid var(--primary);
   transition: color $speed1 ease;
 
   &:hover {
-    color: $primary;
+    color: var(--primary);
   }
 
   &:focus {
-    outline: 1px solid $primary;
+    outline: 1px solid var(--primary);
   }
 }
 
 blockquote {
   padding: $spacing;
-  border-right: 2px solid $primary;
+  border-right: 2px solid var(--primary);
   background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 1px 1px $black;
+  box-shadow: 0 1px 1px var(--shadow);
 
   & p {
     margin-bottom: 0;
@@ -152,8 +152,8 @@ p code {
   padding: 3px 4px;
   background: $slightly-lighter-dark-grey;
   border-radius: 2px;
-  box-shadow: 0 1px 1px $black;
-  color: $white;
+  box-shadow: 0 1px 1px var(--shadow);
+  color: var(--text);
 }
 
 pre {
@@ -163,8 +163,8 @@ pre {
   margin-right: calc(9 * -$spacing);
   margin-left: -$spacing;
   background: $slightly-lighter-dark-grey;
-  box-shadow: 0 1px 1px $black;
-  color: $white;
+  box-shadow: 0 1px 1px var(--shadow);
+  color: var(--text);
 }
 
 figure {
@@ -172,7 +172,7 @@ figure {
   margin-bottom: 3rem;
 
   img {
-    box-shadow: 0 1px 1px $black;
+    box-shadow: 0 1px 1px var(--shadow);
   }
 }
 
@@ -194,7 +194,7 @@ ol {
 }
 
 .text-red {
-  color: $primary;
+  color: var(--primary);
 }
 
 .text-serif {
@@ -205,7 +205,7 @@ ol {
 .Content h1,
 .Content h2 {
   line-height: 1;
-  text-shadow: 3px 3px 0 $black;
+  text-shadow: 3px 3px 0 var(--shadow);
 }
 
 .Content h2 {

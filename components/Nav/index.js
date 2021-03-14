@@ -2,6 +2,8 @@ import Link from 'next/link';
 import './Nav.css';
 
 function Nav() {
+  console.log('initting nav!');
+
   return (
     <nav className="Nav cluster cluster--lg">
       <div className="Nav__left cluster">

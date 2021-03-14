@@ -24,6 +24,49 @@ $spacing: 2rem;
 
 $width: 1000px;
 
+:root {
+  /* Default/dark styles */
+  --color-mode: 'dark';
+  --shadow: $black;
+  --background: $darkgrey;
+  --accent: $grey;
+  --faded: $dimwhite;
+  --text: $white;
+  --primary: $primary;
+
+  /* Light settings */
+  --shadow-light: $darkgrey;
+  --background-light: $white;
+  --accent-light: $darkgrey;
+  --faded-light: $grey;
+  --text-light: $black;
+  --primary-light: $primary;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-mode: 'light';
+  }
+
+  :root:not([data-user-color-scheme]) {
+    --shadow: var(--shadow-light);
+    --background: var(--background-light);
+    --accent: var(--accent-light);
+    --faded: var(--faded-light);
+    --text: var(--text-light);
+    --primary: var(--primary-light);
+  }
+
+  [data-user-color-scheme='light'] {
+    --shadow: var(--shadow-light);
+    --background: var(--background-light);
+    --accent: var(--accent-light);
+    --faded: var(--faded-light);
+    --text: var(--text-light);
+    --primary: var(--primary-light);
+  }
+}
+
 @custom-media --mobile (width <= 768px);
 @custom-media --desktop (width > 768px);
 @custom-media --fullscreen (width > 1240px);

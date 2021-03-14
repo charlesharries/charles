@@ -11,13 +11,13 @@
   }
 
   th {
-    border-top: 1px solid $dimwhite;
-    border-bottom: 1px solid $dimwhite;
+    border-top: 1px solid var(--faded);
+    border-bottom: 1px solid var(--faded);
   }
 
   tr:last-child {
     td {
-      border-bottom: 1px solid $dimwhite;
+      border-bottom: 1px solid var(--faded);
     }
   }
 }

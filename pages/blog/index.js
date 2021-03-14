@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
 import { frontMatter as allPosts } from './*.mdx';
 
-/**
- * Get the frontmatter off a post.
- *
- * @param {{ frontmatter: Object }} post
- */
-const getFrontmatter = post => post.frontMatter;
-
 // Disable client-side JS.
 export const config = {
   unstable_runtimeJS: false,

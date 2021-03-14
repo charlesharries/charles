@@ -1,36 +1,36 @@
 @import '~css/settings/vars';
 
 .Timings__time {
-    display: flex;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  :first-child {
     position: relative;
-    justify-content: space-between;
+    z-index: 1;
+    padding-right: 10px;
+    background-color: var(--background);
 
-    :first-child {
-        position: relative;
-        z-index: 1;
-        padding-right: 10px;
-        background-color: $darkgrey;
-
-        &::before {
-            content: '\D7';
-            margin-right: 7px;
-        }
+    &::before {
+      content: '\D7';
+      margin-right: 7px;
     }
+  }
 
-    :last-child {
-        position: relative;
-        z-index: 1;
-        padding-left: 10px;
-        background-color: $darkgrey;
-    } 
-    
-    &::after {
-        content: "";
-        position: absolute;
-        top: 12px;
-        left: 0;
-        width: 100%;
-        height: 0;
-        border-bottom: 1px dotted color-mod($white a(0.5));
-    }
+  :last-child {
+    position: relative;
+    z-index: 1;
+    padding-left: 10px;
+    background-color: var(--background);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-bottom: 1px dotted color-mod(var(--text) a(0.5));
+  }
 }

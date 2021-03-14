@@ -10,7 +10,7 @@ function Nav() {
   }
 
   return (
-    <nav className="Nav cluster cluster--lg">
+    <nav className="Nav cluster">
       <div className="Nav__left cluster">
         <Link href="/">
           <a className="Nav__link Nav__link--blog">Home</a>

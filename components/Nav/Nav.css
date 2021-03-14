@@ -25,7 +25,6 @@
     display: inline-block;
     width: 1.2em;
     height: 1.2em;
-    margin-right: 0.5em;
     background: var(--icon);
     filter: var(--icon-filter);
     transform: translateY(2px);
@@ -34,6 +33,7 @@
 
   .ThemeToggle__label {
     display: none;
+    margin-left: 0.5em;
   }
 
   &:active,

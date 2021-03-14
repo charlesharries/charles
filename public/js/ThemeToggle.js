@@ -24,7 +24,7 @@ class ThemeToggle {
   }
 
   get currentSetting() {
-    return localStorage.getItem(this.STORAGE_KEY);
+    return localStorage.getItem(this.STORAGE_KEY) || this.currentColorMode;
   }
 
   get currentColorMode() {
@@ -44,9 +44,8 @@ class ThemeToggle {
   initTheme() {
     if (this.currentSetting) {
       document.documentElement.setAttribute('data-user-color-scheme', this.currentSetting);
+      this.updateButton();
     }
-
-    this.updateButton();
   }
 
   setTheme(theme) {
@@ -60,15 +59,7 @@ class ThemeToggle {
   }
 
   toggleTheme() {
-    let to;
-
-    if (!this.currentSetting) {
-      to = this.currentColorMode === 'dark' ? 'light' : 'dark';
-    } else {
-      to = this.currentSetting === 'dark' ? 'light' : 'dark';
-    }
-
-    this.setTheme(to);
+    this.setTheme(this.currentSetting === 'dark' ? 'light' : 'dark');
   }
 }
 

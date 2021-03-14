@@ -35,7 +35,7 @@ function Nav() {
 
         <button type="button" data-element="ThemeToggle">
           <span className="icon"></span>
-          <span className="ThemeToggle__label">{capitalise(theme)}</span>
+          <span className="ThemeToggle__label">{capitalise(theme) || 'Dark'}</span>
         </button>
       </div>
     </nav>

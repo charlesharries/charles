@@ -28,7 +28,7 @@ $width: 1000px;
 :root {
   /* Default/dark styles */
   --color-mode: 'dark';
-  --shadow: color-mod($black tint(8%));
+  --shadow: color-mod($black tint(10%));
   --background: $darkgrey;
   --accent: $grey;
   --faded: $dimwhite;

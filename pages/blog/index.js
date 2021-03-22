@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
+import published from '../../data/published';
 import { frontMatter as allPosts } from './*.mdx';
 
 // Disable client-side JS.
@@ -50,7 +51,7 @@ BlogItem.propTypes = {
 
 function Blog() {
   // const posts = [...allPosts.map(getFrontmatter)];
-  const posts = [...allPosts];
+  const posts = published.map(p => require(`./${p.slug}.mdx`)).map(p => p.frontMatter);
 
   return (
     <div className="Blog">

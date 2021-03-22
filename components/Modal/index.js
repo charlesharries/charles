@@ -28,12 +28,7 @@ function Modal({ children, isOpen, close }) {
 
   return (
     <div className="Modal">
-      <button
-        type="button"
-        className="Modal__bg"
-        onClick={handleClose}
-        ref={$button}
-      ></button>
+      <button type="button" className="Modal__bg" onClick={handleClose} ref={$button}></button>
       <div className="Modal__content">{children}</div>
     </div>
   );

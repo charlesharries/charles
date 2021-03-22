@@ -1,3 +1,3 @@
 export default function Scripts() {
-  return <script src="/js/ThemeToggle.js"></script>;
+  return <script src="/js/app.js"></script>;
 }

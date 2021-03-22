@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev -p 1234",
     "start": "next start",
-    "build": "next build",
+    "build": "next build && yarn build:js",
+    "build:js": "node_modules/.bin/esbuild assets/js/index.js --outfile=public/js/app.js --bundle --target=es6",
     "postbuild": "node ./scripts/generateSitemap.js"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
+    "esbuild": "^0.9.6",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.3.0",

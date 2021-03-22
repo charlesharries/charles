@@ -31,7 +31,7 @@ class ThemeToggle {
     let mode = getComputedStyle(document.documentElement).getPropertyValue(this.COLOR_MODE_KEY);
 
     if (mode.length) {
-      mode = mode.replace(/\"/g, '').trim();
+      mode = mode.replace(/"/g, '').trim();
     }
 
     return mode;
@@ -63,10 +63,10 @@ class ThemeToggle {
   }
 }
 
-function init() {
-  const $elements = document.querySelectorAll('[data-element="ThemeToggle"]');
+export default {
+  init() {
+    const $elements = document.querySelectorAll('[data-element="ThemeToggle"]');
 
-  $elements.forEach($el => new ThemeToggle($el));
-}
-
-init();
+    $elements.forEach($el => new ThemeToggle($el));
+  },
+};

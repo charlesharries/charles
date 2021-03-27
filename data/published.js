@@ -1,5 +1,10 @@
 module.exports = [
   {
+    title: 'Practical Go',
+    date: "26 Mar '21",
+    slug: 'practical-go',
+  },
+  {
     title: '札幌コンテンポラリー',
     date: "22 Mar '21",
     slug: 'sapporo-contemporary',

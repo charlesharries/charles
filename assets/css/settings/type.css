@@ -243,6 +243,11 @@ ol {
 .Content figcaption {
   font-size: 0.85em;
   margin-top: 4px;
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: $primary;
+  }
 }
 
 .font-sm {

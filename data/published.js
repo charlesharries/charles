@@ -1,5 +1,10 @@
 module.exports = [
   {
+    title: 'A bit of meta-commentary on Tailwind',
+    date: "8 May '21",
+    slug: 'tailwind',
+  },
+  {
     title: 'Jobs at Disney',
     date: "14 Apr '21",
     slug: 'disney-jobs',

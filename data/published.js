@@ -1,5 +1,10 @@
 module.exports = [
   {
+    title: 'On effectiveness',
+    date: "15 May '21",
+    slug: 'effectiveness',
+  },
+  {
     title: 'A bit of meta-commentary on Tailwind',
     date: "8 May '21",
     slug: 'tailwind',

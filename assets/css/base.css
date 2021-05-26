@@ -19,3 +19,13 @@
 @import './layout/table';
 @import './layout/stack';
 @import './layout/cluster';
+
+/* Components */
+@import '../../components/AnimatedName/AnimatedName';
+@import '../../components/BigName/BigName';
+@import '../../components/Image/Image';
+@import '../../components/Links/Links';
+@import '../../components/Modal/modal';
+@import '../../components/Nav/Nav';
+@import '../../components/Tag/Tag';
+@import '../../components/Timings/timings';

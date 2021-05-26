@@ -1,5 +1,3 @@
-import './BigName.css';
-
 function BigName() {
   return (
     <h1 className="BigName t-outline">

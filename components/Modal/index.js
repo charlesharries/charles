@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
-import './modal.css';
 
 function Modal({ children, isOpen, close }) {
   const $button = useRef(null);

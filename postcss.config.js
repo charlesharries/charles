@@ -18,11 +18,9 @@ module.exports = {
     'postcss-calc': {},
     'postcss-nested': {},
     'postcss-color-mod-function': {},
-    'postcss-preset-env': {},
+    'postcss-preset-env': {
+      stage: 1,
+      browsers: ['last 2 versions', 'ie >= 11'],},
     'postcss-custom-media': {},
-  },
-  preset: {
-    stage: 1,
-    browsers: ['last 2 versions', 'ie >= 11'],
   },
 };

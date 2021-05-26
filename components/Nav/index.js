@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import capitalise from '../../util/capitalise';
-import './Nav.css';
 
 function Nav() {
   let theme = 'dark';

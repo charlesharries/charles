@@ -33,52 +33,50 @@ module.exports = withMdxEnhanced({
   },
   reExportDataFetching: false,
 })(
-  withSourceMaps(
-    withCSS({
-      pageExtensions: ['js', 'jsx', 'mdx'],
-      webpack(config, { dev, isServer }) {
-        config.resolve.alias = {
-          ...(config.resolve.alias || {}),
-          '~pages': resolve(__dirname, 'pages'),
-          '~components': resolve(__dirname, 'components'),
-          '~css': resolve(__dirname, 'assets', 'css'),
-          '~data': resolve(__dirname, 'data'),
-        };
+  withSourceMaps({
+    pageExtensions: ['js', 'jsx', 'mdx'],
+    webpack(config, { dev, isServer }) {
+      config.resolve.alias = {
+        ...(config.resolve.alias || {}),
+        '~pages': resolve(__dirname, 'pages'),
+        '~components': resolve(__dirname, 'components'),
+        '~css': resolve(__dirname, 'assets', 'css'),
+        '~data': resolve(__dirname, 'data'),
+      };
 
-        if (!isServer) {
-          config.resolve.alias['@sentry/node'] = '@sentry/browser';
-        }
+      if (!isServer) {
+        config.resolve.alias['@sentry/node'] = '@sentry/browser';
+      }
 
-        if (
-          SENTRY_DSN &&
-          SENTRY_ORG &&
-          SENTRY_PROJECT &&
-          SENTRY_AUTH_TOKEN &&
-          COMMIT_SHA &&
-          NODE_ENV === 'production'
-        ) {
-          config.plugins.push(
-            new SentryWebpackPlugin({
-              include: '.next',
-              ignore: ['node_modules'],
-              urlPrefix: '~/_next',
-              release: COMMIT_SHA,
-            })
-          );
-        }
+      if (
+        SENTRY_DSN &&
+        SENTRY_ORG &&
+        SENTRY_PROJECT &&
+        SENTRY_AUTH_TOKEN &&
+        COMMIT_SHA &&
+        NODE_ENV === 'production'
+      ) {
+        config.plugins.push(
+          new SentryWebpackPlugin({
+            include: '.next',
+            ignore: ['node_modules'],
+            urlPrefix: '~/_next',
+            release: COMMIT_SHA,
+          })
+        );
+      }
 
-        // Replace React with Preact in client production build
-        // @link https://github.com/leerob/leerob.io/blob/main/next.config.js
-        if (!dev && !isServer) {
-          Object.assign(config.resolve.alias, {
-            react: 'preact/compat',
-            'react-dom': 'preact/compat',
-            'react-dom/test-utils': 'preact/test-utils',
-          });
-        }
+      // Replace React with Preact in client production build
+      // @link https://github.com/leerob/leerob.io/blob/main/next.config.js
+      if (!dev && !isServer) {
+        Object.assign(config.resolve.alias, {
+          react: 'preact/compat',
+          'react-dom': 'preact/compat',
+          'react-dom/test-utils': 'preact/test-utils',
+        });
+      }
 
-        return config;
-      },
-    })
-  )
+      return config;
+    },
+  })
 );

@@ -1,5 +1,3 @@
-import './Links.css';
-
 const external = { target: '_blank', rel: 'noopener noreferrer' };
 
 export default function Links() {

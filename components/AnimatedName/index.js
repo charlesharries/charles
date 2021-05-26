@@ -1,5 +1,3 @@
-import './AnimatedName.css';
-
 export default function AnimatedName({ color = '#dadada' }) {
   return (
     <>

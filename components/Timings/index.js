@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import './timings.css';
 
 function Timings({ timings }) {
   return (

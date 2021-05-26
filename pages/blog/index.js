@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
 import published from '../../data/published';
 import { frontMatter as allPosts } from './*.mdx';
+import { MDXRemote } from 'next-mdx-remote';
+import Layout from '../../layouts/index';
+import { getAllFilesFrontMatter } from '../../lib/mdx';
+import { PostHead } from '../../components/Head';
 
 // Disable client-side JS.
 export const config = {
@@ -24,15 +28,13 @@ function byDate(p1, p2) {
  * A single blog item.
  *
  * @todo Once we've got all of the dates set, use the DateComponent here.
- * @param {{ __resourcePath: string, title: string, date: string }} post
+ * @param {{slug: string, title: string, date: string}} post
  */
-function BlogItem({ __resourcePath, title, date }) {
-  const path = __resourcePath.replace('.mdx', '');
-
+function BlogItem({ slug, title, date }) {
   return (
     <li>
       <article>
-        <Link href={`/${path}`}>
+        <Link href={`/blog/${slug}`}>
           <a className="BlogLink t-para">
             <DateComponent date={date} short element="span" className="BlogLink__date t-small" />
             <span className="BlogLink__text">{title}</span>
@@ -49,20 +51,33 @@ BlogItem.propTypes = {
   date: PropTypes.string,
 };
 
-function Blog() {
-  // const posts = [...allPosts.map(getFrontmatter)];
-  const posts = published.map(p => require(`./${p.slug}.mdx`)).map(p => p.frontMatter);
+function Blog({ posts }) {
+  const frontMatter = {
+    slug: 'blog',
+    title: 'The Blog',
+    description: "What I've been up to lately, what's popped into my head.",
+  };
 
   return (
-    <div className="Blog">
-      <h1 className="Blog__title">the blog</h1>
-      <ul>
-        {posts.sort(byDate).map(frontMatter => (
-          <BlogItem key={frontMatter.__resourcePath} {...frontMatter} />
-        ))}
-      </ul>
-    </div>
+    <>
+      <PostHead frontMatter={frontMatter} />
+
+      <div className="Blog">
+        <h1 className="Blog__title">the blog</h1>
+        <ul>
+          {posts.sort(byDate).map(frontMatter => (
+            <BlogItem key={frontMatter.slug} {...frontMatter} />
+          ))}
+        </ul>
+      </div>
+    </>
   );
+}
+
+export async function getStaticProps() {
+  const posts = await getAllFilesFrontMatter('blog');
+
+  return { props: { posts }};
 }
 
 export default Blog;

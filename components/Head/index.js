@@ -10,7 +10,7 @@ export const image = 'https://charlesharri.es/images/cover.jpg';
 
 export function PostHead({ frontMatter }) {
   const { title: pageTitle, description: pageDescription } = frontMatter;
-  const canonical = `${baseUrl}/${frontMatter.__resourcePath.replace('.mdx', '')}`;
+  const canonical = `${baseUrl}/${frontMatter.slug}`;
   let published = null;
 
   if (frontMatter.date) {
@@ -19,7 +19,7 @@ export function PostHead({ frontMatter }) {
 
   return (
     <Head>
-      <title>{pageTitle}</title>
+      <title>{pageTitle} &bull; Charles Harries</title>
 
       <meta name="description" content={pageDescription} />
 
@@ -42,7 +42,7 @@ PostHead.propTypes = {
   frontMatter: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
-    __resourcePath: PropTypes.string,
+    slug: PropTypes.string,
     date: PropTypes.string,
   }),
 };

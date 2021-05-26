@@ -8,7 +8,7 @@
     "start": "next start",
     "build": "next build && yarn build:js",
     "build:js": "node_modules/.bin/esbuild assets/js/index.js --outfile=public/js/app.js --bundle --target=es6",
-    "postbuild": "node ./scripts/generateSitemap.js"
+    "postbuild": "node ./scripts/generateRss.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.0.27",
@@ -19,12 +19,14 @@
     "@zeit/next-source-maps": "^0.0.3",
     "babel-plugin-import-glob-array": "^0.2.0",
     "date-fns": "^2.16.1",
+    "gray-matter": "^4.0.3",
     "next": "10.0.5",
     "next-mdx-enhanced": "^5.0.0",
     "preact": "^10.5.12",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

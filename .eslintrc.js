@@ -24,7 +24,8 @@ module.exports = {
       "singleQuote": true,
       "printWidth": 100,
       "trailingComma": true,
-    }]
+    }],
+    "array-callback-return": "off"
   },
   settings: {
     'import/resolver': {

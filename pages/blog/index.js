@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
-import published from '../../data/published';
 import { frontMatter as allPosts } from './*.mdx';
 import { MDXRemote } from 'next-mdx-remote';
 import Layout from '../../layouts/index';

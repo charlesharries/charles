@@ -56,9 +56,13 @@ function month(d) {
 export function shortDate(date) {
   const y = date.getFullYear() % 100;
   const m = shortMonth(date);
-  const d = date.getDate();
+  let d = date.getDate();
 
-  return `${d} ${m} '${y}`;
+  if (d < 10) {
+    d = `0${d}`;
+  }
+
+  return `${d} ${m} ${y}`;
 }
 
 /**

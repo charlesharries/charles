@@ -9,7 +9,7 @@ description: Don't use margin-right or margin-bottom. Margin-left and margin-top
 ## the tl;dr
 I only use `margin-left` and `margin-top` because elements should be responsible for positioning themselves relative to their siblings, rather than making their siblings responsible for positioning them.
 
-## Think in single drections
+## Think in single directions
 Trying to think in multiple directions, especially when it comes to margins, is probably one of the canonical CSS [footguns](https://en.wiktionary.org/wiki/footgun). Trying to think your way through your layout with both `margin-right/-left` _and_ `margin-top/-bottom` is hard enough without also having to consider [margins collapsing on themselves](https://www.joshwcomeau.com/css/rules-of-margin-collapse/). Better to think in single directions.
 
 And I think that the single directions to think in are `margin-left` and `margin-top`. Don't use `margin-right` or `margin-bottom`. For any use case you can come up with for using `-right` or `-bottom`, I can (probably) come up with a better, more declarative, and more maintainable solution using `-top` or `-left`.

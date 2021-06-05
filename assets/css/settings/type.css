@@ -148,8 +148,11 @@ blockquote {
   }
 }
 
+.nowrap { white-space: nowrap; }
+
 pre,
-code {
+code,
+.font-monospace {
   font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
 }
 

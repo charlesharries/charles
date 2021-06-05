@@ -1,22 +1,23 @@
 import Link from 'next/link';
-import articles from '../../data/sam-published';
+import { getAllFilesFrontMatter } from '../../lib/mdx';
+import DateComponent from '../../components/Date';
 
 // Disable client-side JS.
 export const config = {
   unstable_runtimeJS: false,
 };
 
-function Blog() {
+function Blog({ posts }) {
   return (
     <div className="Blog">
       <h1 className="Blog__title">Sam's opinions on stuff</h1>
       <ul>
-        {articles.map(post => (
+        {posts.map(post => (
           <li key={post.slug}>
             <Link href={`/sam/${post.slug}`}>
               <a className="BlogLink t-para">
                 <span className="BlogLink__text">{post.title}</span>
-                <span className="BlogLink__date t-small">{post.date}</span>
+                <DateComponent date={post.date} short element="span" className="BlogLink__date t-small" />
               </a>
             </Link>
           </li>
@@ -24,6 +25,12 @@ function Blog() {
       </ul>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const posts = await getAllFilesFrontMatter('sam');
+
+  return { props: { posts }};
 }
 
 export default Blog;

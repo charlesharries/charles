@@ -150,7 +150,7 @@ blockquote {
 
 pre,
 code {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
 }
 
 p code {
@@ -169,7 +169,7 @@ pre {
   margin-left: -$spacing;
   background: $slightly-lighter-dark-grey;
   box-shadow: 0 1px 1px var(--shadow);
-  color: var(--text);
+  color: $white;
 }
 
 figure {

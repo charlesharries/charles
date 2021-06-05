@@ -20,7 +20,7 @@ module.exports = {
     'postcss-color-mod-function': {},
     'postcss-preset-env': {
       stage: 1,
-      browsers: ['last 2 versions', 'ie >= 11'],},
+      browsers: ['last 2 versions', 'ie >= 11']},
     'postcss-custom-media': {},
   },
 };

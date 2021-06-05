@@ -1,21 +1,15 @@
 import Link from 'next/link';
 import AnimatedName from '~components/AnimatedName';
 import Intro from '~components/Intro';
-
-const published = require('../data/published.js');
+import { getAllFilesFrontMatter } from '../lib/mdx.js';
+import { byDate } from '../util/sort.js';
 
 // Disable client-side JS.
 export const config = {
   unstable_runtimeJS: false,
 };
 
-const latest = [
-  require(`../pages/blog/${published[0].slug}.mdx`),
-  require(`../pages/blog/${published[1].slug}.mdx`),
-  require(`../pages/blog/${published[2].slug}.mdx`),
-].map(m => m.frontMatter);
-
-function Home() {
+function Home({ latest }) {
   return (
     <div className="Home">
       <div className="stack mt-lg">
@@ -32,7 +26,7 @@ function Home() {
             <li className="BlogPost" key={post.description}>
               <article className="BlogPost">
                 <p className="t-large mb-0">
-                  <Link href={`/${post.__resourcePath.replace('.mdx', '')}`}>
+                  <Link href={`/blog/${post.slug.replace('.mdx', '')}`}>
                     {post.title.replace('', '')}
                   </Link>
                 </p>
@@ -44,6 +38,12 @@ function Home() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const posts = await getAllFilesFrontMatter('blog');
+
+  return { props: { latest: posts.sort(byDate).slice(0, 3) }};
 }
 
 export default Home;

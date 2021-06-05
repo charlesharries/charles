@@ -1,11 +1,11 @@
 .Tag {
-  font-size: 0.7em;
   display: inline-block;
+  font-size: 0.7em;
+  padding: 5px 10px;
   margin-top: -5px;
   margin-bottom: -5px;
-  padding: 5px 10px;
-  border-radius: 100px;
   background-color: color-mod(#fff a(0.1));
+  border-radius: 100px;
 }
 
 .BlogLink .Tag {

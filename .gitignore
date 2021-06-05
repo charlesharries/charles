@@ -2,6 +2,7 @@
 dist
 .next
 .mdx-data
+public/feed.xml
 
 # dependencies
 node_modules

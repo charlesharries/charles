@@ -10,12 +10,12 @@ async function generate() {
     feed_url: 'https://charlesharri.es/feed.xml',
   });
 
-  const posts = fs.readdirSync(path.join(__dirname, '..', 'pages', 'blog'));
+  const posts = fs.readdirSync(path.join(__dirname, '..', 'data', 'blog'));
 
   posts
     .filter(name => name.includes('.mdx'))
     .map(name => {
-      const content = fs.readFileSync(path.join(__dirname, '..', 'pages', 'blog', name));
+      const content = fs.readFileSync(path.join(__dirname, '..', 'data', 'blog', name));
       const frontmatter = matter(content);
 
       return {

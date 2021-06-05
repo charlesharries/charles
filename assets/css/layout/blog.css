@@ -1,7 +1,7 @@
 .BlogLink {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   margin-bottom: 12px;
 
@@ -47,6 +47,7 @@
 .BlogLink__date {
   display: inline-block;
   letter-spacing: -0.3px;
+  margin-top: 0.2em;
   color: var(--accent);
 }
 

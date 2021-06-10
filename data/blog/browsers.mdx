@@ -1,0 +1,67 @@
+---
+title: Thoughts on browsers in 2021
+date: '2021-06-10'
+description: Complaints about browsers in 2021, with a focus on Firefox, which I desperately want to like.
+---
+
+<Date date="2021-06-10" />
+
+# Thoughts on browsers in 2021
+This is mostly about Firefox.
+
+I want to like Firefox sooooo badly. I want to click on that blue Firefox Developer Edition fox and browse and develop and just marvel at how terrific this browser is. I want to lord it over my friends and coworkers, want to lord over them the fact that I'm not feeding the Google machine. That I'm supporting browser diversity. I want to, so bad.
+
+I don't have very many hard and fast rules around browsers. For starters, I don't want them to relentlessly mine my data, sort me into a cohort, and then aggressively market to me using my Internet habits. So that strikes **Google Chrome** from the record, and probably **Microsoft Edge** as well. I also don't want the browser to be a vehicle for pushing some other product, which bins **Opera** (a VPN, crypto) and **Brave** (crypto).
+
+Beyond that, I rank browsers on three main metrics:
+
+- **It should just work.** I shouldn't have to leap through hoops or install all sorts of third-party config to get the browser to do what I want it to do.
+- **It should be quick.** Don't unnecessarily hog resources, don't spin up the fans if you don't have to, run YouTube at 1080p without melting down.
+- **It should be configurable.** I should be able to get it up and running with the small suite of extensions that I use to protect and manage my data on the web.
+
+Firefox _kinda_ fulfills these three criteria—but not quite.
+
+## An inexhaustive list of complaints
+A macOS-specific complaint here, but out of the box, Firefox ships with macOS 11 browser chrome—dialogue boxes, dropdowns, title bars:
+
+<Image src="/2021-06/title-bars.png">
+  Light-mode title bars with macOS set to dark mode.
+</Image>
+
+This can be tweaked by changing the `widget.macos.respect-system-appearance` setting in `about:config` to `true`. Should give you proper title bars and dialogue boxes.
+
+HTML `<option>` elements inherit `color` and `background-color` styles from their parent `<select>` element, which isn't the case on any of the other "Big 5" browsers. Doesn't get in the way functionally—it's just strange to look at.
+
+<Image src="/2021-06/options.png">
+  The result of setting <code>color: red; background-color: white</code> on the parent <code>select</code> element.
+</Image>
+
+Another macOS-specific one: OS-level text replacement doesn't work. Any shortcuts that you've defined in Keyboard → Text aren't respected. Chrome supports OS-level text replacement since 2019; Safari supports it as well. [It's been on Firefox's radar since 2015](https://bugzilla.mozilla.org/show_bug.cgi?id=1149826), but hasn't been implemented yet.
+
+Speaking of OS-level modifications, I use macOS's [app-specific shortcuts](https://support.apple.com/en-gb/guide/mac-help/mchlp2271/mac) to map the menu item `Open Location…` to `Cmd+P` (rather than the default `Cmd+L`). This works fine on Safari and Chrome, since both of them have `Open Location…` in the menu; Firefox, however, doesn't. So I can't remap Firefox, and whenever I'm using Firefox I wind up accidentally opening the Print dialogue instead.
+
+I think there's some kind of underlying dark mode incompatibility on Firefox as well—certain sites (like New Relic) will recognise system-level dark mode on Chrome and Safari, but Firefox doesn't. Weird.
+
+As of the publish date on this post, Firefox also spins my late-2014 MacBook Pro up to like 100% CPU whenever I'm on a Google Meet call. It doesn't spin up on Chrome or Safari.
+
+There's a min-width on tabs, so past a certain point they start to scroll. This can be hacked in `about:config` to not scroll, though.
+
+## It's not all bad
+I really like Firefox's [Multi-Account Containers](https://support.mozilla.org/en-US/kb/containers)—really lets me sequester my data. I've got containers for Google services, for Reddit, for LinkedIn, that sort of thing.
+
+Firefox's `about:config` is also really great. _Lots_ more options to tweak here than on just about any other browser, which really lets you make it yours.
+
+It looks really nice. I'm not as much a fan of the neon colours that Mozilla goes for, but they're few and far between. The latest update looks fantastic.
+
+## Complaints about other browsers
+Lest you think I'm some sort of anti-Mozilla crusader, here are some downsides that prevent me from getting fully on board with other browsers:
+
+**Safari's** dev tools aren't great; the whole extension story feels extremely half-baked, lacking support for some of my favourite extensions like uBlock and uMatrix; no JSONView either (although there are a couple of extensions for formatting JSON); and support for modern JS/CSS features usually lags behind the other browsers. Tabs scroll, and you _can't_ fix it like you can in Firefox.
+
+**Edge** requires you to install a whole separate app for keeping Edge up to date, and I don't trust Microsoft with my data any further than I can throw them (which is not very far).
+
+**Brave** is a cryptocurrency platform that incidentally ships with a browser. It sometimes installs sponsored backgrounds to your homepage without asking you; it sometimes rewrites URLs to add affiliate tags. Back in 2018 they also got done for collecting crypto donations in certain content creators' names, without contacting those creators.
+
+**Ungoogled Chromium** can't talk to your built-in installation of 1Password because it's not code-signed, so you need to use 1Password X. Upgrading has to be done manually, which I guess is a pro for some folks. You also can't screenshare through it—but I guess that's also a pro from a security standpoint.
+
+

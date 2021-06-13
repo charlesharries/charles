@@ -9,54 +9,60 @@ description: Complaints about browsers in 2021, with a focus on Firefox, which I
 # Thoughts on browsers in 2021
 This is mostly about Firefox.
 
-I want to like Firefox sooooo badly. I want to click on that blue Firefox Developer Edition fox and browse and develop and just marvel at how terrific this browser is. I want to lord it over my friends and coworkers, want to lord over them the fact that I'm not feeding the Google machine. That I'm supporting browser diversity. I want to, so bad.
+I want to like Firefox sooooo badly. I want to click on that blue Firefox Developer Edition fox and browse and develop and marvel at the ease of use, marvel at the speed. I want to lord it over my friends and coworkers. I want to smugly tell people, "Hmm, I don't see that bug, _I use Firefox." I want to live up on the moral high ground and proselytise about browser diversity. I want these things so badly.
 
-I don't have very many hard and fast rules around browsers. For starters, I don't want them to relentlessly mine my data, sort me into a cohort, and then aggressively market to me using my Internet habits. So that strikes **Google Chrome** from the record, and probably **Microsoft Edge** as well. I also don't want the browser to be a vehicle for pushing some other product, which bins **Opera** (a VPN, crypto) and **Brave** (crypto).
+But I can't have them, because Firefox falls flat in so many small ways. I can overlook each of these on its own, but together they add up to death by a million cuts (well, maybe 6 or 7 cuts).
+
+I don't have very many hard and fast rules around browsers. For starters, I don't want them to mine my data, sort me into a cohort, or aggressively market to me using my Internet habits. So that strikes **Google Chrome** from the running, and probably **Microsoft Edge** as well. I also don't want the browser to be a vehicle for pushing some other product, which bins **Opera** (a VPN, crypto) and **Brave** (crypto).
 
 Beyond that, I rank browsers on three main metrics:
 
-- **It should just work.** I shouldn't have to leap through hoops or install all sorts of third-party config to get the browser to do what I want it to do.
-- **It should be quick.** Don't unnecessarily hog resources, don't spin up the fans if you don't have to, run YouTube at 1080p without melting down.
+- **It should cover the 80% use case out of the box.** I shouldn't run up against weird behaviour in daily browsing and development. It should cooperate with the OS. It should ship with defaults that put the user first, not the browser-maker.
+- **It should be quick.** It shouldn't unnecessarily hog resources; it shouldn't spin up the fans if it doesn't have to; it should run YouTube at 1080p without melting down on relatively modern computers (>2014).
 - **It should be configurable.** I should be able to get it up and running with the small suite of extensions that I use to protect and manage my data on the web.
 
 Firefox _kinda_ fulfills these three criteria—but not quite.
 
 ## An inexhaustive list of complaints
-A macOS-specific complaint here, but out of the box, Firefox ships with macOS 11 browser chrome—dialogue boxes, dropdowns, title bars:
+A macOS-specific complaint here, but out of the box, **Firefox doesn't support system-level dark mode**, which means that you get light title bars, context menus, and dialogue boxes:
 
 <Image src="/2021-06/title-bars.png">
   Light-mode title bars with macOS set to dark mode.
 </Image>
 
-This can be tweaked by changing the `widget.macos.respect-system-appearance` setting in `about:config` to `true`. Should give you proper title bars and dialogue boxes.
+This can be tweaked by changing the `widget.macos.respect-system-appearance` setting in `about:config` to `true`—but most people will live with the weird contrast.
 
-HTML `<option>` elements inherit `color` and `background-color` styles from their parent `<select>` element, which isn't the case on any of the other "Big 5" browsers. Doesn't get in the way functionally—it's just strange to look at.
+**HTML `<option>` elements inherit `color` and `background-color` styles from their parent `<select>` element**, which isn't the case on any of the other "Big 5" browsers. This doesn't get in the way functionally—it's just strange to look at.
 
 <Image src="/2021-06/options.png">
   The result of setting <code>color: red; background-color: white</code> on the parent <code>select</code> element.
 </Image>
 
-Another macOS-specific one: OS-level text replacement doesn't work. Any shortcuts that you've defined in Keyboard → Text aren't respected. Chrome supports OS-level text replacement since 2019; Safari supports it as well. [It's been on Firefox's radar since 2015](https://bugzilla.mozilla.org/show_bug.cgi?id=1149826), but hasn't been implemented yet.
+Another macOS-specific one: **OS-level text replacement doesn't work**. Any shortcuts that you've defined in Keyboard → Text aren't respected. Chrome has supported OS-level text replacement since 2019; Safari supports it as well (you'd expect it to, wouldn't you?). [It's been on Firefox's radar since 2015](https://bugzilla.mozilla.org/show_bug.cgi?id=1149826), but hasn't been implemented yet.
 
-Speaking of OS-level modifications, I use macOS's [app-specific shortcuts](https://support.apple.com/en-gb/guide/mac-help/mchlp2271/mac) to map the menu item `Open Location…` to `Cmd+P` (rather than the default `Cmd+L`). This works fine on Safari and Chrome, since both of them have `Open Location…` in the menu; Firefox, however, doesn't. So I can't remap Firefox, and whenever I'm using Firefox I wind up accidentally opening the Print dialogue instead.
+Speaking of OS-level modifications, I use**macOS's [app-specific shortcuts](https://support.apple.com/en-gb/guide/mac-help/mchlp2271/mac)** to map the menu item `Open Location…` to `Cmd+P` (rather than the default `Cmd+L`). This aligns with using `Cmd+P` for the 'navigate to' action on VS Code, Sublime Text/Merge, &c. This works fine on Safari and Chrome, since both of them have `Open Location…` items in the menu bar; Firefox, however, doesn't. So I can't remap Firefox, and whenever I'm using Firefox I wind up accidentally opening the Print dialogue instead.
 
-I think there's some kind of underlying dark mode incompatibility on Firefox as well—certain sites (like New Relic) will recognise system-level dark mode on Chrome and Safari, but Firefox doesn't. Weird.
+I think there's some kind of **underlying dark mode incompatibility** on Firefox as well—certain sites (like New Relic) will recognise system-level dark mode on Chrome and Safari, but not on Firefox. Weird.
 
-As of the publish date on this post, Firefox also spins my late-2014 MacBook Pro up to like 100% CPU whenever I'm on a Google Meet call. It doesn't spin up on Chrome or Safari.
+As of the publish date on this post, Firefox also spins my late-2014 MacBook Pro up to like **100% CPU whenever I'm on a Google Meet call**. This _might_ be a Google Meet issue, but it doesn't spin up on Chrome or Safari.
 
-There's a min-width on tabs, so past a certain point they start to scroll. This can be hacked in `about:config` to not scroll, though.
+**There's a min-width on tabs**, so past a certain point they start to scroll. This can be hacked in `about:config` to not scroll, though.
+
+The June 2021 redesign is meant to encourage users to move tabs around, but **the UX for dragging a tab out into its own window is still awful**:
+
+<img src="https://assets.charlesharri.es/src/2021-06/dragging-tabs.gif" alt="I drag a tab out of a window, it shows an animation of that tab returning to the window, and then opens the tab in a new window anyway." />
 
 ## It's not all bad
-I really like Firefox's [Multi-Account Containers](https://support.mozilla.org/en-US/kb/containers)—really lets me sequester my data. I've got containers for Google services, for Reddit, for LinkedIn, that sort of thing.
+Firefox's [Multi-Account Containers](https://support.mozilla.org/en-US/kb/containers) are a fantastic idea, and I'm not sure why they haven't been implemented in other browsers. Beyond the utility of letting a user separate work and personal accounts on the same computer, it allows me to partition browsing on various Internet giants: I've got one container for Google services, another for Reddit, another for LinkedIn, that sort of thing.
 
-Firefox's `about:config` is also really great. _Lots_ more options to tweak here than on just about any other browser, which really lets you make it yours.
+I have to give props to Firefox's `about:config` page as well. I wish more browsers exposed configurable flags like this, rather than presenting the user with a friendlier but reduced set of configuration.
 
-It looks really nice. I'm not as much a fan of the neon colours that Mozilla goes for, but they're few and far between. The latest update looks fantastic.
+Firefox's [June 2021 redesign](https://www.theverge.com/2021/6/1/22463321/firefox-design-redesign-bigger-floatier-tabs) looks beautiful, nitpicks about tab-dragging UX aside. I don't care that the browser chrome is taller overall, or that the actual interface behaviour hasn't changed—it _feels_ better.
 
 ## Complaints about other browsers
 Lest you think I'm some sort of anti-Mozilla crusader, here are some downsides that prevent me from getting fully on board with other browsers:
 
-**Safari's** dev tools aren't great; the whole extension story feels extremely half-baked, lacking support for some of my favourite extensions like uBlock and uMatrix; no JSONView either (although there are a couple of extensions for formatting JSON); and support for modern JS/CSS features usually lags behind the other browsers. Tabs scroll, and you _can't_ fix it like you can in Firefox.
+**Safari's** dev tools aren't great; the whole extension story feels extremely half-baked, lacking support for some of my favourite extensions like uBlock and uMatrix; no JSONView either (although there are a couple of extensions for formatting JSON); and support for modern JS/CSS features usually lags behind the other browsers. Tabs scroll, and you _can't_ fix it like you can in Firefox. The "swipe right to go back" behaviour, where it shows a thumbnail of the previous page as you swipe, is a gimmick; and most of the time, the previous page has been cleared from memory and has to do a full page reload anyway.
 
 **Edge** requires you to install a whole separate app for keeping Edge up to date, and I don't trust Microsoft with my data any further than I can throw them (which is not very far).
 

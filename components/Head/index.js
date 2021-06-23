@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export const title = 'Charles Harries';
 export const description =
   'Frontend Javascript developer. React, Vue, WordPress, PHP, headless CMSes, synergy, driving growth, buzzword, buzzword, buzzword.';
-export const color = '#000000';
+export const color = '#222222';
 export const baseUrl = 'https://charlesharri.es';
 export const image = 'https://charlesharri.es/images/cover.jpg';
 
@@ -22,6 +22,7 @@ export function PostHead({ frontMatter }) {
       <title>{pageTitle} &bull; Charles Harries</title>
 
       <meta name="description" content={pageDescription} />
+      <meta name="theme-color" content={color} media="screen" />
 
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={image} />
@@ -58,9 +59,9 @@ function Meta() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <meta name="msapplication-TileColor" content={color} />
-      <meta name="theme-color" content={color} />
       <meta name="title" content={title} />
       <meta name="description" content={description} />
+      <meta name="theme-color" content={color} media="screen" />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:locale" content="en_GB" />

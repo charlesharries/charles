@@ -9,6 +9,7 @@
     constructor($el) {
       this.$el = $el;
       this.$label = this.$el.querySelector(".ThemeToggle__label");
+      this.$meta = document.querySelector('meta[name="theme-color"]');
       this.$el.classList.remove("hidden");
       this.STORAGE_KEY = "user-color-scheme";
       this.COLOR_MODE_KEY = "--color-mode";
@@ -36,15 +37,21 @@
       if (this.currentSetting) {
         document.documentElement.setAttribute("data-user-color-scheme", this.currentSetting);
         this.updateButton();
+        this.updateMeta();
       }
     }
     setTheme(theme) {
       localStorage.setItem(this.STORAGE_KEY, theme);
       document.documentElement.setAttribute("data-user-color-scheme", theme);
       this.updateButton();
+      this.updateMeta();
     }
     updateButton() {
       this.$label.innerText = capitalise(this.currentSetting);
+    }
+    updateMeta() {
+      console.log({ meta: this.$meta, setting: this.currentSetting });
+      this.$meta.content = this.currentSetting === "dark" ? "#222222" : "#ffffff";
     }
     toggleTheme() {
       this.setTheme(this.currentSetting === "dark" ? "light" : "dark");

@@ -1,10 +1,5 @@
 import React from 'react';
 
-// Disable client-side JS.
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function About() {
   return (
     <div className="About">

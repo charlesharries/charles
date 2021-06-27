@@ -4,11 +4,6 @@ import Intro from '~components/Intro';
 import { getAllFilesFrontMatter } from '../lib/mdx.js';
 import { byDate } from '../util/sort.js';
 
-// Disable client-side JS.
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function Home({ latest }) {
   return (
     <div className="Home">

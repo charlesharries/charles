@@ -16,6 +16,7 @@
       this.initListeners = this.initListeners.bind(this);
       this.toggleTheme = this.toggleTheme.bind(this);
       this.updateButton = this.updateButton.bind(this);
+      this.updateMeta = this.updateMeta.bind(this);
       this.setTheme = this.setTheme.bind(this);
       this.initListeners();
       this.initTheme();
@@ -50,7 +51,6 @@
       this.$label.innerText = capitalise(this.currentSetting);
     }
     updateMeta() {
-      console.log({ meta: this.$meta, setting: this.currentSetting });
       this.$meta.content = this.currentSetting === "dark" ? "#222222" : "#ffffff";
     }
     toggleTheme() {

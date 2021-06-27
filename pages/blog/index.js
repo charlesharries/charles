@@ -8,11 +8,6 @@ import { getAllFilesFrontMatter } from '../../lib/mdx';
 import { PostHead } from '../../components/Head';
 import { byDate } from '../../util/sort';
 
-// Disable client-side JS.
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 /**
  * A single blog item.
  *

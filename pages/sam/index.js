@@ -2,11 +2,6 @@ import Link from 'next/link';
 import { getAllFilesFrontMatter } from '../../lib/mdx';
 import DateComponent from '../../components/Date';
 
-// Disable client-side JS.
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 function Blog({ posts }) {
   return (
     <div className="Blog">

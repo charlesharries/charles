@@ -1,10 +1,5 @@
 import Link from 'next/link';
 
-// Disable client-side JS.
-export const config = {
-  unstable_runtimeJS: false,
-};
-
 export default function Error404() {
   return (
     <div className="stack">

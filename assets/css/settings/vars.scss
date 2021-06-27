@@ -12,7 +12,7 @@
 :root {
   /* Default/dark styles */
   --color-mode: 'dark';
-  --shadow: lighten(#{$black}, 10%);
+  --shadow: #{darken($darkgrey, 2%)};
   --background: #{$darkgrey};
   --accent: #{$grey};
   --faded: #{$dimwhite};

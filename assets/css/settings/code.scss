@@ -1,0 +1,58 @@
+@import './sass-vars.scss';
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: $comments;
+}
+
+.token.punctuation {
+  color: $variables;
+}
+
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: $properties;
+}
+
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: $strings;
+}
+
+.token.selector,
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.token.unit,
+.style .token.string {
+  color: $operators
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: $keywords;
+}
+
+.token.function,
+.token.class-name,
+.token.class {
+  color: $functions;
+}
+
+.token.property,
+.token.regex,
+.token.important,
+.token.variable {
+  color: $variables;
+}

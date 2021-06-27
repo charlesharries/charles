@@ -1,6 +1,4 @@
-/* Heading styles */
-
-$slightly-lighter-dark-grey: lighten($darkgrey, 20%);
+@import './sass-vars.scss';
 
 h1,
 .t-h1,
@@ -157,10 +155,10 @@ code,
 }
 
 p code {
-  font-size: 0.9em;
-  padding: 3px 4px;
+  font-size: 0.85em;
+  padding: 2px 5px 4px;
   background: var(--shadow);
-  border-radius: 2px;
+  border-radius: 4px;
   color: var(--text);
 }
 
@@ -170,12 +168,13 @@ pre {
   padding: $spacing;
   margin-right: -$spacing;
   margin-left: -$spacing;
-  background: $slightly-lighter-dark-grey;
+  background: darken($darkgrey, 2%);
   box-shadow: 0 1px 1px var(--shadow);
   color: $white;
 
   @include desktop {
     margin-right: calc(9 * -$spacing);
+    border-radius: 6px;
   }
 }
 

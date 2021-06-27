@@ -3,9 +3,8 @@ import useTheme from '../lib/useTheme.ts';
 import capitalise from '../util/capitalise';
 
 export default function ThemeToggle() {
-  const $label = useRef(null);
   const $toggle = useRef(null);
-  const [theme, toggleTheme] = useTheme($label.current);
+  const [theme, toggleTheme] = useTheme();
 
   // If the user doesn't have JS enabled, we don't want to show them
   // this button, since it'll do nothing.
@@ -16,9 +15,7 @@ export default function ThemeToggle() {
   return (
     <button type="button" className="ThemeToggle hidden" onClick={toggleTheme} ref={$toggle}>
       <span className="icon" />
-      <span className="ThemeToggle__label" ref={$label}>
-        {capitalise(theme)}
-      </span>
+      <span className="ThemeToggle__label">{capitalise(theme)}</span>
     </button>
   );
 }

@@ -1,9 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
-import { frontMatter as allPosts } from './*.mdx';
-import { MDXRemote } from 'next-mdx-remote';
-import Layout from '../../layouts/index';
 import { getAllFilesFrontMatter } from '../../lib/mdx';
 import { PostHead } from '../../components/Head';
 import { byDate } from '../../util/sort';
@@ -30,7 +27,6 @@ function BlogItem({ slug, title, date }) {
 }
 
 BlogItem.propTypes = {
-  __resourcePath: PropTypes.string,
   title: PropTypes.string,
   date: PropTypes.string,
 };
@@ -49,8 +45,8 @@ function Blog({ posts }) {
       <div className="Blog">
         <h1 className="Blog__title">the blog</h1>
         <ul>
-          {posts.sort(byDate).map(frontMatter => (
-            <BlogItem key={frontMatter.slug} {...frontMatter} />
+          {posts.sort(byDate).map((meta) => (
+            <BlogItem key={meta.slug} {...meta} />
           ))}
         </ul>
       </div>
@@ -61,7 +57,7 @@ function Blog({ posts }) {
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
 
-  return { props: { posts }};
+  return { props: { posts } };
 }
 
 export default Blog;

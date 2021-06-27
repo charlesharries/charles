@@ -27,7 +27,9 @@ function DateComponent({
 
   return (
     <Element style={style} className={className}>
-      <time className="font-monospace nowrap" dateTime={dateString}>{format(new Date(dateString))}</time>
+      <time className="font-monospace nowrap" dateTime={dateString}>
+        {format(new Date(dateString))}
+      </time>
     </Element>
   );
 }

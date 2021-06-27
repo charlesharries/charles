@@ -160,7 +160,7 @@ img {
   }
 }
 
-_::-ms-reveal,
+*::-ms-reveal,
 img[src*='.svg'] {
   width: 100%;
 }

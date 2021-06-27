@@ -19,7 +19,7 @@ body {
   color: var(--text);
   overscroll-behavior: none;
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 1.6rem;
     line-height: calc(24 / 16);
   }
@@ -49,7 +49,7 @@ main:not(.Full) {
   max-width: 600px;
   padding-top: 6rem;
 
-  @media (--desktop) {
+  @include desktop {
     padding-top: 10rem;
   }
 }

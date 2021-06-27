@@ -1,12 +1,12 @@
-@define-mixin button {
+@mixin button {
   padding: 1rem;
   margin-right: 5px;
   margin-left: 5px;
-  background: color-mod(var(--background) tint(5%));
+  background: lighten($darkgrey, 5%);
   border-radius: 3px;
   box-shadow: 0 1px 1px var(--shadow);
 }
 
 .button {
-  @mixin button;
+  @include button;
 }

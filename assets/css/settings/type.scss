@@ -1,6 +1,6 @@
 /* Heading styles */
 
-$slightly-lighter-dark-grey: color-mod(var(--background) lightness(20%));
+$slightly-lighter-dark-grey: lighten($darkgrey, 20%);
 
 h1,
 .t-h1,
@@ -17,7 +17,7 @@ h1,
   font-weight: 400;
   letter-spacing: 0.12rem;
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 4rem;
     line-height: calc(60 / 40);
     letter-spacing: 0.12rem;
@@ -31,7 +31,7 @@ h2,
   font-weight: 400;
   letter-spacing: 0.12rem;
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 3rem;
     line-height: calc(45 / 30);
     letter-spacing: 0.12rem;
@@ -51,7 +51,7 @@ li,
   font-size: 1.6rem;
   line-height: calc(25 / 15);
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 1.7rem;
     line-height: calc(28 / 16);
   }
@@ -61,7 +61,7 @@ li,
   font-size: 1rem;
   line-height: calc(12 / 9);
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 1.2rem;
     line-height: calc(14 / 10);
   }
@@ -70,7 +70,7 @@ li,
 .t-large {
   font-size: 1.8rem;
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 2rem;
   }
 }
@@ -78,7 +78,7 @@ li,
 .t-xlarge {
   font-size: 2.2rem;
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 2.6rem;
   }
 }
@@ -103,7 +103,7 @@ strong,
 }
 
 ::selection {
-  background: color-mod(var(--text) a(0.05));
+  background: rgba(var(--text), 0.05);
   color: var(--primary);
 }
 
@@ -112,7 +112,7 @@ strong,
     height: 1px;
     margin-bottom: 2rem;
     border: 0;
-    background-color: color-mod(var(--accent) a(0.3));
+    background-color: rgba(var(--accent), 0.3);
   }
 }
 
@@ -142,7 +142,7 @@ blockquote {
     margin-bottom: 0;
   }
 
-  @media (--desktop) {
+  @include desktop {
     margin-right: -$spacing;
     margin-left: -$spacing;
   }
@@ -174,7 +174,7 @@ pre {
   box-shadow: 0 1px 1px var(--shadow);
   color: $white;
 
-  @media (--desktop) {
+  @include desktop {
     margin-right: calc(9 * -$spacing);
   }
 }
@@ -194,7 +194,7 @@ ol {
   padding-left: 15px;
   list-style: decimal;
 
-  @media (--desktop) {
+  @include desktop {
     font-size: 1.7rem;
     line-height: calc(28 / 16);
   }

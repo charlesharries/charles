@@ -2,11 +2,11 @@
   width: 300px;
   height: auto;
 
-  @media (--desktop) {
+  @include desktop {
     width: 375px;
   }
 
-  @media (--fullscreen) {
+  @include fullscreen {
     transform: translateX(-9%);
   }
 }

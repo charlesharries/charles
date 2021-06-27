@@ -5,7 +5,7 @@ import Modal from '../Modal';
 function Image({ src, children, format = 'jpg' }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const url = size =>
+  const url = (size) =>
     `https://assets.charlesharri.es/${size},${format}/https://assets.charlesharri.es/src${src}`;
 
   function openModal(e) {

@@ -1,5 +1,3 @@
-@import '~css/settings/vars';
-
 .Timings__time {
   position: relative;
   display: flex;
@@ -31,6 +29,6 @@
     left: 0;
     width: 100%;
     height: 0;
-    border-bottom: 1px dotted color-mod(var(--text) a(0.5));
+    border-bottom: 1px dotted rgba(var(--text), 0.5);
   }
 }

@@ -7,14 +7,12 @@
  * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
  */
 
- html {
+html {
   box-sizing: border-box;
 }
 
-* {
-  &,
-  &::before,
-  &::after {
-    box-sizing: inherit;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }

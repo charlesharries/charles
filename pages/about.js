@@ -13,7 +13,7 @@ function About() {
       <p>
         I didn't bother tracking users for a long time, but I've become a little interested in
         whether or not people are reading what I write. So I'm tracking visits to this site using{' '}
-        <a href="https://umami.is/" target="_blank">
+        <a href="https://umami.is/" target="_blank" rel="noreferrer noopener">
           Umami
         </a>
         .

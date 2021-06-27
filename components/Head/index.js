@@ -96,7 +96,7 @@ function Meta() {
           defer
           data-website-id="f163f9d6-58e1-41f2-bc17-e99d4e76e8d8"
           src="https://stats.charlesharri.es/umami.js"
-        ></script>
+        />
       )}
     </Head>
   );

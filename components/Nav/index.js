@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import capitalise from '../../util/capitalise';
 import ThemeToggle from '../ThemeToggle';
 
 function Nav() {
@@ -13,7 +12,7 @@ function Nav() {
           <a className="Nav__link Nav__link--blog">Blog</a>
         </Link>
 
-        <div className="divider-vert"></div>
+        <div className="divider-vert" />
 
         <Link href="/sam">
           <a className="Nav__link Nav__link--blog">Sam</a>

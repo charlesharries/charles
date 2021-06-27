@@ -17,7 +17,7 @@ function Home({ latest }) {
         <h2 className="t-h1 mt-lg keyline">latest from the blog</h2>
 
         <ul>
-          {latest.map(post => (
+          {latest.map((post) => (
             <li className="BlogPost" key={post.description}>
               <article className="BlogPost">
                 <p className="t-large mb-0">
@@ -35,10 +35,10 @@ function Home({ latest }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
 
-  return { props: { latest: posts.sort(byDate).slice(0, 3) }};
+  return { props: { latest: posts.sort(byDate).slice(0, 3) } };
 }
 
 export default Home;

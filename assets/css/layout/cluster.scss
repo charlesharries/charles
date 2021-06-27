@@ -9,7 +9,7 @@
     margin-bottom: 1rem;
   }
 
-  @media (--desktop) {
+  @include desktop {
     margin-right: -2rem;
     margin-bottom: -2rem;
 

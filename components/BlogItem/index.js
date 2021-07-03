@@ -5,11 +5,11 @@ export default function BlogItem({ post }) {
   return (
     <li className="BlogPost">
       <article className="BlogPost">
-        <p className="t-large mb-0">
+        <h4 className="t-large mb-0">
           <Link href={`/${post.__resourcePath.replace('.mdx', '')}`}>
             {post.title.replace(' | Charles Harries', '')}
           </Link>
-        </p>
+        </h4>
         <p className="font-sm">{post.description}</p>
       </article>
     </li>

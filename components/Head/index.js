@@ -22,7 +22,7 @@ export function PostHead({ frontMatter }) {
       <title>{pageTitle} &bull; Charles Harries</title>
 
       <meta name="description" content={pageDescription} />
-      <meta name="theme-color" content={color} media="screen" />
+      <meta name="theme-color" content={color} />
 
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={image} />
@@ -61,7 +61,7 @@ function Meta() {
       <meta name="msapplication-TileColor" content={color} />
       <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <meta name="theme-color" content={color} media="screen" />
+      <meta name="theme-color" content={color} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:locale" content="en_GB" />
@@ -87,8 +87,6 @@ function Meta() {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Libre Franklin:400,400i,700,700i&display=swap"
       />
-
-      <link rel="dns-prefetch" href={process.env.API_ENDPOINT_URL} />
 
       {!isDev && isBrowser && (
         <script

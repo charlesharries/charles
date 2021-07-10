@@ -20,11 +20,13 @@ function Home({ latest }) {
           {latest.map((post) => (
             <li className="BlogPost" key={post.description}>
               <article className="BlogPost">
-                <p className="t-large mb-0">
+                <h3 className="t-large mb-0 font-regular">
                   <Link href={`/blog/${post.slug.replace('.mdx', '')}`}>
-                    {post.title.replace('', '')}
+                    <a className="link">{post.title.replace('', '')}</a>
                   </Link>
-                </p>
+
+                  <span className="t-small ml-sm font-monospace">{post.date}</span>
+                </h3>
                 <p className="font-sm">{post.description}</p>
               </article>
             </li>

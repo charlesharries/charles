@@ -65,3 +65,11 @@ main:not(.Full) {
   overflow: hidden;
   opacity: 0;
 }
+
+.footnotes {
+  border-top: 3px solid var(--faded)
+}
+
+.footnotes li {
+  font-size: 0.85em;
+}

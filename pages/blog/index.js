@@ -15,7 +15,7 @@ function BlogItem({ slug, title, date }) {
   return (
     <li>
       <article>
-        <Link href={`/blog/${slug}`}>
+        <Link href={`/blog/${slug}`} prefetch={false}>
           <a className="BlogLink t-para">
             <DateComponent date={date} short element="span" className="BlogLink__date t-small" />
             <span className="BlogLink__text">{title}</span>

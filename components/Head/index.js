@@ -83,11 +83,6 @@ function Meta() {
       <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#000000" />
       <link rel="shortcut icon" href="/images/favicon.ico" />
 
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Libre Franklin:400,400i,700,700i&display=swap"
-      />
-
       {!isDev && isBrowser && (
         <script
           async

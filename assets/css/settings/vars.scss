@@ -1,14 +1,5 @@
 @import './sass-vars.scss';
 
-@font-face {
-  font-family: 'Goudy Bookletter 1911';
-  font-weight: normal;
-  font-style: normal;
-  src:
-    url('/fonts/goudybookletter1911-webfont.woff2') format('woff2'),
-    url('/fonts/goudybookletter1911-webfont.woff') format('woff');
-}
-
 :root {
   /* Default/dark styles */
   --color-mode: 'dark';

@@ -18,7 +18,6 @@ const COMMIT_SHA =
 process.env.SENTRY_DSN = SENTRY_DSN;
 
 module.exports = {
-  webpack5: true,
   productionBrowserSourceMaps: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   webpack(config, { dev, isServer }) {

@@ -3,7 +3,8 @@ const { resolve } = require('path')
 
 module.exports = {
   extends: [
-    'wesbos'
+    'wesbos',
+    'plugin:@next/next/recommended',
   ],
   rules: {
     'jsx-a11y/label-has-for': [2, {
@@ -36,6 +37,7 @@ module.exports = {
         config: {
           resolve: {
             alias: {
+              '~': resolve(__dirname),
               '~pages': resolve(__dirname, 'pages'),
               '~components': resolve(__dirname, 'components'),
               '~css': resolve(__dirname, 'assets', 'css'),

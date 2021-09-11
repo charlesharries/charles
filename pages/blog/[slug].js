@@ -2,10 +2,11 @@ import { MDXRemote } from 'next-mdx-remote';
 import Layout from '../../layouts/index';
 import Date from '../../components/Date';
 import Image from '../../components/Image';
+import Timings from '../../components/Timings';
 import { getFileBySlug, getFiles } from '../../lib/mdx';
 
 export default function Blog({ mdxSource, frontMatter }) {
-  const components = { Date, Image };
+  const components = { Date, Image, Timings };
 
   return (
     <Layout frontMatter={frontMatter}>

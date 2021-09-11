@@ -13,7 +13,13 @@ export default function ThemeToggle() {
   }, []);
 
   return (
-    <button type="button" className="ThemeToggle hidden" onClick={toggleTheme} ref={$toggle}>
+    <button
+      type="button"
+      className="ThemeToggle hidden"
+      onClick={toggleTheme}
+      ref={$toggle}
+      aria-label="Toggle theme"
+    >
       <span className="icon" />
       <span className="ThemeToggle__label">{capitalise(theme)}</span>
     </button>

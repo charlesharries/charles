@@ -115,7 +115,7 @@ strong,
 }
 
 p a,
-.Post li a,
+.Post a,
 .link {
   border-bottom: 1px solid var(--primary);
   transition: color $speed1 ease;
@@ -129,7 +129,8 @@ p a,
   }
 }
 
-blockquote {
+blockquote,
+.Post aside {
   font-style: italic;
   padding: $spacing;
   background-color: var(--shadow);

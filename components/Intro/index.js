@@ -4,6 +4,12 @@ const externalLink = {
 };
 
 export default function Intro() {
+  const nhsDigital = (
+    <a href="https://digital.nhs.uk" {...externalLink}>
+      NHS Digital
+    </a>
+  );
+
   const komodo = (
     <a href="https://komododigital.co.uk" {...externalLink}>
       Komodo Digital
@@ -39,8 +45,8 @@ export default function Intro() {
       <p className="t-large">I'm a developer working on the web in the North East of England.</p>
 
       <p className="t-large">
-        I write software with PHP and JavaScript for {komodo}. Previously I worked at {creator} in
-        Castle Eden. After hours I write a bit of {Go}, watch more {movies} than I ought to, and{' '}
+        I write software at {nhsDigital}. Previously I worked at {komodo} in Newcastle and {creator}{' '}
+        in Castle Eden. After hours I write a bit of {Go}, watch more {movies} than I ought to, and{' '}
         {read} less than I should.
       </p>
     </>

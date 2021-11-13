@@ -78,6 +78,10 @@ Counterintuitively, I think that this solution actually becomes _more_ obvious t
 ## An alternative
 I'm using Vercel as an example above, but it turns out that Vercel does logs slightly differently. They return the plain string along with a set of data objects that highlight substrings to alter in some way:
 
+<Image src="/2021-11/vercel-logs.png">
+  The JSON structure of Vercel's activity feed
+</Image>
+
 I don't know how this is stored in their database; I suspect there's something clever and not immeditately obvious going on under the hood here. I'm not a huge fan of clever solutions, but I'm confident that Vercel has some pretty smart folks behind this approach, so I'm not ruling it out.
 
 Still a bigger fan of the data-led solution though. Keep your concerns separated, folks.

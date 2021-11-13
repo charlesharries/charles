@@ -174,7 +174,7 @@ pre {
   color: $white;
 
   @include desktop {
-    margin-right: calc(9 * -$spacing);
+    margin-right: calc(9 * -#{$spacing});
     border-radius: 6px;
   }
 }

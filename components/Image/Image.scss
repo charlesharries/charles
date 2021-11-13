@@ -4,3 +4,10 @@
     outline: 2px dotted var(--primary);
   }
 }
+
+.Content .Image {
+  @include desktop {
+    margin-right: calc(9 * -#{$spacing});
+    border-radius: 6px;
+  }
+}

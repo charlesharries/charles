@@ -16,7 +16,7 @@ function Image({ src, children, format = 'jpg' }) {
   return (
     <figure className="Image">
       <a className="Image__link" href={url('1920x')} onClick={openModal}>
-        <img src={url('700x')} alt={children} />
+        <img src={url('1000x')} alt={children} />
       </a>
 
       <figcaption className="Image__caption">{children}</figcaption>

@@ -20,8 +20,8 @@
   color: $properties;
 }
 
-.token.attr-name,
 .token.string,
+.token.attr-value,
 .token.char,
 .token.builtin,
 .token.inserted {
@@ -39,11 +39,11 @@
 }
 
 .token.atrule,
-.token.attr-value,
 .token.keyword {
   color: $keywords;
 }
 
+.token.attr-name,
 .token.function,
 .token.class-name,
 .token.class {

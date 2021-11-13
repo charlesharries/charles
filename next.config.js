@@ -48,7 +48,7 @@ module.exports = {
           ignore: ['node_modules'],
           urlPrefix: '~/_next',
           release: COMMIT_SHA,
-        })
+        }),
       );
     }
 

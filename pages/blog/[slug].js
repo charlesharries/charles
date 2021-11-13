@@ -3,10 +3,11 @@ import Layout from '../../layouts/index';
 import Date from '../../components/Date';
 import Image from '../../components/Image';
 import Timings from '../../components/Timings';
+import Emoji from '../../components/Emoji.tsx';
 import { getFileBySlug, getFiles } from '../../lib/mdx';
 
 export default function Blog({ mdxSource, frontMatter }) {
-  const components = { Date, Image, Timings };
+  const components = { Date, Image, Timings, Emoji };
 
   return (
     <Layout frontMatter={frontMatter}>

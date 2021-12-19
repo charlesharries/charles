@@ -44,8 +44,7 @@ body {
   z-index: 1;
 }
 
-main:not(.Full) {
-  max-width: 600px;
+main {
   padding-top: 6rem;
 
   @include desktop {

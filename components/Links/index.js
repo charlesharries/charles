@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const external = { target: '_blank', rel: 'noopener noreferrer' };
 
 export default function Links() {
@@ -21,6 +23,14 @@ export default function Links() {
           <a className="link" href="https://letterboxd.com/charlesharries/" {...external}>
             Letterboxd
           </a>
+        </span>
+
+        <div className="divider-vert" />
+
+        <span>
+          <Link href="/feed.xml">
+            <a className="link">RSS</a>
+          </Link>
         </span>
       </div>
     </footer>

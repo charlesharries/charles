@@ -1,0 +1,33 @@
+.StreamItem__heading {
+  h2 {
+    flex: 1;
+  }
+
+  time {
+    margin-bottom: 1rem;
+    display: inline-block;
+
+    @include desktop {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--faded);
+    }
+  }
+}
+
+.StreamItem__body__content {
+  max-width: 600px;
+}
+
+.StreamItem__body__images {
+  @include desktop {
+    padding-left: 3rem;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figure + figure {
+    margin-top: 2rem;
+  }
+}

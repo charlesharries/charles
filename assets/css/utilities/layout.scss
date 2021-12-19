@@ -1,0 +1,25 @@
+.d-flex { display: flex; }
+.align-bottom { align-items: flex-end; }
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+.ml-sm { margin-left: 1rem; }
+.ml-md { margin-left: 2rem; }
+.ml-lg { margin-left: 4rem; }
+
+.mt-sm { margin-top: 1rem; }
+.mt-md { margin-top: 2rem; }
+.mt-lg { margin-top: 4rem; }
+
+.desktop\: {
+  @include desktop {
+    &d-flex {
+      display: flex;
+    }
+    
+    &flex-row {
+      flex-direction: row;
+    }
+  }
+}

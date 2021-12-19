@@ -1,0 +1,37 @@
+import FullDate from '../FullDate.tsx';
+
+function StreamItemFeaturedImage({ image, key }) {
+  return (
+    <figure key={key}>
+      <img src={image.url} alt={image.alt} />
+      <figcaption>{image.alt}</figcaption>
+    </figure>
+  );
+}
+
+export default function StreamItem({ post }) {
+  return (
+    <article>
+      <div className="StreamItem__heading desktop:d-flex align-bottom">
+        <h2>{post.title}</h2>
+
+        <div className="text-accent">
+          <FullDate datetime={post.created_at.date} />
+        </div>
+      </div>
+
+      <div className="StreamItem__body desktop:d-flex mt-sm">
+        <div
+          className="StreamItem__body__content"
+          dangerouslySetInnerHTML={{ __html: post.body }}
+        />
+
+        <div className="StreamItem__body__images">
+          {post.featured_image.map((image) => (
+            <StreamItemFeaturedImage image={image} key={image.url} />
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}

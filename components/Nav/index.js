@@ -11,6 +11,9 @@ function Nav() {
         <Link href="/blog">
           <a className="Nav__link Nav__link--blog">Blog</a>
         </Link>
+        <Link href="/stream">
+          <a className="Nav__link Nav__link--blog">Stream</a>
+        </Link>
 
         <div className="divider-vert" />
 
@@ -19,9 +22,6 @@ function Nav() {
         </Link>
         <Link href="/projects">
           <a className="Nav__link Nav__link--projects">Projects</a>
-        </Link>
-        <Link href="/feed.xml">
-          <a className="Nav__link Nav__link--rss">RSS</a>
         </Link>
 
         <div className="divider-vert" />

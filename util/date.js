@@ -71,10 +71,23 @@ export function shortDate(date) {
  * @param   {Date} date - The date to format.
  * @returns {string}
  */
-export const longDate = date => {
+export const longDate = (date) => {
   const y = date.getFullYear() % 100;
   const m = month(date);
   const d = date.getDate();
 
   return `${d} ${m} '${y}`;
+};
+
+/**
+ * Format a date like "3:30 pm"
+ *
+ * @param   {Date} date
+ * @returns {string}
+ */
+export const time = (date) => {
+  const h = date.getHours();
+  const m = date.getMinutes();
+
+  return `${h}:${m < 10 ? '0' : ''}${m} ${h < 12 ? 'am' : 'pm'}`;
 };

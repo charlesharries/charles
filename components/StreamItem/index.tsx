@@ -10,6 +10,18 @@ function StreamItemFeaturedImage({ image, key }) {
 }
 
 export default function StreamItem({ post }) {
+  function FeaturedImages() {
+    if (post.featured_image.length === 0) return null;
+
+    return (
+      <div className="StreamItem__body__images">
+        {post.featured_image.map((image) => (
+          <StreamItemFeaturedImage image={image} key={image.url} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <article>
       <div className="StreamItem__heading desktop:d-flex align-bottom">
@@ -22,15 +34,11 @@ export default function StreamItem({ post }) {
 
       <div className="StreamItem__body desktop:d-flex mt-sm">
         <div
-          className="StreamItem__body__content"
+          className="StreamItem__body__content Post"
           dangerouslySetInnerHTML={{ __html: post.body }}
         />
 
-        <div className="StreamItem__body__images">
-          {post.featured_image.map((image) => (
-            <StreamItemFeaturedImage image={image} key={image.url} />
-          ))}
-        </div>
+        <FeaturedImages />
       </div>
     </article>
   );

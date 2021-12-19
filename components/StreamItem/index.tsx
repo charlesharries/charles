@@ -1,11 +1,6 @@
 import FullDate from '../FullDate.tsx';
 
-interface FeaturedImageProps {
-  image: { url: string; alt: string };
-  key: string;
-}
-
-function StreamItemFeaturedImage({ image }: FeaturedImageProps) {
+function StreamItemFeaturedImage({ image }: any) {
   return (
     <figure>
       <img src={image.url} alt={image.alt} />

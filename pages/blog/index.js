@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
-import { getAllFilesFrontMatter } from '../../lib/mdx';
 import { PostHead } from '../../components/Head';
 import { byDate } from '../../util/sort';
+import { getAllPostsFrontMatter } from '../../lib/api';
 
 /**
  * A single blog item.
@@ -11,7 +11,7 @@ import { byDate } from '../../util/sort';
  * @todo Once we've got all of the dates set, use the DateComponent here.
  * @param {{slug: string, title: string, date: string}} post
  */
-function BlogItem({ slug, title, date }) {
+function BlogItem({ slug, title, created_at: date }) {
   return (
     <li>
       <article>
@@ -45,7 +45,7 @@ function Blog({ posts }) {
       <div className="Blog">
         <h1 className="Blog__title">the blog</h1>
         <ul>
-          {posts.sort(byDate).map((meta) => (
+          {posts.map((meta) => (
             <BlogItem key={meta.slug} {...meta} />
           ))}
         </ul>
@@ -55,7 +55,7 @@ function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog');
+  const posts = await getAllPostsFrontMatter();
 
   return { props: { posts } };
 }

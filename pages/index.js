@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import AnimatedName from '~components/AnimatedName';
 import Intro from '~components/Intro';
-import { getAllFilesFrontMatter } from '../lib/mdx.js';
+import { getAllPostsFrontMatter } from '../lib/api.js';
 import { byDate } from '../util/sort.js';
 
 function Home({ latest }) {
@@ -27,7 +27,7 @@ function Home({ latest }) {
 
                   <span className="t-small ml-sm font-monospace">{post.date}</span>
                 </h3>
-                <p className="font-sm">{post.description}</p>
+                <p className="font-sm">{post.summary}</p>
               </article>
             </li>
           ))}
@@ -38,9 +38,9 @@ function Home({ latest }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog');
+  const posts = await getAllPostsFrontMatter();
 
-  return { props: { latest: posts.sort(byDate).slice(0, 3) } };
+  return { props: { latest: posts.slice(0, 3) } };
 }
 
 export default Home;

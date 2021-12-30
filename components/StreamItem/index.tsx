@@ -1,6 +1,18 @@
-import FullDate from '../FullDate.tsx';
+import FullDate from '../FullDate';
 
-function StreamItemFeaturedImage({ image }: any) {
+interface Image {
+  alt: string;
+  url: string;
+}
+
+interface Post {
+  title: string;
+  featured_image: Image[];
+  body: string;
+  created_at: string;
+}
+
+function StreamItemFeaturedImage({ image }: { image: Image }) {
   return (
     <figure>
       <img src={image.url} alt={image.alt} />
@@ -9,9 +21,9 @@ function StreamItemFeaturedImage({ image }: any) {
   );
 }
 
-export default function StreamItem({ post }) {
+export default function StreamItem({ post }: { post: Post }): JSX.Element {
   function FeaturedImages() {
-    if (post.featured_image.length === 0) return null;
+    if (!post.featured_image?.length) return null;
 
     return (
       <div className="StreamItem__body__images">
@@ -28,7 +40,7 @@ export default function StreamItem({ post }) {
         <h2>{post.title}</h2>
 
         <div className="text-accent">
-          <FullDate datetime={post.created_at.date} />
+          <FullDate datetime={post.created_at} />
         </div>
       </div>
 

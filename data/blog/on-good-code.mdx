@@ -24,15 +24,10 @@ But I have read through [the section on code reviews](https://google.github.io/e
 In the [*what to look for in a code review*](https://google.github.io/eng-practices/review/reviewer/looking-for.html) section, Google seems to think that nice, healthful code generally checks boxes across 6 basic metrics:
 
 **1. Functionality.** Does the code do what the writer intended?
-
 **2. Complexity.** Is the code more complex than it needs to be? Is it easy to grok? How easy is it to introduce bugs when building on this code?
-
 **3. Tests.** Are there appropriate tests? If the code changes beneath them, will the tests start returning false positives?
-
 **4. Naming.** Do the names in the code communicate what the code does?
-
 **5. Comments.** Do the comments describe why the code exists? Not just what it does?
-
 **6. Style.** Does the code match the styleguide? Is it consistent with the rest of the code in the codebase?
 
 I feel that these are better places to start than really subjective qualitative judgments like "Is the code well-designed?" (Which, to be fair, the Google eng-practices guidelines also advocates asking whether the code is well-designed, which I don't think is very helpful.) But these questions dip at least a couple of toes in the pool of objective judgment (e.g. **does the code do what it says it does?**: this is a measurable criteria) instead of resting the burden solely on the reviewer.

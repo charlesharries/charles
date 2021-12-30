@@ -3,8 +3,14 @@ const { resolve } = require('path')
 
 module.exports = {
   extends: [
-    'wesbos',
+    'wesbos/typescript',
     'plugin:@next/next/recommended',
+  ],
+  overrides: [
+    files: ['*.ts', '*.tsx'],
+    parserOptions: {
+      project: ['./tsconfig.json']
+    }
   ],
   rules: {
     'jsx-a11y/label-has-for': [2, {
@@ -29,7 +35,8 @@ module.exports = {
       'printWidth': 100,
       'trailingComma': 'all',
     }],
-    'array-callback-return': 'off'
+    'array-callback-return': 'off',
+    'camelcase': 'off'
   },
   settings: {
     'import/resolver': {

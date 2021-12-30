@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
 import { shortDate, longDate } from '../../util/date';
 
-const shortStyle = {};
-
-const longStyle = { fontStyle: 'italic' };
-
 function DateComponent({
   children,
   date: dateString,
@@ -12,12 +8,11 @@ function DateComponent({
   element = 'p',
   className = '',
 }) {
-  const style = short ? shortStyle : longStyle;
   const Element = element;
 
   if (children) {
     return (
-      <p className={className} style={style}>
+      <p className={className}>
         {children}
       </p>
     );
@@ -26,7 +21,7 @@ function DateComponent({
   const format = short ? shortDate : longDate;
 
   return (
-    <Element style={style} className={className}>
+    <Element className={className}>
       <time className="font-monospace nowrap" dateTime={dateString}>
         {format(new Date(dateString))}
       </time>

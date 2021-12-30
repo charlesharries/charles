@@ -16,9 +16,13 @@
 
 .StreamItem__body__content {
   max-width: 600px;
+  width: 100%;
 }
 
 .StreamItem__body__images {
+  min-width: 250px;
+  flex: 1;
+  
   @include desktop {
     padding-left: 3rem;
   }

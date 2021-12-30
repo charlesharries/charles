@@ -3,6 +3,7 @@ import AnimatedName from '~components/AnimatedName';
 import Intro from '~components/Intro';
 import { getAllPostsFrontMatter } from '../lib/api.js';
 import { byDate } from '../util/sort.js';
+import { longDate } from '../util/date';
 
 function Home({ latest }) {
   return (
@@ -25,7 +26,9 @@ function Home({ latest }) {
                     <a className="link">{post.title.replace('', '')}</a>
                   </Link>
 
-                  <span className="t-small ml-sm font-monospace">{post.date}</span>
+                  <span className="t-small ml-sm font-monospace">
+                    {longDate(new Date(post.created_at))}
+                  </span>
                 </h3>
                 <p className="font-sm">{post.summary}</p>
               </article>

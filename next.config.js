@@ -17,19 +17,14 @@ const COMMIT_SHA =
 
 process.env.SENTRY_DSN = SENTRY_DSN;
 
+/**
+ * @type {import('next').NextConfig}
+ */
 module.exports = {
   productionBrowserSourceMaps: true,
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  swcMinify: true,
+  reactStrictMode: true,
   webpack(config, { dev, isServer }) {
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      '@': resolve(__dirname),
-      '~pages': resolve(__dirname, 'pages'),
-      '~components': resolve(__dirname, 'components'),
-      '~css': resolve(__dirname, 'assets', 'css'),
-      '~data': resolve(__dirname, 'data'),
-    };
-
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }

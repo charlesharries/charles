@@ -11,3 +11,9 @@
     margin-top: $spacing;
   }
 }
+
+.stack--sm {
+  & > * + * {
+    margin-top: $spacing / 2;
+  }
+}

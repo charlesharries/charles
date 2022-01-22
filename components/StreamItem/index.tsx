@@ -5,11 +5,11 @@ interface Image {
   url: string;
 }
 
-interface Post {
+export interface Post {
   title: string;
   featured_image: Image[];
   body: string;
-  created_at: string;
+  created_at: Date;
 }
 
 function StreamItemFeaturedImage({ image }: { image: Image }) {

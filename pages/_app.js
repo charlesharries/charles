@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import App from 'next/app';
 import * as Sentry from '@sentry/node';
-import Head from '~components/Head';
-import Nav from '~components/Nav';
+import Head from 'components/Head';
+import Nav from 'components/Nav';
 import '../assets/css/app.scss';
 
 import Links from '../components/Links';

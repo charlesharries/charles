@@ -1,4 +1,3 @@
-import { MDXRemote } from 'next-mdx-remote';
 import Layout from '../../layouts/index';
 import Date from '../../components/Date';
 import Image from '../../components/Image';

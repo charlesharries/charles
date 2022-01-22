@@ -1,41 +1,32 @@
 .cluster {
+  --cluster-spacing: 1rem;
+
   display: flex;
   flex-flow: row wrap;
-  margin-right: -1rem;
-  margin-bottom: -1rem;
+  margin-right: calc(-1 * var(--cluster-spacing));
+  margin-bottom: calc(-1 * var(--cluster-spacing));
 
   & > * {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-right: var(--cluster-spacing);
+    margin-bottom: var(--cluster-spacing);
+  }
+
+  & > * + * {
+    &::before {
+      content: var(--separator);
+      margin-right: var(--cluster-spacing);
+    }
   }
 
   @include desktop {
-    margin-right: -2rem;
-    margin-bottom: -2rem;
-
-    & > * {
-      margin-right: 2rem;
-      margin-bottom: 2rem;
-    }
+    --cluster-spacing: 2rem;
   }
 
   &--sm {
-    margin-right: -1rem;
-    margin-bottom: -1rem;
-
-    & > * {
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-    }
+    --cluster-spacing: 1rem;
   }
 
   &--lg {
-    margin-right: -4rem;
-    margin-bottom: -4rem;
-
-    & > * {
-      margin-right: 4rem;
-      margin-bottom: 4rem;
-    }
+    --cluster-spacing: 4rem;
   }
 }

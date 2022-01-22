@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import AnimatedName from 'components/AnimatedName';
 import Intro from 'components/Intro';
-import { getAllPostsFrontMatter } from '../lib/api.js';
+import { getAllPosts } from 'lib/api.js';
 import { byDate } from '../util/sort.js';
 import { longDate } from '../util/date';
 
@@ -41,7 +41,7 @@ function Home({ latest }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPostsFrontMatter();
+  const posts = await getAllPosts('posts');
 
   return { props: { latest: posts.slice(0, 3) } };
 }

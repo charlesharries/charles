@@ -3,7 +3,7 @@ import Date from '../../components/Date';
 import Image from '../../components/Image';
 import Timings from '../../components/Timings';
 import Emoji from '../../components/Emoji.tsx';
-import { getAllPostsFrontMatter, getPostBySlug } from '../../lib/api';
+import { getAllPosts, getPostBySlug } from '../../lib/api';
 
 export default function Blog({ post, frontMatter }) {
   const components = { Date, Image, Timings, Emoji };
@@ -16,7 +16,7 @@ export default function Blog({ post, frontMatter }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPostsFrontMatter('blog');
+  const posts = await getAllPosts('posts');
 
   return {
     paths: posts.map((p) => ({
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPostBySlug('blog', params.slug);
+  const post = await getPostBySlug('posts', params.slug);
 
   return { props: post };
 }

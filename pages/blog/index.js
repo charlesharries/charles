@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DateComponent from '../../components/Date';
 import { PostHead } from '../../components/Head';
 import { byDate } from '../../util/sort';
-import { getAllPostsFrontMatter } from '../../lib/api';
+import { getAllPosts } from '../../lib/api';
 
 /**
  * A single blog item.
@@ -55,7 +55,7 @@ function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPostsFrontMatter();
+  const posts = await getAllPosts('posts');
 
   return { props: { posts } };
 }

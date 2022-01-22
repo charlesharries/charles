@@ -1,16 +1,5 @@
+import { Image, Post } from 'lib/types';
 import FullDate from '../FullDate';
-
-interface Image {
-  alt: string;
-  url: string;
-}
-
-export interface Post {
-  title: string;
-  featured_image: Image[];
-  body: string;
-  created_at: Date;
-}
 
 function StreamItemFeaturedImage({ image }: { image: Image }) {
   return (

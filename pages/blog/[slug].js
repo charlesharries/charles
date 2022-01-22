@@ -5,8 +5,13 @@ import Timings from '../../components/Timings';
 import Emoji from '../../components/Emoji.tsx';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
 
-export default function Blog({ post, frontMatter }) {
+export default function Blog({ post }) {
   const components = { Date, Image, Timings, Emoji };
+  const frontMatter = {
+    title: post.title,
+    date: post.created_at,
+    slug: post.slug,
+  };
 
   return (
     <Layout frontMatter={frontMatter}>
@@ -29,5 +34,5 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const post = await getPostBySlug('posts', params.slug);
 
-  return { props: post };
+  return { props: { post } };
 }

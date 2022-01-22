@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function StreamYear({ year, months }: Props): JSX.Element {
-  const sortedMonths = Object.keys(months).sort((a, b) => parseInt(a) - parseInt(b))
+  const sortedMonths = Object.keys(months).sort((a, b) => parseInt(b) - parseInt(a))
 
   // Have to define this explicitly because React.CSSProperties
   // doesn't include custom properties :|

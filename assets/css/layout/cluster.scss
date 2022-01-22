@@ -22,11 +22,6 @@
     --cluster-spacing: 2rem;
   }
 
-  &--sm {
-    --cluster-spacing: 1rem;
-  }
-
-  &--lg {
-    --cluster-spacing: 4rem;
-  }
+  &--sm { --cluster-spacing: 1rem; }
+  &--lg { --cluster-spacing: 4rem; }
 }

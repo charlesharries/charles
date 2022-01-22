@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import AnimatedName from 'components/AnimatedName';
 import Intro from 'components/Intro';
-import { getAllPosts } from 'lib/api.js';
+import { getAllPosts } from '../lib/api.ts';
 import { byDate } from '../util/sort.js';
 import { longDate } from '../util/date';
 

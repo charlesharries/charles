@@ -1,7 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 const RSS = require('rss');
-const matter = require('gray-matter');
+const fetch = require('node-fetch');
+
+async function getPosts(frontMatter, type = 'posts') {
+  return (await Promise.all(frontMatter.map(post => {
+    return fetch(`https://api.charlesharri.es/${type}/${post.slug}.json`).then(r => r.json());
+  }))).map(p => ({ ...p, type: type === 'posts' ? 'post' : 'stream' }))
+}
+
+function toFeedItem(post) {
+  const section = post.type === 'post' ? 'blog' : 'stream';
+
+  return {
+    title: post.title,
+    url: `https://charlesharri.es/${section}/${post.slug}`,
+    date: post.created_at,
+    description: post.body,
+  };
+}
 
 async function generate() {
   const feed = new RSS({
@@ -10,21 +27,21 @@ async function generate() {
     feed_url: 'https://charlesharri.es/feed.xml',
   });
 
-  const posts = fs.readdirSync(path.join(__dirname, '..', 'data', 'blog'));
+  // 1. Get frontmatter sorted by latest first
+  const [postsFrontMatter, streamFrontMatter] = await Promise.all([
+    fetch('https://api.charlesharri.es/posts.json').then(r => r.json()),
+    fetch('https://api.charlesharri.es/stream.json').then(r => r.json()),
+  ]);
+
+  // Get the latest 15 posts of each type
+  const [posts, stream] = await Promise.all([
+    getPosts(postsFrontMatter.data.slice(0, 15), 'posts'),
+    getPosts(streamFrontMatter.data.slice(0, 15), 'stream'),
+  ]);
 
   posts
-    .filter(name => name.includes('.mdx'))
-    .map(name => {
-      const content = fs.readFileSync(path.join(__dirname, '..', 'data', 'blog', name));
-      const frontmatter = matter(content);
-
-      return {
-        title: frontmatter.data.title,
-        url: `https://charlesharri.es/blog/${name.replace(/\.mdx?/, '')}`,
-        date: frontmatter.data.date,
-        description: frontmatter.data.description,
-      };
-    })
+    .concat(stream)
+    .map(post => toFeedItem(post))
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .forEach(p => feed.item(p));
 

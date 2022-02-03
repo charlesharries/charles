@@ -32,3 +32,11 @@
     top: 0;
   }
 }
+
+.Links__right {
+  @include desktop {
+    p {
+      text-align: right;
+    }
+  }
+}

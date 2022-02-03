@@ -11,7 +11,7 @@ export default function Links() {
       </div>
 
       <div className="Links__right">
-        <p className="small-caps mb-0 text-right">Elsewhere on the web</p>
+        <p className="small-caps mb-0">Elsewhere on the web</p>
         <div className="cluster mt-sm">
           <span>
             <a className="link" href="https://github.com/charlesharries" {...external}>

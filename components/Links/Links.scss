@@ -15,6 +15,12 @@
     justify-content: space-between;
   }
 
+  & > :not(:first-child) {
+    @include mobile {
+      margin-top: 2rem;
+    }
+  }
+
   &::before {
     content: '';
     display: block;

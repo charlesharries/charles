@@ -57,7 +57,7 @@ export default function RecentlyPlayed({ count = 0 }) {
         </svg>
 
         <span className="ml-sm">
-          {latestTrack['@attr'].nowplaying === 'true' ? 'Now playing' : 'Recently played'}
+          {latestTrack['@attr']?.nowplaying === 'true' ? 'Now playing' : 'Recently played'}
         </span>
       </p>
       <div className="d-flex align-center mt-sm">

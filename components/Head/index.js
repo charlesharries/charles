@@ -34,6 +34,8 @@ export function PostHead({ frontMatter }) {
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={image} />
 
+      <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" />
+
       {published && <meta name="article:published_time" content={published} />}
     </Head>
   );

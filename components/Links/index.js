@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import LatestTracks from 'components/LatestTracks.tsx';
+import RecentlyPlayed from 'components/RecentlyPlayed/RecentlyPlayed.tsx';
 
 const external = { target: '_blank', rel: 'noopener noreferrer' };
 
@@ -7,6 +7,10 @@ export default function Links() {
   return (
     <footer className="Links">
       <div className="Links__left">
+        <RecentlyPlayed />
+      </div>
+
+      <div className="Links__right">
         <p className="small-caps mb-0">Elsewhere on the web</p>
         <div className="cluster mt-sm">
           <span>
@@ -35,10 +39,6 @@ export default function Links() {
             </Link>
           </span>
         </div>
-      </div>
-
-      <div className="Links__right">
-        <LatestTracks />
       </div>
     </footer>
   );

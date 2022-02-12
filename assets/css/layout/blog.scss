@@ -1,6 +1,9 @@
 .Blog {
+  position: relative;
+
   @include desktop {
     display: flex;
+    align-items: flex-start;
   }
 }
 
@@ -15,6 +18,8 @@
 
   @include desktop {
     margin-left: 3rem;
+    position: sticky;
+    top: 0;
   }
 }
 

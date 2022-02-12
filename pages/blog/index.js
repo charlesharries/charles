@@ -42,7 +42,7 @@ function Blog({ posts, headings }) {
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
-  const { tags, filtered, addTag, removeTag } = useTags(posts);
+  const { tags, isTagActive, filtered, toggleTag } = useTags(posts);
 
   return (
     <>
@@ -61,8 +61,14 @@ function Blog({ posts, headings }) {
         {blogMeta.slug === 'blog' ? 
           <div className="Blog__filters">
             <h3 className="Blog__title keyline mt-md leading-tight">Tags</h3>
-            <ul class="cluster">
-              {tags.map(tag => <li class="t-small">{tag.title}</li>)}
+            <ul class="cluster cluster--sm">
+              {tags.map(tag => (
+                <li class="t-xs">
+                  <button onClick={() => toggleTag(tag)} className="tag" aria-selected={isTagActive(tag)}>
+                    {tag.title}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         : null}

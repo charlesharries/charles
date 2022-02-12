@@ -17,19 +17,34 @@ export default function useTags(posts: Post[]) {
     return newTags;
   }, [])
 
-  function addTag(tag) {
-    setActiveTags([...activeTags, tag]);
+  function isTagActive(tag) {
+    return activeTags.includes(tag.slug)
   }
 
-  function removeTag(tag) {
-    const newTags = activeTags.filter(t => t !== tag);
+  function toggleTag(tag: Tag) {
+    isTagActive(tag) ? removeTag(tag) : addTag(tag)
+  }
+
+  function addTag(tag: Tag) {
+    setActiveTags([...activeTags, tag.slug]);
+  }
+
+  function removeTag(tag: Tag) {
+    const newTags = activeTags.filter(t => t !== tag.slug);
     setActiveTags(newTags);
   }
 
-  // useEffect(() => {
-  //   const newPosts = posts.filter(p => p.tags.find(t => activeTags.includes(t.slug)));
-  //   setFiltered(newPosts)
-  // }, [posts, activeTags])
+  console.log({ activeTags });
 
-  return { tags: allTags, activeTags, addTag, removeTag, filtered };
+  useEffect(() => {
+    if (activeTags.length === 0) {
+      setFiltered(posts)
+      return;
+    }
+
+    const newPosts = posts.filter(p => p.tags.find(t => activeTags.includes(t.slug)));
+    setFiltered(newPosts)
+  }, [posts, activeTags])
+
+  return { tags: allTags, isTagActive, toggleTag, filtered };
 }

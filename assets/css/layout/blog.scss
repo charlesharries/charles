@@ -1,5 +1,19 @@
 .Blog {
+  @include desktop {
+    display: flex;
+  }
+}
+
+.Blog__list {
   max-width: 600px;
+}
+
+.Blog__filters {
+  flex: 1;
+
+  @include desktop {
+    margin-left: 3rem;
+  }
 }
 
 .BlogLink {

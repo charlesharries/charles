@@ -4,6 +4,7 @@ import DateComponent from '../../components/Date';
 import { PostHead } from '../../components/Head';
 import { byDate } from '../../util/sort';
 import { getAllPosts } from '../../lib/api';
+import useTags from 'lib/useTags.ts';
 
 /**
  * A single blog item.
@@ -41,17 +42,30 @@ function Blog({ posts, headings }) {
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
+  const { tags, filtered, addTag, removeTag } = useTags(posts);
+
   return (
     <>
       <PostHead frontMatter={blogMeta} />
 
       <div className="Blog">
-        <h1 className="Blog__title keyline">{blogMeta.title}</h1>
-        <ul>
-          {posts.map((meta) => (
-            <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
-          ))}
-        </ul>
+        <div className="Blog__list">
+          <h1 className="Blog__title keyline">{blogMeta.title}</h1>
+          <ul>
+            {filtered.map((meta) => (
+              <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
+            ))}
+          </ul>
+        </div>
+
+        {blogMeta.slug === 'blog' ? 
+          <div className="Blog__filters">
+            <h3 className="Blog__title keyline mt-md leading-tight">Tags</h3>
+            <ul class="cluster">
+              {tags.map(tag => <li class="t-small">{tag.title}</li>)}
+            </ul>
+          </div>
+        : null}
       </div>
     </>
   );

@@ -3,9 +3,9 @@ export interface Image {
   url: string;
 }
 
-export interface PostResponse extends PostFrontMatterResponse {
-  featured_image: Image[];
-  body: string;
+export interface Tag {
+  title: string;
+  slug: string;
 }
 
 export interface PostFrontMatterResponse {
@@ -13,6 +13,12 @@ export interface PostFrontMatterResponse {
   slug: string;
   created_at: string | Date;
   summary: string;
+  tags: Tag[]
+}
+
+export interface PostResponse extends PostFrontMatterResponse {
+  featured_image: Image[];
+  body: string;
 }
 
 export interface PostFrontMatter extends PostFrontMatterResponse {

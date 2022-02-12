@@ -1,7 +1,7 @@
-import Blog from 'pages/blog';
-import { getFileBySlug, getFiles } from '../../lib/mdx';
+import Page from 'pages/blog/[slug].js';
+import { getAllPosts, getPostBySlug } from '../../lib/api';
 
-export default Blog;
+export default Page;
 
 export async function getStaticPaths() {
   const posts = await getAllPosts('sam-posts');

@@ -11,11 +11,11 @@ import { getAllPosts } from '../../lib/api';
  * @todo Once we've got all of the dates set, use the DateComponent here.
  * @param {{slug: string, title: string, date: string}} post
  */
-function BlogItem({ slug, title, created_at: date, summary }) {
+function BlogItem({ href, title, created_at: date, summary }) {
   return (
     <li>
       <article>
-        <Link href={`/blog/${slug}`} prefetch={false}>
+        <Link href={href} prefetch={false}>
           <a className="BlogLink t-para">
             <DateComponent date={date} short element="span" className="BlogLink__date t-xs" />
             <div className="BlogLink__text">
@@ -35,7 +35,7 @@ BlogItem.propTypes = {
 };
 
 function Blog({ posts, headings }) {
-  const meta = Object.assign({
+  const blogMeta = Object.assign({
     slug: 'blog',
     title: 'Posts',
     description: "What I've been up to lately, what's popped into my head.",
@@ -43,13 +43,13 @@ function Blog({ posts, headings }) {
 
   return (
     <>
-      <PostHead frontMatter={meta} />
+      <PostHead frontMatter={blogMeta} />
 
       <div className="Blog">
-        <h1 className="Blog__title keyline">{meta.title}</h1>
+        <h1 className="Blog__title keyline">{blogMeta.title}</h1>
         <ul>
           {posts.map((meta) => (
-            <BlogItem key={meta.slug} {...meta} />
+            <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
           ))}
         </ul>
       </div>

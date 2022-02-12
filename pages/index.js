@@ -22,8 +22,8 @@ function Home({ latest }) {
             <li className="BlogPost" key={post.title}>
               <article className="BlogPost">
                 <h3 className="t-large mb-0 font-regular">
-                  <Link href={`/blog/${post.slug.replace('.mdx', '')}`} prefetch={false}>
-                    <a className="link">{post.title.replace('', '')}</a>
+                  <Link href={`/blog/${post.slug}`} prefetch={false}>
+                    <a className="link">{post.title}</a>
                   </Link>
 
                   <span className="t-xs ml-sm font-monospace">

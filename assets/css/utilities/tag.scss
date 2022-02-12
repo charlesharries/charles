@@ -3,6 +3,7 @@
   padding: 0.5rem 0.8rem;
   background-color: var(--shadow);
   border-radius: 4px;
+  transition: all 0.3s ease;
 
   &[aria-selected="true"] {
     color: var(--background);

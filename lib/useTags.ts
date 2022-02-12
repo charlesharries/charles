@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Post, Tag } from "./types";
+import { Post, PostFrontMatter, Tag } from "./types";
 
 
 export default function useTags(posts: Post[]) {
@@ -21,6 +21,12 @@ export default function useTags(posts: Post[]) {
     return activeTags.includes(tag.slug)
   }
 
+  function isPostActive(post: PostFrontMatter) {
+    if (activeTags.length === 0) return true;
+
+    return post.tags.find(tag => activeTags.includes(tag.slug));
+  }
+
   function toggleTag(tag: Tag) {
     isTagActive(tag) ? removeTag(tag) : addTag(tag)
   }
@@ -34,8 +40,6 @@ export default function useTags(posts: Post[]) {
     setActiveTags(newTags);
   }
 
-  console.log({ activeTags });
-
   useEffect(() => {
     if (activeTags.length === 0) {
       setFiltered(posts)
@@ -46,5 +50,5 @@ export default function useTags(posts: Post[]) {
     setFiltered(newPosts)
   }, [posts, activeTags])
 
-  return { tags: allTags, isTagActive, toggleTag, filtered };
+  return { tags: allTags, isTagActive, isPostActive, toggleTag, filtered };
 }

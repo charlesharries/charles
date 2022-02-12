@@ -5,6 +5,8 @@ import { PostHead } from '../../components/Head';
 import { byDate } from '../../util/sort';
 import { getAllPosts } from '../../lib/api';
 import useTags from 'lib/useTags.ts';
+import Tag from 'components/Tag';
+import { CSSTransition } from 'react-transition-group';
 
 /**
  * A single blog item.
@@ -42,7 +44,7 @@ function Blog({ posts, headings }) {
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
-  const { tags, isTagActive, filtered, toggleTag } = useTags(posts);
+  const { tags, isTagActive, isPostActive, filtered, toggleTag } = useTags(posts);
 
   return (
     <>
@@ -52,8 +54,10 @@ function Blog({ posts, headings }) {
         <div className="Blog__list">
           <h1 className="Blog__title keyline">{blogMeta.title}</h1>
           <ul>
-            {filtered.map((meta) => (
-              <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
+            {posts.map((meta) => (
+              <CSSTransition in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
+                <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
+              </CSSTransition>
             ))}
           </ul>
         </div>
@@ -63,10 +67,8 @@ function Blog({ posts, headings }) {
             <h3 className="Blog__title keyline mt-md leading-tight">Tags</h3>
             <ul class="cluster cluster--sm">
               {tags.map(tag => (
-                <li class="t-xs">
-                  <button onClick={() => toggleTag(tag)} className="tag" aria-selected={isTagActive(tag)}>
-                    {tag.title}
-                  </button>
+                <li>
+                  <Tag isActive={isTagActive(tag)} tag={tag} onClick={toggleTag} />
                 </li>
               ))}
             </ul>

@@ -7,6 +7,8 @@ export default function useTags(posts: Post[]) {
   const [filtered, setFiltered] = useState(posts);
 
   const allTags = posts.reduce((tags, post) => {
+    if (!post.tags) return tags;
+    
     const newTags = [...tags];
     post.tags.forEach(tag => {
       if (!tags.find(t => t.slug == tag.slug)) {

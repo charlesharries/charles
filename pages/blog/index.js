@@ -55,7 +55,7 @@ function Blog({ posts, headings }) {
           <h1 className="Blog__title keyline">{blogMeta.title}</h1>
           <ul>
             {posts.map((meta) => (
-              <CSSTransition in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
+              <CSSTransition key={meta.slug} in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
                 <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
               </CSSTransition>
             ))}
@@ -65,15 +65,15 @@ function Blog({ posts, headings }) {
         {blogMeta.slug === 'blog' ? 
           <div className="Blog__filters">
             <h3 className="Blog__title keyline mt-md leading-tight">Tags</h3>
-            <ul class="cluster cluster--sm">
+            <ul className="cluster cluster--sm">
               {tags.map(tag => (
-                <li>
+                <li key={tag.slug}>
                   <Tag isActive={isTagActive(tag)} tag={tag} onClick={toggleTag} />
                 </li>
               ))}
             </ul>
           </div>
-        : null}
+          : null}
       </div>
     </>
   );

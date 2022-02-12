@@ -31,19 +31,19 @@ BlogItem.propTypes = {
   date: PropTypes.string,
 };
 
-function Blog({ posts }) {
-  const frontMatter = {
+function Blog({ posts, headings }) {
+  const meta = Object.assign({
     slug: 'blog',
-    title: 'The Blog',
+    title: 'Posts',
     description: "What I've been up to lately, what's popped into my head.",
-  };
+  }, headings);
 
   return (
     <>
-      <PostHead frontMatter={frontMatter} />
+      <PostHead frontMatter={meta} />
 
       <div className="Blog">
-        <h1 className="Blog__title">the blog</h1>
+        <h1 className="Blog__title keyline">{meta.title}</h1>
         <ul>
           {posts.map((meta) => (
             <BlogItem key={meta.slug} {...meta} />

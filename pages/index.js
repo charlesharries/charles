@@ -26,7 +26,7 @@ function Home({ latest }) {
                     <a className="link">{post.title.replace('', '')}</a>
                   </Link>
 
-                  <span className="t-small ml-sm font-monospace">
+                  <span className="t-xs ml-sm font-monospace">
                     {longDate(new Date(post.created_at))}
                   </span>
                 </h3>

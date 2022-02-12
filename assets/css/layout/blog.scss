@@ -7,7 +7,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 
   & > * {
     z-index: 1;
@@ -21,7 +21,7 @@
     &::before {
       content: '';
       position: absolute;
-      top: 9px;
+      top: 14px;
       left: -25px;
       display: block;
       width: 15px;
@@ -41,17 +41,20 @@
 
 .BlogLink__text {
   flex: 1;
-  line-height: 1.2;
 
   .BlogLink__date + & {
-    margin-left: 20px;
+    margin-left: 10px;
+
+    @include desktop {
+      margin-left: 20px;
+    }
   }
 }
 
 .BlogLink__date {
   display: inline-block;
   letter-spacing: -0.3px;
-  margin-top: 0.2em;
+  margin-top: 0.4em;
   color: var(--accent);
 }
 

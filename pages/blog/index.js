@@ -11,14 +11,17 @@ import { getAllPosts } from '../../lib/api';
  * @todo Once we've got all of the dates set, use the DateComponent here.
  * @param {{slug: string, title: string, date: string}} post
  */
-function BlogItem({ slug, title, created_at: date }) {
+function BlogItem({ slug, title, created_at: date, summary }) {
   return (
     <li>
       <article>
         <Link href={`/blog/${slug}`} prefetch={false}>
           <a className="BlogLink t-para">
-            <DateComponent date={date} short element="span" className="BlogLink__date t-small" />
-            <span className="BlogLink__text">{title}</span>
+            <DateComponent date={date} short element="span" className="BlogLink__date t-xs" />
+            <div className="BlogLink__text">
+              <h3 className="t-para mt-0 font-regular mb-0">{title}</h3>
+              <p className="mb-0 t-small text-accent leading-loose">{summary}</p>
+            </div>
           </a>
         </Link>
       </article>

@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const RSS = require('rss');
-const fetch = require('node-fetch');
+import fs from 'fs';
+import path from 'path';
+import RSS from 'rss';
+import fetch from 'node-fetch';
 
 async function getPosts(frontMatter, type = 'posts') {
   return (await Promise.all(frontMatter.map(post => {

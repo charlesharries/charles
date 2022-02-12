@@ -62,12 +62,19 @@ li,
 }
 
 .t-small {
+  font-size: 1.4rem;
+  line-height: calc(16 / 10);
+
+  @include desktop {
+    font-size: 1.4rem;
+  }
+}
+
+.t-xs {
   font-size: 1rem;
-  line-height: calc(12 / 9);
 
   @include desktop {
     font-size: 1.2rem;
-    line-height: calc(14 / 10);
   }
 }
 
@@ -277,11 +284,9 @@ ol {
 
 .keyline {
   padding-bottom: 1rem;
-  margin-top: 6rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .text-accent { color: var(--accent); }
-
 .text-right{ text-align: right; }

@@ -19,14 +19,14 @@ function Home({ latest }) {
 
         <ul>
           {latest.map((post) => (
-            <li className="BlogPost" key={post.description}>
+            <li className="BlogPost" key={post.title}>
               <article className="BlogPost">
                 <h3 className="t-large mb-0 font-regular">
-                  <Link href={`/blog/${post.slug.replace('.mdx', '')}`} prefetch={false}>
-                    <a className="link">{post.title.replace('', '')}</a>
+                  <Link href={`/blog/${post.slug}`} prefetch={false}>
+                    <a className="link">{post.title}</a>
                   </Link>
 
-                  <span className="t-small ml-sm font-monospace">
+                  <span className="t-xs ml-sm font-monospace">
                     {longDate(new Date(post.created_at))}
                   </span>
                 </h3>

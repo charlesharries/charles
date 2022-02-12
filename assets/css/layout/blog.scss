@@ -1,5 +1,26 @@
 .Blog {
+  position: relative;
+
+  @include desktop {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.Blog__list {
+  flex-basis: 600px;
   max-width: 600px;
+  max-width: 600px;
+}
+
+.Blog__filters {
+  flex: 1;
+
+  @include desktop {
+    margin-left: 3rem;
+    position: sticky;
+    top: 0;
+  }
 }
 
 .BlogLink {

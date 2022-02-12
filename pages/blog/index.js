@@ -4,6 +4,9 @@ import DateComponent from '../../components/Date';
 import { PostHead } from '../../components/Head';
 import { byDate } from '../../util/sort';
 import { getAllPosts } from '../../lib/api';
+import useTags from 'lib/useTags.ts';
+import Tag from 'components/Tag';
+import { CSSTransition } from 'react-transition-group';
 
 /**
  * A single blog item.
@@ -41,17 +44,36 @@ function Blog({ posts, headings }) {
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
+  const { tags, isTagActive, isPostActive, filtered, toggleTag } = useTags(posts);
+
   return (
     <>
       <PostHead frontMatter={blogMeta} />
 
       <div className="Blog">
-        <h1 className="Blog__title keyline">{blogMeta.title}</h1>
-        <ul>
-          {posts.map((meta) => (
-            <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
-          ))}
-        </ul>
+        <div className="Blog__list">
+          <h1 className="Blog__title keyline">{blogMeta.title}</h1>
+          <ul>
+            {posts.map((meta) => (
+              <CSSTransition key={meta.slug} in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
+                <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
+              </CSSTransition>
+            ))}
+          </ul>
+        </div>
+
+        {blogMeta.slug === 'blog' ? 
+          <div className="Blog__filters">
+            <h3 className="Blog__title keyline mt-md leading-tight">Tags</h3>
+            <ul className="cluster cluster--sm">
+              {tags.map(tag => (
+                <li key={tag.slug}>
+                  <Tag isActive={isTagActive(tag)} tag={tag} onClick={toggleTag} />
+                </li>
+              ))}
+            </ul>
+          </div>
+          : null}
       </div>
     </>
   );

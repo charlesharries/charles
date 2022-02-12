@@ -12,6 +12,6 @@ export async function getPostBySlug(type, slug): Promise<PostResponse> {
 
 export async function getAllPosts(type): Promise<PostFrontMatterResponse[]> {
   const response = await fetchJson(`https://api.charlesharri.es/${type}.json`);
-  
+
   return response.data;
 }

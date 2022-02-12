@@ -13,9 +13,9 @@
 .ml-md { margin-left: 2rem; }
 .ml-lg { margin-left: 4rem; }
 
-.mt-sm { margin-top: 1rem; }
-.mt-md { margin-top: 2rem; }
-.mt-lg { margin-top: 4rem; }
+.mt-sm { margin-top: 1rem !important; }
+.mt-md { margin-top: 2rem !important; }
+.mt-lg { margin-top: 4rem !important; }
 
 .rounded { border-radius: 4px; }
 .overflow-hidden { overflow: hidden; }

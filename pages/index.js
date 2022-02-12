@@ -19,7 +19,7 @@ function Home({ latest }) {
 
         <ul>
           {latest.map((post) => (
-            <li className="BlogPost" key={post.description}>
+            <li className="BlogPost" key={post.title}>
               <article className="BlogPost">
                 <h3 className="t-large mb-0 font-regular">
                   <Link href={`/blog/${post.slug.replace('.mdx', '')}`} prefetch={false}>

@@ -39,7 +39,7 @@ export default function RecentlyPlayed({ count = 0 }) {
 
   const coverArt = (
     <div className="rounded overflow-hidden">
-      <img
+      <Image
         className="mb-0"
         src={latestTrack.image.find(i => i.size === 'large')['#text']}
         alt={latestTrack.name}

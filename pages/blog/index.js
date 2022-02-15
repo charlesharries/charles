@@ -7,6 +7,7 @@ import { getAllPosts } from '../../lib/api';
 import useTags from 'lib/useTags.ts';
 import Tag from 'components/Tag';
 import { CSSTransition } from 'react-transition-group';
+import capitalise from 'util/capitalise';
 
 /**
  * A single blog item.
@@ -14,8 +15,8 @@ import { CSSTransition } from 'react-transition-group';
  * @todo Once we've got all of the dates set, use the DateComponent here.
  * @param {{slug: string, title: string, date: string}} post
  */
-function BlogItem({ href, title, created_at: date, summary, type = 'post' }) {
-  if (type === 'walk') href = href.replace('blog', 'walk');
+function BlogItem({ href, title, created_at: date, summary, type = 'posts' }) {
+  if (type !== 'posts') href = href.replace('blog', type);
 
   return (
     <li>
@@ -24,7 +25,7 @@ function BlogItem({ href, title, created_at: date, summary, type = 'post' }) {
           <a className="BlogLink t-para">
             <div className="BlogLink__meta">
               <DateComponent date={date} short element="span" className="BlogLink__date t-xs" />
-              {type !== 'post' && <p className="badge mb-0 mt-2xs">{type}</p>}
+              {type !== 'posts' && <p className="badge mb-0 mt-2xs">{type}</p>}
             </div>
             <div className="BlogLink__text">
               <h3 className="t-para mt-0 font-regular mb-0">{title}</h3>
@@ -49,7 +50,7 @@ function Blog({ posts, headings }) {
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
-  const { tags, isTagActive, isPostActive, filtered, toggleTag } = useTags(posts);
+  const { tags, types, isTagActive, isPostActive, filtered, toggleTag } = useTags(posts);
 
   return (
     <>
@@ -62,9 +63,21 @@ function Blog({ posts, headings }) {
           <div className="Blog__filters">
             <h3 className="Blog__title leading-tight mt-sm">Filter</h3>
             <ul className="cluster cluster--sm mt-md">
-              {tags.map(tag => (
+              <li className="t-small mt-xs">By tag</li>
+              {tags.map((tag) => (
                 <li key={tag.slug}>
-                  <Tag isActive={isTagActive(tag)} tag={tag} onChange={toggleTag} />
+                  <Tag name={tag.slug} label={tag.title} isActive={isTagActive(tag.slug)} onChange={toggleTag} />
+                </li>
+              ))}
+            </ul>
+
+            <hr className="mt-sm" />
+
+            <ul className="cluster cluster--sm mt-sm">
+              <li className="t-small mt-xs">By type</li>
+              {types.map(type => (
+                <li key={type}>
+                  <Tag label={capitalise(type)} name={type} isActive={isTagActive(type)} tag={type} onChange={toggleTag} />
                 </li>
               ))}
             </ul>
@@ -93,7 +106,7 @@ export async function getStaticProps() {
   ]);
 
   const allPosts = posts
-    .concat(walks.map(walk => ({ type: 'walk', ...walk })))
+    .concat(walks)
     .sort((p1, p2) => (new Date(p1.created_at)) < (new Date(p2.created_at)) ? 1 : -1);
 
   return { props: { posts: allPosts } };

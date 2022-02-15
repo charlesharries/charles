@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Post, PostFrontMatter, Tag } from "./types";
 
 
@@ -11,7 +11,7 @@ export default function useTags(posts: Post[]) {
     
     const newTags = [...tags];
     post.tags.forEach(tag => {
-      if (!tags.find(t => t.slug == tag.slug)) {
+      if (!tags.find(t => t.slug === tag.slug)) {
         newTags.push(tag);
       }
     })
@@ -19,26 +19,39 @@ export default function useTags(posts: Post[]) {
     return newTags;
   }, [])
 
-  function isTagActive(tag) {
-    return activeTags.includes(tag.slug)
+  const allTypes = posts.reduce((types, post) => {
+    if (!post.type) return types;
+
+    if (!types.find(type => type === post.type)) {
+      types.push(post.type);
+    }
+    
+    return types;
+  }, [])
+
+  function isTagActive(tagName: string) {
+    return activeTags.includes(tagName)
   }
 
-  function isPostActive(post: PostFrontMatter) {
+  const isPostActive = useCallback((post: PostFrontMatter) => {
     if (activeTags.length === 0) return true;
 
-    return !!post.tags.find(tag => activeTags.includes(tag.slug));
+    return !!(
+      post.tags?.find(tag => activeTags.includes(tag.slug)) ||
+      activeTags.includes(post.type)
+    );
+  }, [activeTags])
+
+  function toggleTag(tagName: string) {
+    isTagActive(tagName) ? removeTag(tagName) : addTag(tagName)
   }
 
-  function toggleTag(tag: Tag) {
-    isTagActive(tag) ? removeTag(tag) : addTag(tag)
+  function addTag(tagName: string) {
+    setActiveTags([...activeTags, tagName]);
   }
 
-  function addTag(tag: Tag) {
-    setActiveTags([...activeTags, tag.slug]);
-  }
-
-  function removeTag(tag: Tag) {
-    const newTags = activeTags.filter(t => t !== tag.slug);
+  function removeTag(tagName: string) {
+    const newTags = activeTags.filter(t => t !== tagName);
     setActiveTags(newTags);
   }
 
@@ -48,9 +61,18 @@ export default function useTags(posts: Post[]) {
       return;
     }
 
-    const newPosts = posts.filter(p => p.tags.find(t => activeTags.includes(t.slug)));
+    const newPosts = posts.filter(isPostActive);
     setFiltered(newPosts)
-  }, [posts, activeTags])
+  }, [posts, activeTags, isPostActive])
 
-  return { tags: allTags, isTagActive, isPostActive, toggleTag, filtered };
+  console.log({ allTypes });
+
+  return {
+    tags: allTags,
+    types: allTypes,
+    isTagActive,
+    isPostActive,
+    toggleTag,
+    filtered
+  };
 }

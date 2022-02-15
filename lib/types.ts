@@ -8,6 +8,7 @@ export interface Image {
 export interface Tag {
   title: string;
   slug: string;
+  id: number;
 }
 
 export interface PostFrontMatterResponse {
@@ -15,7 +16,8 @@ export interface PostFrontMatterResponse {
   slug: string;
   created_at: string | Date;
   summary: string;
-  tags: Tag[]
+  tags: Tag[];
+  type: string;
 }
 
 export interface PostResponse extends PostFrontMatterResponse {
@@ -29,4 +31,23 @@ export interface PostFrontMatter extends PostFrontMatterResponse {
 
 export interface Post extends PostResponse {
   created_at: Date;
+}
+
+export interface Walk {
+  title: string;
+  created_at: string;
+  body: string;
+  summary: string;
+  mountains: Tag[]
+  bags: {
+    mountain: Tag;
+    designations: Tag;
+    number: number;
+  }[];
+  meta: {
+    timings: {
+      location: string;
+      reached_at: string;
+    }[]
+  };
 }

@@ -79,5 +79,8 @@ export const time = (date: Date): string => {
   const h = date.getHours();
   const m = date.getMinutes();
 
-  return `${h}:${m < 10 ? '0' : ''}${m} ${h < 12 ? 'am' : 'pm'}`;
+  let hour = h % 12;
+  if (hour === 0) hour = 12;
+
+  return `${hour}:${m < 10 ? '0' : ''}${m} ${h < 12 ? 'am' : 'pm'}`;
 };

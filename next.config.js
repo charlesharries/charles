@@ -24,7 +24,10 @@ module.exports = {
   productionBrowserSourceMaps: true,
   swcMinify: true,
   reactStrictMode: true,
-  images: { domains: ['lastfm.freetls.fastly.net']},
+  images: { domains: [
+    'lastfm.freetls.fastly.net',
+    'api.charlesharri.es',
+  ]},
   webpack(config, { dev, isServer }) {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';

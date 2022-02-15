@@ -1,6 +1,8 @@
 export interface Image {
   alt: string;
   url: string;
+  width: number;
+  height: number;
 }
 
 export interface Tag {

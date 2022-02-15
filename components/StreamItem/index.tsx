@@ -1,10 +1,11 @@
-import { Image, Post } from 'lib/types';
+import { Image as CraftImage, Post } from 'lib/types';
+import Image from 'next/image';
 import FullDate from '../FullDate';
 
-function StreamItemFeaturedImage({ image }: { image: Image }) {
+function StreamItemFeaturedImage({ image }: { image: CraftImage }) {
   return (
     <figure>
-      <img src={image.url} alt={image.alt} />
+      <Image src={image.url} alt={image.alt} width={image.width} height={image.height} />
       <figcaption>{image.alt}</figcaption>
     </figure>
   );

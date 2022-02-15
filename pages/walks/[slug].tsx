@@ -24,8 +24,7 @@ export default function WalkPost({ post }: Props) {
       <p className="font-italic">
         <Link href={post.meta[0].strava}>
           <a>Strava recording of route available here.</a>
-        </Link> &nbsp;
-        <span>Total walking time: {post.meta[0]?.total_walking_time}.</span>
+        </Link> <span>Total walking time: {post.meta[0]?.total_walking_time}.</span>
       </p>
     </section>
   )

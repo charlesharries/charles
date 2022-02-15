@@ -10,7 +10,7 @@ interface Props {
 export default function TagFilter({ name, label, onChange, isActive }: Props) {
   return (
     <div>
-      <input type="checkbox" onChange={() => onChange(name)} name={name} id={name} checked={isActive} />
+      <input hidden type="checkbox" onChange={() => onChange(name)} name={name} id={name} checked={isActive} />
 
       <label htmlFor={name} className="tag t-xs">{label}</label>
     </div>

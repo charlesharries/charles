@@ -68,7 +68,7 @@ function Blog({ posts, headings }) {
 
         <div className="Blog__list">
           <ul>
-            {posts.map((meta) => console.log(isPostActive(meta)) || (
+            {posts.map((meta) => (
               <CSSTransition key={meta.slug} in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
                 <BlogItem key={meta.slug} href={`/${blogMeta.slug}/${meta.slug}`} {...meta} />
               </CSSTransition>
@@ -82,9 +82,16 @@ function Blog({ posts, headings }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts('posts');
+  const [posts, walks] = await Promise.all([
+    getAllPosts('posts'),
+    getAllPosts('walks'),
+  ]);
 
-  return { props: { posts } };
+  const allPosts = posts
+    .concat(walks.map(walk => ({ type: 'walk', ...walk })))
+    .sort((p1, p2) => (new Date(p1.created_at)) < (new Date(p2.created_at)) ? 1 : -1);
+
+  return { props: { posts: allPosts } };
 }
 
 export default Blog;

@@ -50,9 +50,23 @@ function Blog({ posts, headings }) {
     <>
       <PostHead frontMatter={blogMeta} />
 
+      <h1 className="Blog__title">{blogMeta.title}</h1>
+
       <div className="Blog">
+        {blogMeta.slug === 'blog' ? (
+          <div className="Blog__filters">
+            <h3 className="Blog__title leading-tight mt-sm">Filter</h3>
+            <ul className="cluster cluster--sm mt-md">
+              {tags.map(tag => (
+                <li key={tag.slug}>
+                  <Tag isActive={isTagActive(tag)} tag={tag} onClick={toggleTag} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
         <div className="Blog__list">
-          <h1 className="Blog__title keyline">{blogMeta.title}</h1>
           <ul>
             {posts.map((meta) => (
               <CSSTransition key={meta.slug} in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
@@ -62,18 +76,6 @@ function Blog({ posts, headings }) {
           </ul>
         </div>
 
-        {blogMeta.slug === 'blog' ? 
-          <div className="Blog__filters">
-            <h3 className="Blog__title keyline mt-md leading-tight">Tags</h3>
-            <ul className="cluster cluster--sm">
-              {tags.map(tag => (
-                <li key={tag.slug}>
-                  <Tag isActive={isTagActive(tag)} tag={tag} onClick={toggleTag} />
-                </li>
-              ))}
-            </ul>
-          </div>
-          : null}
       </div>
     </>
   );

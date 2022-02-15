@@ -4,21 +4,33 @@
 .align-bottom { align-items: flex-end; }
 .align-center { align-items: center; }
 
+.pl-0 { padding-left: 0 !important; }
+
 .mt-0 { margin-top: 0 !important; }
 .mb-0 { margin-bottom: 0 !important; }
 
 .mb-sm { margin-bottom: 1rem; }
+.mb-md { margin-bottom: 2rem; }
 
 .ml-sm { margin-left: 1rem; }
 .ml-md { margin-left: 2rem; }
 .ml-lg { margin-left: 4rem; }
 
+.mt-2xs { margin-top: 0.25rem !important; }
+.mt-xs { margin-top: 0.5rem !important; }
 .mt-sm { margin-top: 1rem !important; }
 .mt-md { margin-top: 2rem !important; }
 .mt-lg { margin-top: 4rem !important; }
 
 .rounded { border-radius: 4px; }
 .overflow-hidden { overflow: hidden; }
+
+hr {
+  border: 0;
+  height: 1px;
+  border: 0;
+  background-color: var(--faded);
+}
 
 .desktop\: {
   @include desktop {

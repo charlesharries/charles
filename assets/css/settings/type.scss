@@ -71,11 +71,7 @@ li,
 }
 
 .t-xs {
-  font-size: 1rem;
-
-  @include desktop {
-    font-size: 1.2rem;
-  }
+  font-size: 1.2rem;
 }
 
 .t-large {
@@ -251,7 +247,7 @@ ol {
   padding-left: 2.5rem;
 }
 
-.Post ul > li {
+.Post ul:not([role="list"]) > li {
   position: relative;
   padding-left: 20px;
 
@@ -281,6 +277,8 @@ ol {
 .font-bold {
   font-weight: 700;
 }
+
+.font-italic { font-style: italic; }
 
 .keyline {
   padding-bottom: 1rem !important;

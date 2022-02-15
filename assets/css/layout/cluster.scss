@@ -24,4 +24,8 @@
 
   &--sm { --cluster-spacing: 1rem; }
   &--lg { --cluster-spacing: 4rem; }
+
+  & li {
+    list-style: none !important;
+  }
 }

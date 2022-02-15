@@ -1,5 +1,7 @@
+import Timings from 'components/Timings';
 import { getAllPosts, getPostBySlug } from 'lib/api';
 import { Walk } from 'lib/types';
+import Link from 'next/link';
 import BlogPost from 'pages/blog/[slug].js'
 
 interface Props {
@@ -15,7 +17,20 @@ export default function WalkPost({ post }: Props) {
     </ul>
   );
 
-  return <BlogPost post={post} beforePost={meta} />
+  const timings = (
+    <section>
+      <h2>Timings</h2>
+      <Timings timings={post.meta[0]?.timings} />
+      <p className="font-italic">
+        <Link href={post.meta[0].strava}>
+          <a>Strava recording of route available here.</a>
+        </Link> &nbsp;
+        <span>Total walking time: {post.meta[0]?.total_walking_time}.</span>
+      </p>
+    </section>
+  )
+
+  return <BlogPost post={post} beforePost={meta} afterPost={timings} />
 };
 
 export async function getStaticPaths() {

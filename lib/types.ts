@@ -33,6 +33,11 @@ export interface Post extends PostResponse {
   created_at: Date;
 }
 
+export interface Timing {
+  location: string;
+  reached_at: string;
+}
+
 export interface Walk {
   title: string;
   created_at: string;
@@ -45,9 +50,8 @@ export interface Walk {
     number: number;
   }[];
   meta: {
-    timings: {
-      location: string;
-      reached_at: string;
-    }[]
-  };
+    timings: Timing[];
+    total_walking_time: string;
+    strava: string;
+  }[];
 }

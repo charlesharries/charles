@@ -65,8 +65,6 @@ export default function useTags(posts: Post[]) {
     setFiltered(newPosts)
   }, [posts, activeTags, isPostActive])
 
-  console.log({ allTypes });
-
   return {
     tags: allTags,
     types: allTypes,

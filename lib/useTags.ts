@@ -26,7 +26,7 @@ export default function useTags(posts: Post[]) {
   function isPostActive(post: PostFrontMatter) {
     if (activeTags.length === 0) return true;
 
-    return post.tags.find(tag => activeTags.includes(tag.slug));
+    return !!post.tags.find(tag => activeTags.includes(tag.slug));
   }
 
   function toggleTag(tag: Tag) {

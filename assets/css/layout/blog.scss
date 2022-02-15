@@ -1,8 +1,11 @@
 .Blog {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 
   @include desktop {
-    display: flex;
+    flex-direction: row-reverse;
     align-items: flex-start;
   }
 }
@@ -17,9 +20,8 @@
   flex: 1;
 
   @include desktop {
-    margin-left: 3rem;
     position: sticky;
-    top: 0;
+    top: 2rem;
   }
 }
 

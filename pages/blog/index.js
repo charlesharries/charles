@@ -14,13 +14,18 @@ import { CSSTransition } from 'react-transition-group';
  * @todo Once we've got all of the dates set, use the DateComponent here.
  * @param {{slug: string, title: string, date: string}} post
  */
-function BlogItem({ href, title, created_at: date, summary }) {
+function BlogItem({ href, title, created_at: date, summary, type = 'post' }) {
+  if (type === 'walk') href = href.replace('blog', 'walk');
+
   return (
     <li>
       <article>
         <Link href={href} prefetch={false}>
           <a className="BlogLink t-para">
-            <DateComponent date={date} short element="span" className="BlogLink__date t-xs" />
+            <div className="BlogLink__meta">
+              <DateComponent date={date} short element="span" className="BlogLink__date t-xs" />
+              {type !== 'post' && <p className="badge mb-0 mt-2xs">{type}</p>}
+            </div>
             <div className="BlogLink__text">
               <h3 className="t-para mt-0 font-regular mb-0">{title}</h3>
               <p className="mb-0 t-small text-accent leading-loose">{summary}</p>

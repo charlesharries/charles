@@ -59,7 +59,7 @@ function Blog({ posts, headings }) {
             <ul className="cluster cluster--sm mt-md">
               {tags.map(tag => (
                 <li key={tag.slug}>
-                  <Tag isActive={isTagActive(tag)} tag={tag} onClick={toggleTag} />
+                  <Tag isActive={isTagActive(tag)} tag={tag} onChange={toggleTag} />
                 </li>
               ))}
             </ul>
@@ -68,9 +68,9 @@ function Blog({ posts, headings }) {
 
         <div className="Blog__list">
           <ul>
-            {posts.map((meta) => (
+            {posts.map((meta) => console.log(isPostActive(meta)) || (
               <CSSTransition key={meta.slug} in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
-                <BlogItem key={meta.slug} href={`${blogMeta.slug}/${meta.slug}`} {...meta} />
+                <BlogItem key={meta.slug} href={`/${blogMeta.slug}/${meta.slug}`} {...meta} />
               </CSSTransition>
             ))}
           </ul>

@@ -3,10 +3,14 @@
   padding: 0.5rem 0.8rem;
   background-color: var(--shadow);
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
-  &[aria-selected="true"] {
+  input[type="checkbox"]:checked + & {
     color: var(--background);
     background-color: var(--text);
+  }
+
+  input[type="checkbox"]:focus + & {
+    outline: 2px solid var(--primary);
   }
 }

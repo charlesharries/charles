@@ -1,7 +1,17 @@
-export default function Tag({ tag, onClick, isActive }) {
+import { Tag } from "lib/types";
+
+interface Props {
+  tag: Tag;
+  onChange: (tag: Tag) => void;
+  isActive: boolean;
+}
+
+export default function TagFilter({ tag, onChange, isActive }: Props) {
   return (
-    <button onClick={() => onClick(tag)} className="tag t-xs" aria-selected={isActive}>
-      {tag.title}
-    </button>
+    <div>
+      <input type="checkbox" onChange={() => onChange(tag)} name={tag.slug} id={tag.slug} checked={isActive} />
+
+      <label htmlFor={tag.slug} className="tag t-xs">{tag.title}</label>
+    </div>
   )
 }

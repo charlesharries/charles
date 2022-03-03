@@ -5,6 +5,14 @@ import { getAllPosts } from '../lib/api.ts';
 import { byDate } from '../util/sort.js';
 import { longDate } from '../util/date';
 
+function getLink(post) {
+  if (post.type === 'stream') {
+    return `/stream#${post.slug}`;
+  }
+
+  return `/blog/${post.slug}`;
+}
+
 function Home({ latest }) {
   return (
     <div className="Home">
@@ -22,7 +30,7 @@ function Home({ latest }) {
             <li className="BlogPost" key={post.title}>
               <article className="BlogPost">
                 <h3 className="t-large mb-0 font-regular">
-                  <Link href={`/blog/${post.slug}`} prefetch={false}>
+                  <Link href={getLink(post)} prefetch={false}>
                     <a className="link">{post.title}</a>
                   </Link>
 

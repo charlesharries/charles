@@ -41,9 +41,15 @@ function Home({ latest }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts('posts');
+  const [posts, stream] = await Promise.all([
+    getAllPosts('posts'),
+    getAllPosts('stream'),
+  ]);
 
-  return { props: { latest: posts.slice(0, 3) } };
+  const all = [...posts, ...stream]
+    .sort((p1, p2) => (new Date(p1.created_at)) < (new Date(p2.created_at)) ? 1 : -1);
+
+  return { props: { latest: all.slice(0, 3) } };
 }
 
 export default Home;

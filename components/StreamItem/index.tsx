@@ -27,7 +27,7 @@ export default function StreamItem({ post }: { post: Post }): JSX.Element {
   return (
     <article>
       <div className="StreamItem__heading desktop:d-flex align-bottom">
-        <h2>{post.title}</h2>
+        <h2 id={post.slug}>{post.title}</h2>
 
         <div className="text-accent">
           <FullDate datetime={post.created_at} />

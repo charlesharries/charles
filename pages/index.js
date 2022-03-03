@@ -5,6 +5,14 @@ import { getAllPosts } from '../lib/api.ts';
 import { byDate } from '../util/sort.js';
 import { longDate } from '../util/date';
 
+function getLink(post) {
+  if (post.type === 'stream') {
+    return `/stream#${post.slug}`;
+  }
+
+  return `/blog/${post.slug}`;
+}
+
 function Home({ latest }) {
   return (
     <div className="Home">
@@ -22,7 +30,7 @@ function Home({ latest }) {
             <li className="BlogPost" key={post.title}>
               <article className="BlogPost">
                 <h3 className="t-large mb-0 font-regular">
-                  <Link href={`/blog/${post.slug}`} prefetch={false}>
+                  <Link href={getLink(post)} prefetch={false}>
                     <a className="link">{post.title}</a>
                   </Link>
 
@@ -41,9 +49,15 @@ function Home({ latest }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts('posts');
+  const [posts, stream] = await Promise.all([
+    getAllPosts('posts'),
+    getAllPosts('stream'),
+  ]);
 
-  return { props: { latest: posts.slice(0, 3) } };
+  const all = [...posts, ...stream]
+    .sort((p1, p2) => (new Date(p1.created_at)) < (new Date(p2.created_at)) ? 1 : -1);
+
+  return { props: { latest: all.slice(0, 3) } };
 }
 
 export default Home;

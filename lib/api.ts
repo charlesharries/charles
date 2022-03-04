@@ -1,4 +1,4 @@
-import { PostFrontMatterResponse, PostResponse } from "./types";
+import { BookFrontMatter, PostFrontMatterResponse, PostResponse } from "./types";
 
 async function fetchJson(url) {
   return fetch(url).then(r => r.json())
@@ -10,7 +10,14 @@ export async function getPostBySlug(type, slug): Promise<PostResponse> {
   return post
 }
 
-export async function getAllPosts(type): Promise<PostFrontMatterResponse[]> {
+interface IndexResponse {
+  books: BookFrontMatter[];
+  posts: PostFrontMatterResponse[];
+  walks: PostFrontMatterResponse[];
+  stream: PostFrontMatterResponse[];
+}
+
+export async function getAllPosts<K extends keyof IndexResponse>(type: K): Promise<IndexResponse[K]> {
   const response = await fetchJson(`https://api.charlesharri.es/${type}.json`);
 
   return response.data;

@@ -55,3 +55,22 @@ export interface Walk {
     strava: string;
   }[];
 }
+
+export interface BookFrontMatter {
+  title: string;
+  slug: string;
+  created_at: Date;
+  summary: never;
+  writer: string;
+  publication_year: number;
+  length: number | null;
+  rating: number;
+  tags: never;
+  type: string;
+}
+
+export interface Book extends BookFrontMatter {
+  date_read: string | Date;
+  body: string;
+  medium: string;
+}

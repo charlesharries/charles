@@ -1,8 +1,10 @@
-.d-block
 .d-flex { display: flex; }
 .flex-1 { flex: 1; }
 .align-bottom { align-items: flex-end; }
 .align-center { align-items: center; }
+
+.gap-xs { gap: 0.5rem; }
+.gap-sm { gap: 1rem; }
 
 .pl-0 { padding-left: 0 !important; }
 
@@ -12,6 +14,7 @@
 .mb-sm { margin-bottom: 1rem; }
 .mb-md { margin-bottom: 2rem; }
 
+.ml-xs { margin-left: 0.5rem; }
 .ml-sm { margin-left: 1rem; }
 .ml-md { margin-left: 2rem; }
 .ml-lg { margin-left: 4rem; }

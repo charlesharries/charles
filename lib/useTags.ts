@@ -17,7 +17,7 @@ export default function useTags(posts: Post[]) {
     }
 
     return []
-  }
+  };
 
   const allTags = posts.reduce((tags, post) => {
     if (!post.tags) return tags;
@@ -85,7 +85,7 @@ export default function useTags(posts: Post[]) {
     };
 
     router.replace(window.location.pathname + query);
-  }, [router, activeTags])
+  }, [activeTags])
 
   return {
     tags: allTags,

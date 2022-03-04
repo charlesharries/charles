@@ -1,13 +1,18 @@
+import Stars from 'components/Stars';
 import { getAllPosts, getPostBySlug } from 'lib/api';
 import { InferGetStaticPropsType } from 'next';
 import BlogPost from 'pages/blog/[slug].js'
 
-export default function BookPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function BookPost({ book }: InferGetStaticPropsType<typeof getStaticProps>) {
   const meta = (
-    <p>Meta goes here.</p>
+    <p className="t-small text-accent d-flex gap-sm">
+      <span>Published {book.publication_year}</span>
+      {book.length ? <span>{book.length} pages</span> : null}
+      <Stars count={book.rating} />
+    </p>
   );
 
-  return <BlogPost post={post} beforePost={meta} frontMatter={{ subtitle: `by ${post.writer}` }} />
+  return <BlogPost post={book} beforePost={meta} frontMatter={{ subtitle: `by ${book.writer}` }} />
 };
 
 export async function getStaticPaths() {
@@ -22,7 +27,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPostBySlug('books', params.slug);
+  const book = await getPostBySlug('books', params.slug);
 
-  return { props: { post } };
+  return { props: { book } };
 }

@@ -3,6 +3,7 @@ export interface Image {
   url: string;
   width: number;
   height: number;
+  tag: string | null;
 }
 
 export interface Tag {
@@ -73,4 +74,5 @@ export interface Book extends BookFrontMatter {
   date_read: string | Date;
   body: string;
   medium: string;
+  featured_image: Image[];
 }

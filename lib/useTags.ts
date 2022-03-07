@@ -1,10 +1,22 @@
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { BookFrontMatter, PostFrontMatter, PostFrontMatterResponse } from "./types";
 
-
 export default function useTags(posts: (PostFrontMatter|BookFrontMatter)[]) {
-  const [activeTags, setActiveTags] = useState<string[]>([]);
+  const router = useRouter()
+  const [activeTags, setActiveTags] = useState<string[]>(getTagsFromQuery());
   const [filtered, setFiltered] = useState(posts);
+
+  function getTagsFromQuery() {
+    if (typeof window === 'undefined') return [];
+
+    const query = (new URL(window.location.href)).searchParams.get('tags');
+    if (query) {
+      return query.split(',');
+    }
+
+    return []
+  };
 
   const allTags = posts.reduce((tags, post) => {
     if (!post.tags) return tags;
@@ -64,6 +76,15 @@ export default function useTags(posts: (PostFrontMatter|BookFrontMatter)[]) {
     const newPosts = posts.filter(isPostActive);
     setFiltered(newPosts)
   }, [posts, activeTags, isPostActive])
+
+  useEffect(() => {
+    let query = '';
+    if (activeTags.length) {
+      query = `?tags=${activeTags.join(',')}`;
+    };
+
+    router.replace(window.location.pathname + query);
+  }, [activeTags])
 
   return {
     tags: allTags,

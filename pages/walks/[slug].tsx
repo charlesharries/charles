@@ -1,14 +1,11 @@
 import Timings from 'components/Timings';
 import { getAllPosts, getPostBySlug } from 'lib/api';
 import { Walk } from 'lib/types';
+import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import BlogPost from 'pages/blog/[slug].js'
 
-interface Props {
-  post: Walk;
-}
-
-export default function WalkPost({ post }: Props) {
+export default function WalkPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const meta = (
     <ul role="list" className="cluster cluster--sm mb-md">
       {post.bags.map(bag => (<li key={`${bag.designations.slug}-${bag.number}`}>

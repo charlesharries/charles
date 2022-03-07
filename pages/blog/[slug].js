@@ -4,15 +4,16 @@ import Timings from '../../components/Timings';
 import Emoji from '../../components/Emoji.tsx';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
 
-export default function Blog({ post, beforePost = null, afterPost = null }) {
-  const frontMatter = {
+export default function Blog({ post, beforePost = null, afterPost = null, frontMatter = {} }) {
+  const allFrontMatter = {
     title: post.title,
     date: post.created_at,
     slug: post.slug,
+    ...frontMatter,
   };
 
   return (
-    <Layout frontMatter={frontMatter}>
+    <Layout frontMatter={allFrontMatter}>
       {beforePost || null}
       <div dangerouslySetInnerHTML={{ __html: post.body }} />
       {afterPost || null}

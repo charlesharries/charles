@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
-import { Post, PostFrontMatter, Tag } from "./types";
+import { BookFrontMatter, PostFrontMatter, PostFrontMatterResponse } from "./types";
 
-
-export default function useTags(posts: Post[]) {
+export default function useTags(posts: (PostFrontMatter|BookFrontMatter)[]) {
   const router = useRouter()
   const [activeTags, setActiveTags] = useState<string[]>(getTagsFromQuery());
   const [filtered, setFiltered] = useState(posts);
@@ -46,7 +45,7 @@ export default function useTags(posts: Post[]) {
     return activeTags.includes(tagName)
   }
 
-  const isPostActive = useCallback((post: PostFrontMatter) => {
+  const isPostActive = useCallback((post: PostFrontMatter|BookFrontMatter) => {
     if (activeTags.length === 0) return true;
 
     return !!(

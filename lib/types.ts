@@ -3,6 +3,7 @@ export interface Image {
   url: string;
   width: number;
   height: number;
+  tag: string | null;
 }
 
 export interface Tag {
@@ -54,4 +55,24 @@ export interface Walk {
     total_walking_time: string;
     strava: string;
   }[];
+}
+
+export interface BookFrontMatter {
+  title: string;
+  slug: string;
+  created_at: Date;
+  summary: never;
+  writer: string;
+  publication_year: number;
+  length: number | null;
+  rating: number;
+  tags: never;
+  type: string;
+}
+
+export interface Book extends BookFrontMatter {
+  date_read: string | Date;
+  body: string;
+  medium: string;
+  featured_image: Image[];
 }

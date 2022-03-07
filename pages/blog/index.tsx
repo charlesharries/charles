@@ -1,21 +1,34 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
+import { InferGetStaticPropsType } from 'next';
 import DateComponent from '../../components/Date';
 import { PostHead } from '../../components/Head';
-import { byDate } from '../../util/sort';
 import { getAllPosts } from '../../lib/api';
-import useTags from 'lib/useTags.ts';
+import useTags from 'lib/useTags';
 import Tag from 'components/Tag';
 import { CSSTransition } from 'react-transition-group';
 import capitalise from 'util/capitalise';
+import { BookFrontMatter, PostFrontMatter } from 'lib/types';
+import Stars from 'components/Stars';
+
+interface BookMetaProps {
+  rating: number;
+  publication_year: number;
+  writer: string;
+}
+
+function BookMeta({ rating, publication_year, writer }: BookMetaProps) {
+  return (
+    <span className="BookMeta d-flex align-center gap-sm">
+      <span>{writer}, {publication_year}</span>
+      <Stars count={rating} />
+    </span>
+  )
+}
 
 /**
  * A single blog item.
- *
- * @todo Once we've got all of the dates set, use the DateComponent here.
- * @param {{slug: string, title: string, date: string}} post
  */
-function BlogItem({ href, title, created_at: date, summary, type = 'posts' }) {
+function BlogItem({ href, title, created_at: date, summary, type = 'posts', ...rest }) {
   if (type !== 'posts') href = href.replace('blog', type);
 
   return (
@@ -29,7 +42,9 @@ function BlogItem({ href, title, created_at: date, summary, type = 'posts' }) {
             </div>
             <div className="BlogLink__text">
               <h3 className="t-para mt-0 font-regular mb-0">{title}</h3>
-              <p className="mb-0 t-small text-accent leading-loose">{summary}</p>
+              <p className="mb-0 t-small text-accent leading-loose">
+                {type === 'books' ? <BookMeta {...rest as BookMetaProps} /> : summary}
+              </p>
             </div>
           </a>
         </Link>
@@ -38,19 +53,14 @@ function BlogItem({ href, title, created_at: date, summary, type = 'posts' }) {
   );
 }
 
-BlogItem.propTypes = {
-  title: PropTypes.string,
-  date: PropTypes.string,
-};
-
-function Blog({ posts, headings }) {
+function Blog({ posts, headings }: InferGetStaticPropsType<typeof getStaticProps>) {
   const blogMeta = Object.assign({
     slug: 'blog',
     title: 'Posts',
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
-  const { tags, types, isTagActive, isPostActive, filtered, toggleTag } = useTags(posts);
+  const { tags, types, isTagActive, isPostActive, toggleTag } = useTags(posts);
 
   return (
     <>
@@ -77,7 +87,7 @@ function Blog({ posts, headings }) {
               <li className="t-small mt-xs">By type</li>
               {types.map(type => (
                 <li key={type}>
-                  <Tag label={capitalise(type)} name={type} isActive={isTagActive(type)} tag={type} onChange={toggleTag} />
+                  <Tag label={capitalise(type)} name={type} isActive={isTagActive(type)} onChange={toggleTag} />
                 </li>
               ))}
             </ul>
@@ -100,16 +110,16 @@ function Blog({ posts, headings }) {
 }
 
 export async function getStaticProps() {
-  const [posts, walks] = await Promise.all([
+  const [posts, walks, books] = await Promise.all([
     getAllPosts('posts'),
     getAllPosts('walks'),
+    getAllPosts('books'),
   ]);
 
-  const allPosts = posts
-    .concat(walks)
+  const allPosts = [...posts, ...walks, ...books]
     .sort((p1, p2) => (new Date(p1.created_at)) < (new Date(p2.created_at)) ? 1 : -1);
 
-  return { props: { posts: allPosts } };
+  return { props: { posts: allPosts as (PostFrontMatter | BookFrontMatter)[], headings: {} } };
 }
 
 export default Blog;

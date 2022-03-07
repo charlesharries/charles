@@ -6,11 +6,11 @@ import fetch from 'node-fetch';
 async function getPosts(frontMatter, type = 'posts') {
   return (await Promise.all(frontMatter.map(post => {
     return fetch(`https://api.charlesharri.es/${type}/${post.slug}.json`).then(r => r.json());
-  }))).map(p => ({ ...p, type: type === 'posts' ? 'post' : 'stream' }))
+  }))).map(p => ({...p, type }))
 }
 
 function toFeedItem(post) {
-  const section = post.type === 'post' ? 'blog' : 'stream';
+  const section = post.type === 'post' ? 'blog' : post.type;
 
   return {
     title: post.title,
@@ -28,19 +28,22 @@ async function generate() {
   });
 
   // 1. Get frontmatter sorted by latest first
-  const [postsFrontMatter, streamFrontMatter] = await Promise.all([
+  const [postsFrontMatter, streamFrontMatter, booksFrontMatter] = await Promise.all([
     fetch('https://api.charlesharri.es/posts.json').then(r => r.json()),
     fetch('https://api.charlesharri.es/stream.json').then(r => r.json()),
+    fetch('https://api.charlesharri.es/books.json').then(r => r.json()),
   ]);
 
   // Get the latest 15 posts of each type
-  const [posts, stream] = await Promise.all([
+  const [posts, stream, books] = await Promise.all([
     getPosts(postsFrontMatter.data.slice(0, 15), 'posts'),
     getPosts(streamFrontMatter.data.slice(0, 15), 'stream'),
+    getPosts(booksFrontMatter.data.slice(0, 15), 'books'),
   ]);
 
   posts
     .concat(stream)
+    .concat(books)
     .map(post => toFeedItem(post))
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .forEach(p => feed.item(p));

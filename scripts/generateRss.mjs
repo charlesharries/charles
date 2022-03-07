@@ -10,7 +10,7 @@ async function getPosts(frontMatter, type = 'posts') {
 }
 
 function toFeedItem(post) {
-  const section = post.type === 'post' ? 'blog' : post.type;
+  const section = post.type === 'posts' ? 'blog' : post.type;
 
   return {
     title: post.title,

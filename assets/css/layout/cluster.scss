@@ -11,10 +11,10 @@
     margin-bottom: var(--cluster-spacing);
   }
 
-  & > * + * {
-    &::before {
+  & > :not(:first-child) {
+    &::after {
       content: var(--separator);
-      margin-right: var(--cluster-spacing);
+      margin-left: var(--cluster-spacing);
     }
   }
 

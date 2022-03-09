@@ -32,19 +32,20 @@ export default function RecentlyPlayed({ count = 0 }) {
   const { data } = useSWR<LatestTracksResponse>('/api/recently-played', fetcher);
   const recentTracks: RecentlyPlayed = data?.recenttracks
   const tracks = recentTracks?.track;
+  const size = 64;
 
   if (!(tracks && tracks.length)) return null;
 
   const latestTrack = tracks[0];
 
   const coverArt = (
-    <div className="rounded overflow-hidden">
+    <div className="rounded overflow-hidden" style={{ width: size, height: size }}>
       <Image
         className="mb-0"
         src={latestTrack.image.find(i => i.size === 'large')['#text']}
         alt={latestTrack.name}
-        width={64}
-        height={64}
+        width={size}
+        height={size}
       />
     </div>
   )
@@ -62,7 +63,7 @@ export default function RecentlyPlayed({ count = 0 }) {
       </p>
       <div className="d-flex align-center mt-sm">
         {coverArt}
-        <div className="ml-sm">
+        <div className="ml-sm flex-1">
           <p className="mb-0 font-bold">{latestTrack.name}</p>
           <p className="mb-0 text-faded">{latestTrack.artist['#text']}</p>
         </div>

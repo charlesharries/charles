@@ -33,6 +33,12 @@
   }
 }
 
+.Links__left {
+  @include desktop {
+    width: 60%;
+  }
+}
+
 .Links__right {
   @include desktop {
     p {

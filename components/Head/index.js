@@ -84,6 +84,7 @@ function Meta() {
       <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
       <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#000000" />
       <link rel="shortcut icon" href="/images/favicon.ico" />
+      <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" />
 
       {!isDev && isBrowser && (
         <script

@@ -2,11 +2,13 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'components/Modal';
 
-function Dialog({ src, $image }) {
+function Dialog({ src, $trigger }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  $image.setAttribute('tabindex', '-1');
-  $image.addEventListener('click', () => setIsOpen(true));
+  $trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    setIsOpen(true)
+  });
 
   return (
     <Modal isOpen={isOpen} close={() => setIsOpen(false)}>
@@ -24,21 +26,31 @@ export default function useLightbox() {
     images.current = document.querySelectorAll('.Post img');
 
     images.current.forEach((image) => {
+      // Create a trigger for opening the dialog
+      const trigger = document.createElement('a');
+      trigger.setAttribute('href', image.src);
+      trigger.classList.add('dialog-trigger')
+      image.parentElement.append(trigger);
+
+      // Create the dialog itself
       const container = document.createElement('div');
       container.classList.add('dialog-container');
       image.parentElement.append(container);
 
-      ReactDOM.render(<Dialog src={image.src} $image={image} />, container);
+      ReactDOM.render(<Dialog src={image.src} $trigger={trigger} />, container);
     });
   }, []);
 
   const destroyLightbox = useCallback(() => {
     images.current.forEach((image) => {
       const containers = image.parentElement.querySelectorAll('.dialog-container');
+      const triggers = image.parentElement.querySelectorAll('.dialog-trigger');
       containers.forEach((container) => {
         ReactDOM.unmountComponentAtNode(container);
         container.remove();
       });
+
+      triggers.forEach(t => t.remove())
     })
   }, []);
 

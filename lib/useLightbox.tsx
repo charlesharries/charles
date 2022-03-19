@@ -26,11 +26,14 @@ export default function useLightbox() {
     images.current = document.querySelectorAll('.Post img');
 
     images.current.forEach((image) => {
+      const label = image.parentElement.querySelector('figcaption');
+
       // Create a trigger for opening the dialog
       const trigger = document.createElement('a');
       trigger.setAttribute('href', image.src);
       trigger.classList.add('dialog-trigger')
       image.parentElement.append(trigger);
+      if (label) trigger.setAttribute('title', label.innerText);
 
       // Create the dialog itself
       const container = document.createElement('div');

@@ -3,6 +3,7 @@ import Date from '../../components/Date';
 import Timings from '../../components/Timings';
 import Emoji from '../../components/Emoji.tsx';
 import { getAllPosts, getPostBySlug } from '../../lib/api';
+import useLightbox from 'lib/useLightbox.tsx';
 
 export default function Blog({ post, beforePost = null, afterPost = null, frontMatter = {} }) {
   const allFrontMatter = {
@@ -11,6 +12,8 @@ export default function Blog({ post, beforePost = null, afterPost = null, frontM
     slug: post.slug,
     ...frontMatter,
   };
+
+  useLightbox()
 
   return (
     <Layout frontMatter={allFrontMatter}>

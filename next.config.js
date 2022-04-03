@@ -58,6 +58,7 @@ module.exports = {
         react: 'preact/compat',
         'react-dom': 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
+        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
       });
     }
 

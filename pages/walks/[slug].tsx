@@ -5,15 +5,23 @@ import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import BlogPost from 'pages/blog/[slug].js'
 
-export default function WalkPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const meta = post.bags?.length ? (
-    <ul role="list" className="cluster cluster--sm mb-md">
-      {post.bags.map(bag => (<li key={`${bag.designations.slug}-${bag.number}`}>
-        <span className="badge badge--lg">{bag.mountain.title} - {bag.designations.title} #{bag.number}</span>
-      </li>))}
-    </ul>
-  ) : null;
+function category(walk: Walk) {
+  if (walk.designations?.length) {
+    return walk.designations.map(d => d.title);
+  }
 
+  if (walk.bags?.length) {
+    return walk.bags.reduce((all, bag) => {
+      const newAll = [...all];
+      if (!newAll.includes(bag.designations.title)) {
+        newAll.push(bag.designations.title);
+      }
+      return newAll;
+    }, []);
+  }
+}
+
+export default function WalkPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const timings = post.meta?.length ? (
     <section>
       <h2>Timings</h2>
@@ -26,7 +34,14 @@ export default function WalkPost({ post }: InferGetStaticPropsType<typeof getSta
     </section>
   ) : null;
 
-  return <BlogPost post={post} beforePost={meta} afterPost={timings} />
+  const categories = category(post);
+  const eyebrow = categories?.length ? (
+    <p className="Post__eyebrow mb-md small-caps">
+      {categories.map(cat => <span key={cat} className="badge badge--md">{cat}</span>)}
+    </p>
+  ) : null;
+
+  return <BlogPost post={post} afterPost={timings} frontMatter={{ eyebrow }} />
 };
 
 export async function getStaticPaths() {

@@ -8,6 +8,7 @@ function BlogPage({ children, frontMatter }) {
       <PostHead frontMatter={frontMatter} />
 
       <DateComponent date={frontMatter.date} />
+      {frontMatter.eyebrow ? frontMatter.eyebrow : null}
       <h1 className="mb-0">{frontMatter.title}</h1>
       {frontMatter.subtitle ? <h4 className="Post__subtitle mt-sm">{frontMatter.subtitle}</h4> : null}
 

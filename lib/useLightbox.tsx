@@ -17,13 +17,18 @@ function Dialog({ src, alt, $trigger }) {
   )
 }
 
-export default function useLightbox() {
+export default function useLightbox(el: HTMLElement) {
   let images = useRef<NodeListOf<HTMLImageElement>>(null);
 
   const initLightbox = useCallback(() => {
     if (typeof window === 'undefined') return;
 
-    images.current = document.querySelectorAll('img');
+    let parent: HTMLElement | Document = el;
+    if (typeof el === 'undefined') {
+      parent = document;
+    }
+
+    images.current = parent.querySelectorAll('img');
 
     images.current.forEach((image) => {
       if (image.parentElement.classList.contains('dialog-image')) {

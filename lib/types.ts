@@ -55,6 +55,7 @@ export interface Walk {
     total_walking_time: string;
     strava: string;
   }[];
+  designations: Tag[];
 }
 
 export interface BookFrontMatter {

@@ -91,6 +91,10 @@
   line-height: 1;
 }
 
+.Post__eyebrow .badge + .badge {
+  margin-left: 1rem;
+}
+
 .Post__subtitle {
   margin-top: 0;
 }

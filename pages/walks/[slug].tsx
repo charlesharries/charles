@@ -6,15 +6,15 @@ import Link from 'next/link';
 import BlogPost from 'pages/blog/[slug].js'
 
 export default function WalkPost({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const meta = (
+  const meta = post.bags?.length ? (
     <ul role="list" className="cluster cluster--sm mb-md">
       {post.bags.map(bag => (<li key={`${bag.designations.slug}-${bag.number}`}>
         <span className="badge badge--lg">{bag.mountain.title} - {bag.designations.title} #{bag.number}</span>
       </li>))}
     </ul>
-  );
+  ) : null;
 
-  const timings = (
+  const timings = post.meta?.length ? (
     <section>
       <h2>Timings</h2>
       <Timings timings={post.meta[0]?.timings} />
@@ -24,7 +24,7 @@ export default function WalkPost({ post }: InferGetStaticPropsType<typeof getSta
         </Link> <span>Total walking time: {post.meta[0]?.total_walking_time}.</span>
       </p>
     </section>
-  )
+  ) : null;
 
   return <BlogPost post={post} beforePost={meta} afterPost={timings} />
 };

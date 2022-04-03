@@ -2,6 +2,7 @@ import StreamItem from 'components/StreamItem/index';
 import StreamYear from 'components/StreamYear';
 import { getAllPosts, getPostBySlug } from 'lib/api';
 import { Post, PostFrontMatter, PostFrontMatterResponse, PostResponse } from 'lib/types';
+import useLightbox from 'lib/useLightbox';
 
 const showFull = 3;
 

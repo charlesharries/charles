@@ -1,5 +1,7 @@
 import { Image as CraftImage, Post } from 'lib/types';
+import useLightbox from 'lib/useLightbox';
 import Image from 'next/image';
+import { useRef } from 'react';
 import FullDate from '../FullDate';
 
 function StreamItemFeaturedImage({ image }: { image: CraftImage }) {
@@ -12,6 +14,9 @@ function StreamItemFeaturedImage({ image }: { image: CraftImage }) {
 }
 
 export default function StreamItem({ post }: { post: Post }): JSX.Element {
+  const el = useRef();
+  useLightbox(el.current);
+
   function FeaturedImages() {
     if (!post.featured_image?.length) return null;
 
@@ -25,7 +30,7 @@ export default function StreamItem({ post }: { post: Post }): JSX.Element {
   }
 
   return (
-    <article>
+    <article ref={el}>
       <div className="StreamItem__heading desktop:d-flex align-bottom">
         <h2 id={post.slug}>{post.title}</h2>
 

@@ -56,7 +56,7 @@ export default function useLightbox(el: HTMLElement) {
 
       ReactDOM.render(<Dialog src={image.src} alt={image.alt} $trigger={trigger} />, dialogContainer);
     });
-  }, []);
+  }, [el]);
 
   const destroyLightbox = useCallback(() => {
     images.current.forEach((image) => {

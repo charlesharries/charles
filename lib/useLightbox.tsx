@@ -60,6 +60,8 @@ export default function useLightbox(el: HTMLElement) {
 
   const destroyLightbox = useCallback(() => {
     images.current.forEach((image) => {
+      if (!image.parentElement) return;
+
       const wrapper = image.parentElement;
       const containers = image.parentElement.querySelectorAll('.dialog-container');
       const triggers = image.parentElement.querySelectorAll('.dialog-trigger');
@@ -69,7 +71,7 @@ export default function useLightbox(el: HTMLElement) {
       });
 
       if (wrapper) {
-        wrapper.parentElement.append(image);
+        wrapper.parentElement?.append(image);
         wrapper.remove();
       }
 

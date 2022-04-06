@@ -1,4 +1,5 @@
 import { Post, PostFrontMatter } from 'lib/types';
+import Link from 'next/link';
 import { month as fullMonth } from 'util/date';
 
 interface Props {
@@ -24,7 +25,11 @@ export default function StreamYear({ year, months }: Props): JSX.Element {
               <ul className="cluster cluster--sm" style={separatorStyle}>
                 {months[month].map((post) => (
                   <li key={post.title}>
-                    <a href={`/stream/${post.slug}`} className="link">{post.title}</a>
+                    <Link href={`/stream/${post.slug}`}>
+                      <a className="link">
+                        {post.title}
+                      </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,4 @@
-import { Book, BookFrontMatter, PostFrontMatterResponse, PostResponse, Walk } from "./types";
+import { Book, BookFrontMatter, PostFrontMatterResponse, PostResponse, Project, Walk } from "./types";
 
 async function fetchJson(url) {
   return fetch(url).then(r => r.json())
@@ -9,6 +9,7 @@ interface PageResponse {
   posts: PostResponse;
   walks: Walk;
   stream: PostResponse;
+  project: Project;
 }
 
 export async function getPostBySlug<K extends keyof PageResponse>(type: K, slug: string): Promise<PageResponse[K]> {
@@ -22,6 +23,7 @@ interface IndexResponse {
   posts: PostFrontMatterResponse[];
   walks: PostFrontMatterResponse[];
   stream: PostFrontMatterResponse[];
+  projects: Project[];
 }
 
 export async function getAllPosts<K extends keyof IndexResponse>(type: K): Promise<IndexResponse[K]> {

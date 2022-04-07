@@ -1,0 +1,26 @@
+.columns {
+  --column-spacing: 2rem;
+
+  display: flex;
+  margin-left: calc(-1 * var(--column-spacing));
+  margin-top: calc(-1 * var(--column-spacing));
+  flex-flow: row wrap;
+}
+
+.column {
+  width: 100%;
+  padding-left: var(--column-spacing);
+  padding-top: var(--column-spacing);
+}
+
+.column-6 {
+  @include desktop {
+    width: 50%;
+  }
+}
+
+.column-4 {
+  @include desktop {
+    width: 33.3333%;
+  }
+}

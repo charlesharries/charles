@@ -17,7 +17,7 @@ function Dialog({ src, alt, $trigger }) {
   )
 }
 
-export default function useLightbox(el: HTMLElement) {
+export default function useLightbox(el?: HTMLElement) {
   let images = useRef<NodeListOf<HTMLImageElement>>(null);
 
   const initLightbox = useCallback(() => {

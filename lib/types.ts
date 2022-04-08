@@ -84,5 +84,6 @@ export interface Project {
   custom_created_at: string | null;
   summary: string | null;
   external_url: string;
+  github_url: string;
   featured_image: string | null;
 }

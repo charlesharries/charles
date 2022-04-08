@@ -4,8 +4,8 @@ import Link from "next/link";
 import { getAllPosts } from 'lib/api';
 import { coolGuyDate } from 'util/date';
 import Image from "next/image";
-import Layout from 'layouts/index';
 import { PostHead } from "components/Head";
+import useLightbox from "lib/useLightbox";
 
 function Projects({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
   function date(project: Project) {
@@ -14,6 +14,8 @@ function Projects({ projects }: InferGetStaticPropsType<typeof getStaticProps>) 
     const createdAt = new Date(project.created_at);
     return coolGuyDate(createdAt);
   }
+
+  useLightbox();
 
   const frontMatter = {
     slug: "projects",
@@ -27,24 +29,36 @@ function Projects({ projects }: InferGetStaticPropsType<typeof getStaticProps>) 
       <h1 className="Projects__title">Side projects</h1>
       <ul className="columns">
         {projects.map((project) => (
-          <Link href={project.external_url} key={project.title}>
-            <a className="Project__link column column-4">
-              <hr className="mb-md" />
-              <div className="Project__image mb-sm rounded overflow-hidden">
-                <Image src={project.featured_image} alt={project.title} layout="fill" objectFit="cover" />
-              </div>
-              <p className="Project__title">
-                <strong>{project.title}</strong>
-                <span className="Project__date">{date(project)}</span>
-                <span className="Project__go ml-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </p>
-              <p className="Project_description">{project.summary}</p>
-            </a>
-          </Link>
+          <li className="column column-4" key={project.title}>
+            <hr className="mb-md" />
+            <div className="Project__image mb-sm rounded overflow-hidden">
+              <Image src={project.featured_image} alt={project.title} layout="fill" objectFit="cover" />
+            </div>
+            <h3 className="Project__title t-para mb-0 mt-0">
+              <Link href={project.external_url}>
+                <a className="link">
+                  <strong>{project.title}</strong>
+                </a>
+              </Link>
+              <span className="Project__date t-regular">{date(project)}</span>
+            </h3>
+            <p className="Project_description mb-0">{project.summary}</p>
+            <p className="Project__links t-small mt-sm mb-0">
+              <Link href={project.external_url}>
+                <a><span className="link">View Site</span></a>
+              </Link>
+              {project.github_url ? (
+                <Link href={project.github_url}>
+                  <a>
+                    <svg height="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="16">
+                      <path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                    <span className="link ml-xs">GitHub</span>
+                  </a>
+                </Link>
+              ) : null}
+            </p>
+          </li>
         ))}
       </ul>
     </div>

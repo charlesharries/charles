@@ -1,24 +1,3 @@
-.Project__link {
-  position: relative;
-
-  &:focus {
-    color: var(--primary);
-    outline: none;
-
-    .Project__date {
-      color: var(--primary);
-    }
-
-    .Project__go {
-      display: inline;
-    }
-  }
-}
-
-.Project__go {
-  display: none;
-}
-
 .Project__image {
   width: 100%;
   height: 0;
@@ -34,4 +13,26 @@
   font-size: 0.8em;
   margin-left: 1rem;
   color: var(--accent);
+}
+
+.Project__links {
+  a {
+    border-bottom: none;
+  }
+
+  &>*+* {
+    margin-left: 2rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 1px;
+      background-color: currentColor;
+      position: absolute;
+      top: 0;
+      left: -1rem;
+    }
+  }
 }

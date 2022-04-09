@@ -77,3 +77,13 @@ export interface Book extends BookFrontMatter {
   medium: string;
   featured_image: Image[];
 }
+
+export interface Project {
+  title: string;
+  created_at: string;
+  custom_created_at: string | null;
+  summary: string | null;
+  external_url: string;
+  github_url: string;
+  featured_image: string | null;
+}

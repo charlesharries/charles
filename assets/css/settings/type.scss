@@ -100,6 +100,10 @@ strong,
   font-weight: 700;
 }
 
+.t-regular {
+  font-weight: 400;
+}
+
 .t-outline {
   color: var(--background);
   text-shadow:
@@ -115,7 +119,7 @@ strong,
 }
 
 .Post {
-  max-width: 600px; 
+  max-width: 600px;
 
   hr {
     height: 1px;
@@ -162,7 +166,9 @@ blockquote,
   position: relative;
 }
 
-.nowrap { white-space: nowrap; }
+.nowrap {
+  white-space: nowrap;
+}
 
 pre,
 code,
@@ -251,7 +257,7 @@ ol {
   padding-left: 2.5rem;
 }
 
-.Post ul:not([role="list"]) > li {
+.Post ul:not([role="list"])>li {
   position: relative;
   padding-left: 20px;
 
@@ -276,13 +282,17 @@ ol {
   font-size: 1.6rem;
 }
 
-.font-regular { font-weight: 400; }
+.font-regular {
+  font-weight: 400;
+}
 
 .font-bold {
   font-weight: 700;
 }
 
-.font-italic { font-style: italic; }
+.font-italic {
+  font-style: italic;
+}
 
 .keyline {
   padding-bottom: 1rem !important;
@@ -290,6 +300,14 @@ ol {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.text-accent { color: var(--accent); }
-.text-right{ text-align: right; }
-.leading-tight { line-height: 1 !important; }
+.text-accent {
+  color: var(--accent);
+}
+
+.text-right {
+  text-align: right;
+}
+
+.leading-tight {
+  line-height: 1 !important;
+}

@@ -47,6 +47,16 @@ export function month(d: Date|number): string {
 }
 
 /**
+ * Get a cool guy date representation, e.g. May '15
+ */
+export function coolGuyDate(date: Date): string {
+  const y = date.getFullYear() % 100;
+  const m = shortMonth(date);
+
+  return `${m} '${y}`;
+}
+
+/**
  * Get a short representation of a date, e.g. 12 Feb '21
  */
 export function shortDate(date: Date): string {

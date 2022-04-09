@@ -36,7 +36,7 @@ function Projects({ projects }: InferGetStaticPropsType<typeof getStaticProps>) 
             </div>
             <h3 className="Project__title t-para mb-0 mt-0">
               <Link href={project.external_url}>
-                <a className="link">
+                <a>
                   <strong>{project.title}</strong>
                 </a>
               </Link>

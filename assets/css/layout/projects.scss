@@ -20,6 +20,10 @@
     border-bottom: none;
   }
 
+  svg {
+    transform: translateY(-1px);
+  }
+
   &>*+* {
     margin-left: 2rem;
     position: relative;
@@ -29,7 +33,7 @@
       display: block;
       height: 100%;
       width: 1px;
-      background-color: currentColor;
+      background-color: var(--faded);
       position: absolute;
       top: 0;
       left: -1rem;

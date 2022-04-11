@@ -114,8 +114,8 @@ strong,
 }
 
 ::selection {
-  background: rgba(var(--text), 0.05);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--background);
 }
 
 .Post {

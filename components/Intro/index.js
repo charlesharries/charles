@@ -24,7 +24,7 @@ export default function Intro() {
 
   const Go = (
     <a href="https://github.com/charlesharries/feeler" {...externalLink}>
-      Go
+      I write a bit of Go
     </a>
   );
 
@@ -46,7 +46,7 @@ export default function Intro() {
 
       <p className="t-large">
         I write software at {nhsDigital}. Previously I worked at {komodo} in Newcastle and {creator}{' '}
-        in Castle Eden. After hours I write a bit of {Go}, watch more {movies} than I ought to, and{' '}
+        in Castle Eden. After hours {Go}, watch more {movies} than I ought to, and{' '}
         {read} less than I should.
       </p>
     </>

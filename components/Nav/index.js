@@ -3,13 +3,13 @@ import ThemeToggle from '../ThemeToggle';
 
 function Nav() {
   return (
-    <div className="Nav">
+    <nav className="Nav">
       <p className="t-large mb-sm">
         <Link href="/">
           <a>Charles Harries</a>
         </Link>
       </p>
-      <nav className="cluster">
+      <div className="cluster">
         <div className="Nav__left cluster">
           <Link href="/blog">
             <a className="Nav__link Nav__link--blog">Blog</a>
@@ -31,8 +31,8 @@ function Nav() {
 
           <ThemeToggle />
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

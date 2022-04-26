@@ -51,6 +51,7 @@ h4,
 /* Text styles */
 p,
 li,
+blockquote,
 .t-para {
   font-size: 1.6rem;
   line-height: calc(25 / 15);
@@ -154,11 +155,6 @@ blockquote,
 
   & p {
     margin-bottom: 0;
-  }
-
-  @include desktop {
-    margin-right: -$spacing;
-    margin-left: -$spacing;
   }
 }
 

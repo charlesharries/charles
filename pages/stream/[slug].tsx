@@ -1,8 +1,16 @@
+import { PostHead } from "components/Head";
 import StreamItem from "components/StreamItem";
 import { getAllPosts, getPostBySlug } from "lib/api";
 
 export default function StreamPost({ post }): JSX.Element {
-  return <StreamItem post={post} />
+  const frontMatter = {
+    title: post.title,
+    description: post.summary,
+  }
+  return <>
+    <PostHead frontMatter={frontMatter} />
+    <StreamItem post={post} />
+  </>
 }
 
 export async function getStaticPaths() {

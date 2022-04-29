@@ -1,8 +1,8 @@
+import { PostHead } from 'components/Head';
 import StreamItem from 'components/StreamItem/index';
 import StreamYear from 'components/StreamYear';
 import { getAllPosts, getPostBySlug } from 'lib/api';
 import { Post, PostFrontMatter, PostFrontMatterResponse, PostResponse } from 'lib/types';
-import useLightbox from 'lib/useLightbox';
 
 const showFull = 3;
 
@@ -12,6 +12,11 @@ interface Props {
 }
 
 function Stream({ fullPostData, frontMatterData }: Props) {
+  const pageFrontMatter = {
+    title: 'Stream',
+    slug: 'stream',
+  }
+
   const fullPosts = fullPostData.map((p) => populateDate(p));
   const frontMatter = frontMatterData.map((p) => populateDate(p));
 
@@ -20,6 +25,7 @@ function Stream({ fullPostData, frontMatterData }: Props) {
 
   return (
     <div className="Stream">
+      <PostHead frontMatter={pageFrontMatter} />
       <h1 className="Stream__title">Stream</h1>
       <ul>
         {fullPosts.map((post) => (

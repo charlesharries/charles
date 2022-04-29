@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 export const title = 'Charles Harries';
 export const description =
-  'Frontend Javascript developer. React, Vue, WordPress, PHP, headless CMSes, synergy, driving growth, buzzword, buzzword, buzzword.';
+  "I'm a developer in the North East of England, working on the web at NHS Digital.";
 export const color = '#222222';
 export const baseUrl = 'https://charlesharri.es';
 export const image = 'https://charlesharri.es/images/cover.jpg';
 
 export function PostHead({ frontMatter }) {
-  const { title: pageTitle, description: pageDescription } = frontMatter;
+  const { title: pageTitle, description: pageDescription = description } = frontMatter;
   const canonical = `${baseUrl}/${frontMatter.slug}`;
   let published = null;
 
@@ -21,18 +21,18 @@ export function PostHead({ frontMatter }) {
     <Head>
       <title>{pageTitle} &bull; Charles Harries</title>
 
-      <meta name="description" content={pageDescription} />
-      <meta name="theme-color" content={color} />
+      <meta name="description" key="description" content={pageDescription} />
+      <meta name="theme-color" key="theme-color" content={color} />
 
-      <meta property="og:description" content={pageDescription} />
-      <meta property="og:image" content={image} />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:url" content={canonical} />
+      <meta property="og:description" key="og:description" content={pageDescription} />
+      <meta property="og:image" key="og:image" content={image} />
+      <meta property="og:title" key="og:title" content={pageTitle} />
+      <meta property="og:url" key="og:url" content={canonical} />
 
-      <meta name="twitter:url" content={canonical} />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={pageDescription} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:url" key="twitter:url" content={canonical} />
+      <meta name="twitter:title" key="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" key="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" key="twitter:image" content={image} />
 
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" />
 
@@ -61,22 +61,22 @@ function Meta() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <meta name="msapplication-TileColor" content={color} />
-      <meta name="title" content={title} />
-      <meta name="description" content={description} />
-      <meta name="theme-color" content={color} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:locale" content="en_GB" />
-      <meta property="og:site_name" content={title} />
-      <meta property="og:title" content={title} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={baseUrl} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={baseUrl} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:creator" content="@charlesharries" />
-      <meta name="twitter:image:src" content={image} />
+      <meta name="title" content={title} key="title" />
+      <meta name="description" key="description" content={description} />
+      <meta name="theme-color" key="theme-color" content={color} />
+      <meta property="og:description" key="og:description" content={description} />
+      <meta property="og:image" key="og:image" content={image} />
+      <meta property="og:locale" key="og:locale" content="en_GB" />
+      <meta property="og:site_name" key="og:site_name" content={title} />
+      <meta property="og:title" key="og:title" content={title} />
+      <meta property="og:type" key="og:type" content="website" />
+      <meta property="og:url" key="og:url" content={baseUrl} />
+      <meta name="twitter:card" key="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" key="twitter:site" content={baseUrl} />
+      <meta name="twitter:title" key="twitter:title" content={title} />
+      <meta name="twitter:description" key="twitter:description" content={description} />
+      <meta name="twitter:creator" key="twitter:creator" content="@charlesharries" />
+      <meta name="twitter:image:src" key="twitter:image:src" content={image} />
 
       <link rel="canonical" href={baseUrl} key="canonical" />
       <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png" />

@@ -8,6 +8,7 @@ import useLightbox from 'lib/useLightbox.tsx';
 export default function Blog({ post, beforePost = null, afterPost = null, frontMatter = {} }) {
   const allFrontMatter = {
     title: post.title,
+    description: post.summary,
     date: post.created_at,
     slug: post.slug,
     ...frontMatter,

@@ -188,6 +188,7 @@ pre {
   background: darken($darkgrey, 2%);
   box-shadow: 0 1px 1px var(--shadow);
   color: $white;
+  tab-size: 4;
 
   @include desktop {
     margin-right: calc(9 * -#{$spacing});

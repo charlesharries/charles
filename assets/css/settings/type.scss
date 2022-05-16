@@ -32,7 +32,6 @@ h2,
   @include desktop {
     font-size: 3rem;
     line-height: calc(45 / 30);
-    letter-spacing: 0.12rem;
   }
 }
 
@@ -40,6 +39,9 @@ h3,
 .t-h3 {
   font-size: 2rem;
   line-height: calc(30 / 20);
+  font-family: $font;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 h4,

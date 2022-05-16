@@ -17,6 +17,11 @@
   padding-block: 1rem;
   z-index: 1;
   background-color: var(--background);
+
+  time {
+    line-height: 1.4;
+    display: block;
+  }
 }
 
 .StreamItem__body {

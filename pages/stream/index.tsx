@@ -4,7 +4,7 @@ import StreamYear from 'components/StreamYear';
 import { getAllPosts, getPostBySlug } from 'lib/api';
 import { Post, PostFrontMatter, PostFrontMatterResponse, PostResponse } from 'lib/types';
 
-const showFull = 3;
+const showFull = 5;
 
 interface Props {
   fullPostData: PostResponse[];

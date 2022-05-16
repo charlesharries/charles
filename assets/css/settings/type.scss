@@ -188,11 +188,6 @@ pre {
   background: darken($darkgrey, 2%);
   box-shadow: 0 1px 1px var(--shadow);
   color: $white;
-
-  @include desktop {
-    margin-right: calc(9 * -#{$spacing});
-    border-radius: 6px;
-  }
 }
 
 figure {

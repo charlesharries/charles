@@ -5,11 +5,16 @@
 
   border-top: 1px solid var(--faded);
   padding-top: 2rem;
+
+  h2 {
+    border-bottom: 0;
+  }
 }
 
 .StreamItem__heading {
-  h2 {
-    border-bottom: 0;
+  time {
+    display: block;
+    margin-top: 4px;
   }
 
   @include desktop {
@@ -20,11 +25,6 @@
 .StreamItem__body {
   flex: 1;
 }
-
-// .StreamItem__body__content {
-//   max-width: 600px;
-//   width: 100%;
-// }
 
 .StreamItem__body__images {
   figure {

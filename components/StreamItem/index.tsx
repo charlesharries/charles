@@ -32,16 +32,15 @@ export default function StreamItem({ post }: { post: Post }): JSX.Element {
   return (
     <article ref={el} className="StreamItem">
       <div className="StreamItem__heading">
-        {post.show_title && <h2 id={post.slug} className="mt-0 mb-0">{post.title}</h2>}
-
         <div className="text-accent">
           <FullDate datetime={post.created_at} />
         </div>
       </div>
 
       <div className="StreamItem__body mt-0">
-        <FeaturedImages />
+        {post.show_title && <h2 id={post.slug} className="mt-0">{post.title}</h2>}
 
+        <FeaturedImages />
         <div
           className="StreamItem__body__content"
           dangerouslySetInnerHTML={{ __html: post.body }}

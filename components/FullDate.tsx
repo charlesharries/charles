@@ -5,8 +5,8 @@ export default function FullDate({ datetime }) {
 
   return (
     <time dateTime={date.toISOString()}>
-      <strong>{longDate(date)}</strong>
-      <span className="ml-md">{time(date)}</span>
+      <strong>{longDate(date)}</strong><br />
+      <span>{time(date)}</span>
     </time>
   );
 }

@@ -84,7 +84,7 @@ export default function useTags(posts: (PostFrontMatter|BookFrontMatter)[]) {
     };
 
     router.replace(window.location.pathname + query);
-  }, [activeTags, router])
+  }, [activeTags])
 
   return {
     tags: allTags,

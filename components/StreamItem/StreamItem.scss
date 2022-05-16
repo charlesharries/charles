@@ -1,37 +1,37 @@
+.StreamItem {
+  @include desktop {
+    display: flex;
+  }
+
+  border-top: 1px solid var(--faded);
+  padding-top: 2rem;
+}
+
 .StreamItem__heading {
   h2 {
-    flex: 1;
+    border-bottom: 0;
   }
 
-  time {
-    margin-bottom: 1rem;
-    display: inline-block;
-
-    @include desktop {
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--faded);
-    }
+  @include desktop {
+    width: 25%
   }
 }
 
-.StreamItem__body__content {
-  max-width: 600px;
-  width: 100%;
+.StreamItem__body {
+  flex: 1;
 }
+
+// .StreamItem__body__content {
+//   max-width: 600px;
+//   width: 100%;
+// }
 
 .StreamItem__body__images {
-  min-width: 250px;
-  flex: 1;
-  
-  @include desktop {
-    padding-left: 3rem;
-  }
-
   figure {
-    margin: 0;
+    margin-top: 0;
   }
 
-  figure + figure {
+  figure+figure {
     margin-top: 2rem;
   }
 }

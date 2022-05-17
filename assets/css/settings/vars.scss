@@ -3,7 +3,7 @@
 :root {
   /* Default/dark styles */
   --color-mode: 'dark';
-  --shadow: #{darken($darkgrey, 10%)};
+  --shadow: #{darken($darkgrey, 5%)};
   --background: #{$darkgrey};
   --accent: #{$grey};
   --faded: #{$dimwhite};
@@ -57,6 +57,12 @@
 
 @mixin desktop {
   @media (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  @media (min-width: 992px) {
     @content;
   }
 }

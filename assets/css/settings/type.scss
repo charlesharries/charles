@@ -199,6 +199,10 @@ figure {
   img {
     box-shadow: 0 1px 1px var(--shadow);
   }
+
+  @include widescreen {
+    margin-right: calc(-277px);
+  }
 }
 
 ol {

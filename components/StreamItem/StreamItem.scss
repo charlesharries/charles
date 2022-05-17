@@ -1,37 +1,59 @@
-.StreamItem__heading {
-  h2 {
-    flex: 1;
+.StreamItem {
+  position: relative;
+
+  @include desktop {
+    display: flex;
+    align-items: flex-start;
   }
 
-  time {
-    margin-bottom: 1rem;
-    display: inline-block;
-
-    @include desktop {
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--faded);
-    }
+  h2 {
+    border-bottom: 0;
   }
 }
 
-.StreamItem__body__content {
-  max-width: 600px;
-  width: 100%;
+.StreamItem__meta {
+  position: sticky;
+  top: 0rem;
+  padding-block: 1rem;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(34, 34, 34, 0) 0%,
+      rgba(34, 34, 34, 0.6) 35%,
+      rgba(34, 34, 34, 0.85) 65%,
+      rgba(34, 34, 34, 0.9) 75.5%,
+      rgba(34, 34, 34, 0.95) 82.85%,
+      rgba(34, 34, 34, 0.975) 88%,
+      rgba(34, 34, 34, 1) 100%);
+
+  time {
+    line-height: 1.4;
+    display: block;
+  }
+}
+
+.StreamItem__body {
+  flex: 1;
+
+  h2 {
+    margin-top: 1rem;
+
+    @include mobile {
+      position: sticky;
+      top: 1.7rem;
+      z-index: 2;
+    }
+  }
+
+  @include desktop {
+    margin-left: 20px;
+  }
 }
 
 .StreamItem__body__images {
-  min-width: 250px;
-  flex: 1;
-  
-  @include desktop {
-    padding-left: 3rem;
-  }
-
   figure {
-    margin: 0;
+    margin-top: 0;
   }
 
-  figure + figure {
+  figure+figure {
     margin-top: 2rem;
   }
 }

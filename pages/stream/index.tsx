@@ -4,7 +4,7 @@ import StreamYear from 'components/StreamYear';
 import { getAllPosts, getPostBySlug } from 'lib/api';
 import { Post, PostFrontMatter, PostFrontMatterResponse, PostResponse } from 'lib/types';
 
-const showFull = 3;
+const showFull = 5;
 
 interface Props {
   fullPostData: PostResponse[];
@@ -28,8 +28,8 @@ function Stream({ fullPostData, frontMatterData }: Props) {
       <PostHead frontMatter={pageFrontMatter} />
       <h1 className="Stream__title">Stream</h1>
       <ul>
-        {fullPosts.map((post) => (
-          <li key={post.title}>
+        {fullPosts.map((post, i) => (
+          <li className={`${i > 0 ? 'mt-lg' : ''}`} key={post.title}>
             <StreamItem post={post} />
           </li>
         ))}

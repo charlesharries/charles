@@ -32,7 +32,6 @@ h2,
   @include desktop {
     font-size: 3rem;
     line-height: calc(45 / 30);
-    letter-spacing: 0.12rem;
   }
 }
 
@@ -40,6 +39,9 @@ h3,
 .t-h3 {
   font-size: 2rem;
   line-height: calc(30 / 20);
+  font-family: $font;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 h4,
@@ -117,6 +119,7 @@ strong,
 ::selection {
   background: var(--primary);
   color: var(--background);
+  text-shadow: none;
 }
 
 .Post {
@@ -183,17 +186,10 @@ pre {
   overflow-x: auto;
   font-size: 0.8em;
   padding: $spacing;
-  margin-right: -$spacing;
-  margin-left: -$spacing;
   background: darken($darkgrey, 2%);
   box-shadow: 0 1px 1px var(--shadow);
   color: $white;
   tab-size: 4;
-
-  @include desktop {
-    margin-right: calc(9 * -#{$spacing});
-    border-radius: 6px;
-  }
 }
 
 figure {
@@ -231,10 +227,14 @@ ol {
   font-size: 1.1em;
 }
 
+.shadow {
+  text-shadow: 1px 1px 0 var(--shadow);
+}
+
 .Content h1,
 .Content h2 {
   line-height: 1;
-  text-shadow: 3px 3px 0 var(--shadow);
+  text-shadow: 1px 1px 0 var(--shadow);
 }
 
 .Content h2 {

@@ -24,6 +24,7 @@ export interface PostFrontMatterResponse {
 export interface PostResponse extends PostFrontMatterResponse {
   featured_image: Image[];
   body: string;
+  show_title?: boolean
 }
 
 export interface PostFrontMatter extends PostFrontMatterResponse {

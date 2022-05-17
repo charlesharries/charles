@@ -3,7 +3,7 @@
 :root {
   /* Default/dark styles */
   --color-mode: 'dark';
-  --shadow: #{darken($darkgrey, 2%)};
+  --shadow: #{darken($darkgrey, 10%)};
   --background: #{$darkgrey};
   --accent: #{$grey};
   --faded: #{$dimwhite};

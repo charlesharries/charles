@@ -30,20 +30,27 @@
 
 .hljs-comment,
 .hljs-quote {
-  color: #7e7887;
+  color: $comments;
+}
+
+.hljs-name {
+  color: $operators;
+}
+
+.hljs-tag,
+.hljs-attribute {
+  color: $variables;
 }
 
 /* Atelier-Cave Red */
 .hljs-variable,
 .hljs-template-variable,
-.hljs-attribute,
+.hljs-attr,
 .hljs-regexp,
 .hljs-link,
-.hljs-tag,
-.hljs-name,
 .hljs-selector-id,
 .hljs-selector-class {
-  color: #be4678;
+  color: $functions;
 }
 
 /* Atelier-Cave Orange */
@@ -54,14 +61,14 @@
 .hljs-literal,
 .hljs-type,
 .hljs-params {
-  color: #aa573c;
+  color: $properties;
 }
 
 /* Atelier-Cave Green */
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet {
-  color: #2a9292;
+  color: $strings;
 }
 
 /* Atelier-Cave Blue */
@@ -95,7 +102,7 @@
   display: block;
   overflow-x: auto;
   background: #19171c;
-  color: #8b8792;
+  color: var(--text);
   padding: 0.5em;
 }
 

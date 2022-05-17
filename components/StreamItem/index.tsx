@@ -30,22 +30,24 @@ export default function StreamItem({ post }: { post: Post }): JSX.Element {
   }
 
   return (
-    <article ref={el}>
-      <div className="StreamItem__heading desktop:d-flex align-bottom">
-        <h2 id={post.slug}>{post.title}</h2>
-
-        <div className="text-accent">
+    <article ref={el} className="StreamItem">
+      <div className="StreamItem__meta">
+        <div className="font-monospace t-xs text-right text-accent shadow">
           <FullDate datetime={post.created_at} />
         </div>
       </div>
 
-      <div className="StreamItem__body desktop:d-flex mt-sm">
-        <div
-          className="StreamItem__body__content Post"
-          dangerouslySetInnerHTML={{ __html: post.body }}
-        />
+      <div className="StreamItem__body Post">
+        {post.show_title && <h2 className="t-h3" id={post.slug}>{post.title}</h2>}
 
-        <FeaturedImages />
+        <div className="mt-sm">
+          <FeaturedImages />
+
+          <div
+            className="StreamItem__body__content"
+            dangerouslySetInnerHTML={{ __html: post.body }}
+          />
+        </div>
       </div>
     </article>
   );

@@ -79,7 +79,7 @@ export const longDate = (date: Date): string => {
   const m = month(date);
   const d = date.getDate();
 
-  return `${d} ${m} '${y}`;
+  return `${d} ${m} ${y}`;
 };
 
 /**

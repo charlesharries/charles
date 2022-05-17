@@ -28,8 +28,8 @@ function Stream({ fullPostData, frontMatterData }: Props) {
       <PostHead frontMatter={pageFrontMatter} />
       <h1 className="Stream__title">Stream</h1>
       <ul>
-        {fullPosts.map((post) => (
-          <li key={post.title}>
+        {fullPosts.map((post, i) => (
+          <li className={`${i > 0 ? 'mt-lg' : ''}`} key={post.title}>
             <StreamItem post={post} />
           </li>
         ))}

@@ -5,7 +5,7 @@ export default function FullDate({ datetime }) {
 
   return (
     <time dateTime={date.toISOString()}>
-      <strong>{longDate(date)}</strong><br />
+      <span>{longDate(date)}</span><br />
       <span>{time(date)}</span>
     </time>
   );

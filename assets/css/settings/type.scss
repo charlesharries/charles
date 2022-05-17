@@ -119,6 +119,7 @@ strong,
 ::selection {
   background: var(--primary);
   color: var(--background);
+  text-shadow: none;
 }
 
 .Post {
@@ -227,10 +228,14 @@ ol {
   font-size: 1.1em;
 }
 
+.shadow {
+  text-shadow: 1px 1px 0 var(--shadow);
+}
+
 .Content h1,
 .Content h2 {
   line-height: 1;
-  text-shadow: 3px 3px 0 var(--shadow);
+  text-shadow: 1px 1px 0 var(--shadow);
 }
 
 .Content h2 {

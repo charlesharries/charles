@@ -30,9 +30,9 @@ export default function StreamItem({ post }: { post: Post }): JSX.Element {
   }
 
   return (
-    <article ref={el} className="StreamItem mt-lg">
+    <article ref={el} className="StreamItem">
       <div className="StreamItem__meta">
-        <div className="text-accent">
+        <div className="font-monospace t-xs text-right text-accent shadow">
           <FullDate datetime={post.created_at} />
         </div>
       </div>

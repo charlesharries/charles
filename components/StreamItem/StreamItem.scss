@@ -16,7 +16,13 @@
   top: 0rem;
   padding-block: 1rem;
   z-index: 1;
-  background-color: var(--background);
+  background: linear-gradient(to top, rgba(34, 34, 34, 0) 0%,
+      rgba(34, 34, 34, 0.6) 35%,
+      rgba(34, 34, 34, 0.85) 65%,
+      rgba(34, 34, 34, 0.9) 75.5%,
+      rgba(34, 34, 34, 0.95) 82.85%,
+      rgba(34, 34, 34, 0.975) 88%,
+      rgba(34, 34, 34, 1) 100%);
 
   time {
     line-height: 1.4;
@@ -29,10 +35,16 @@
 
   h2 {
     margin-top: 1rem;
+
+    @include mobile {
+      position: sticky;
+      top: 1.7rem;
+      z-index: 2;
+    }
   }
 
   @include desktop {
-    margin-left: 4rem;
+    margin-left: 20px;
   }
 }
 

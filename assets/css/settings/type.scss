@@ -198,6 +198,7 @@ figure {
 
   img {
     box-shadow: 0 1px 1px var(--shadow);
+    width: 100%;
   }
 
   @include widescreen {

@@ -27,6 +27,7 @@ module.exports = {
   images: { domains: [
     'lastfm.freetls.fastly.net',
     'api.charlesharri.es',
+    'charles-craft.test',
   ]},
   webpack(config, { dev, isServer }) {
     if (!isServer) {

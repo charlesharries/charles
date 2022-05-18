@@ -56,12 +56,16 @@
 /* Atelier-Cave Orange */
 .hljs-number,
 .hljs-meta,
-.hljs-built_in,
 .hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params {
   color: $properties;
+}
+
+
+.hljs-built_in {
+  color: $classes;
 }
 
 /* Atelier-Cave Green */
@@ -80,7 +84,7 @@
 /* Atelier-Cave Purple */
 .hljs-keyword,
 .hljs-selector-tag {
-  color: #955ae7;
+  color: $types;
 }
 
 .hljs-deletion,

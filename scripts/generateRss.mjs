@@ -11,12 +11,17 @@ async function getPosts(frontMatter, type = 'posts') {
 
 function toFeedItem(post) {
   const section = post.type === 'posts' ? 'blog' : post.type;
+  let description = post.body;
+
+  if (post.featured_image?.length) {
+    description = post.featured_image[0].tag + description;
+  }
 
   return {
     title: post.title,
     url: `https://charlesharri.es/${section}/${post.slug}`,
     date: post.created_at,
-    description: post.body,
+    description,
   };
 }
 

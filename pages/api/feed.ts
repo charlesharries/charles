@@ -28,8 +28,11 @@ function toFeedItem(post) {
 export default async function feed(req: NextApiRequest, res: NextApiResponse) {
   const response = await generate();
 
-  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30');
+  // Feed is fresh for 5 minutes; for the next 5 minutes, serve the stale version
+  // and regenerate in the background. After 10 minutes, just fetch it fresh.
+  res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=300');
   res.setHeader("Content-Type", "application/xml");
+  
   res.end(response);
 }
 

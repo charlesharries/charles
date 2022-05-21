@@ -17,6 +17,6 @@
     { "source": "/posts/(.*)", "destination": "https://charlesharri.es/blog/$1" }
   ],
   "rewrites": [
-    { "source": "/feed.xml", "destination": "/_next/static/feed.xml" }
+    { "source": "/feed.xml", "destination": "/api/feed" }
   ]
 }

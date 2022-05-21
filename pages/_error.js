@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import NextErrorComponent from 'next/error';
-import * as Sentry from '@sentry/node';
+import React from "react";
+import PropTypes from "prop-types";
+import NextErrorComponent from "next/error";
+import * as Sentry from "@sentry/node";
 
 function Error({ statusCode, hasGetInitialPropsRun, err }) {
   if (!hasGetInitialPropsRun && err) {
@@ -34,7 +34,7 @@ Error.getInitialProps = async ({ res, err, asPath, ...rest }) => {
     return errorInitialProps;
   }
 
-  Sentry.captureException(new Error(`_error.js getInitialProps is missing data`));
+  Sentry.captureException(new Error("_error.js getInitialProps is missing data"));
   await Sentry.flush(2000);
 
   return errorInitialProps;

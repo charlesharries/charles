@@ -1,6 +1,6 @@
 const externalLink = {
-  target: '_blank',
-  rel: 'noopener noreferrer',
+  target: "_blank",
+  rel: "noopener noreferrer",
 };
 
 export default function Intro() {
@@ -45,8 +45,8 @@ export default function Intro() {
       <p className="t-large">I'm a developer working on the web in the North East of England.</p>
 
       <p className="t-large">
-        I write software at {nhsDigital}. Previously I worked at {komodo} in Newcastle and {creator}{' '}
-        in Castle Eden. After hours {Go}, watch more {movies} than I ought to, and{' '}
+        I write software at {nhsDigital}. Previously I worked at {komodo} in Newcastle and {creator}{" "}
+        in Castle Eden. After hours {Go}, watch more {movies} than I ought to, and{" "}
         {read} less than I should.
       </p>
     </>

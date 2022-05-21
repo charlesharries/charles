@@ -1,5 +1,5 @@
-import { Timing } from 'lib/types';
-import PropTypes from 'prop-types';
+import { Timing } from "lib/types";
+import PropTypes from "prop-types";
 
 function Timings({ timings }: { timings: Timing[] }) {
   return (

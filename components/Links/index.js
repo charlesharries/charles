@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import RecentlyPlayed from 'components/RecentlyPlayed/RecentlyPlayed.tsx';
+import Link from "next/link";
+import RecentlyPlayed from "components/RecentlyPlayed/RecentlyPlayed.tsx";
 
-const external = { target: '_blank', rel: 'noopener noreferrer' };
+const external = { target: "_blank", rel: "noopener noreferrer" };
 
 export default function Links() {
   return (

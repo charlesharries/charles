@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import PropTypes from 'prop-types';
+import Head from "next/head";
+import PropTypes from "prop-types";
 
-export const title = 'Charles Harries';
+export const title = "Charles Harries";
 export const description =
   "I'm a developer in the North East of England, working on the web at NHS Digital.";
-export const color = '#222222';
-export const baseUrl = 'https://charlesharri.es';
-export const image = 'https://charlesharri.es/images/cover.jpg';
+export const color = "#222222";
+export const baseUrl = "https://charlesharri.es";
+export const image = "https://charlesharri.es/images/cover.jpg";
 
 export function PostHead({ frontMatter }) {
   const { title: pageTitle, description: pageDescription = description } = frontMatter;
@@ -51,8 +51,8 @@ PostHead.propTypes = {
 };
 
 function Meta() {
-  const isDev = process.env.NODE_ENV === 'development';
-  const isBrowser = typeof window !== 'undefined';
+  const isDev = process.env.NODE_ENV === "development";
+  const isBrowser = typeof window !== "undefined";
 
   return (
     <Head>

@@ -1,8 +1,8 @@
 import { Project } from "lib/types";
 import { InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import { getAllPosts } from 'lib/api';
-import { coolGuyDate } from 'util/date';
+import { getAllPosts } from "lib/api";
+import { coolGuyDate } from "util/date";
 import Image from "next/image";
 import { PostHead } from "components/Head";
 import useLightbox from "lib/useLightbox";
@@ -66,7 +66,7 @@ function Projects({ projects }: InferGetStaticPropsType<typeof getStaticProps>) 
 }
 
 export async function getStaticProps() {
-  const projects = await getAllPosts('projects');
+  const projects = await getAllPosts("projects");
 
   return { props: { projects } };
 }

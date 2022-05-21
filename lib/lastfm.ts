@@ -3,12 +3,12 @@ const user = process.env.LAST_FM_USER;
 
 export async function getLatestTracks() {
   const queryParams = {
-    method: 'user.getrecenttracks',
+    method: "user.getrecenttracks",
     user,
     api_key,
-    format: 'json',
+    format: "json",
   }
-  const url = new URL('http://ws.audioscrobbler.com/2.0/');
+  const url = new URL("http://ws.audioscrobbler.com/2.0/");
   url.search = (new URLSearchParams(queryParams)).toString();
   const response = await fetch(url.toString());
 

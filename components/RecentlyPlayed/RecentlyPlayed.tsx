@@ -1,5 +1,5 @@
-import useSWR from 'swr';
-import Image from 'next/image';
+import useSWR from "swr";
+import Image from "next/image";
 
 const fetcher = async (input: RequestInfo, init?: RequestInit) => {
   const res = await fetch(input, init);
@@ -7,21 +7,21 @@ const fetcher = async (input: RequestInfo, init?: RequestInit) => {
 }
 
 interface ArtworkSize {
-  '#text': string;
+  "#text": string;
   size: string;
 }
 
 interface Track {
-  '@attr': { nowplaying: string; }
+  "@attr": { nowplaying: string; }
   name: string;
-  album: { '#text': string; };
-  artist: { '#text': string; };
+  album: { "#text": string; };
+  artist: { "#text": string; };
   image: ArtworkSize[];
 }
 
 interface RecentlyPlayed {
   track: Track[];
-  '@attr': { user: string; totalPages: string; total: string; }
+  "@attr": { user: string; totalPages: string; total: string; }
 }
 
 interface LatestTracksResponse {
@@ -29,7 +29,7 @@ interface LatestTracksResponse {
 }
 
 export default function RecentlyPlayed({ count = 0 }) {
-  const { data } = useSWR<LatestTracksResponse>('/api/recently-played', fetcher);
+  const { data } = useSWR<LatestTracksResponse>("/api/recently-played", fetcher);
   const recentTracks: RecentlyPlayed = data?.recenttracks
   const tracks = recentTracks?.track;
   const size = 64;
@@ -42,7 +42,7 @@ export default function RecentlyPlayed({ count = 0 }) {
     <div className="rounded overflow-hidden" style={{ width: size, height: size }}>
       <Image
         className="mb-0"
-        src={latestTrack.image.find(i => i.size === 'large')['#text']}
+        src={latestTrack.image.find(i => i.size === "large")["#text"]}
         alt={latestTrack.name}
         width={size}
         height={size}
@@ -58,14 +58,14 @@ export default function RecentlyPlayed({ count = 0 }) {
         </svg>
 
         <span className="ml-sm">
-          {latestTrack['@attr']?.nowplaying === 'true' ? 'Now playing' : 'Recently played'}
+          {latestTrack["@attr"]?.nowplaying === "true" ? "Now playing" : "Recently played"}
         </span>
       </p>
       <div className="d-flex align-center mt-sm">
         {coverArt}
         <div className="ml-sm flex-1">
           <p className="mb-0 font-bold">{latestTrack.name}</p>
-          <p className="mb-0 text-faded">{latestTrack.artist['#text']}</p>
+          <p className="mb-0 text-faded">{latestTrack.artist["#text"]}</p>
         </div>
       </div>
     </a>

@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
 import RSS from "rss";
 import fetch from "node-fetch";
+import { NextApiRequest, NextApiResponse } from "next";
+import { getAllPosts } from "lib/api";
 
 async function getPosts(frontMatter, type = "posts") {
   return (await Promise.all(frontMatter.map(post => {
@@ -25,7 +25,15 @@ function toFeedItem(post) {
   };
 }
 
-async function generate() {
+export default async function feed(req: NextApiRequest, res: NextApiResponse) {
+  const response = await generate();
+
+  res.setHeader("Cache-Control", "public, s-maxage=60, stale-while-revalidate=30");
+  res.setHeader("Content-Type", "application/xml");
+  res.end(response);
+}
+
+async function generate(): Promise<string> {
   const feed = new RSS({
     title: "Charles Harries | Blog",
     site_url: "https://charlesharri.es",
@@ -34,26 +42,24 @@ async function generate() {
 
   // 1. Get frontmatter sorted by latest first
   const [postsFrontMatter, streamFrontMatter, booksFrontMatter] = await Promise.all([
-    fetch("https://api.charlesharri.es/posts.json").then(r => r.json()),
-    fetch("https://api.charlesharri.es/stream.json").then(r => r.json()),
-    fetch("https://api.charlesharri.es/books.json").then(r => r.json()),
+    getAllPosts("posts"),
+    getAllPosts("stream"),
+    getAllPosts("books"),
   ]);
 
   // Get the latest 15 posts of each type
   const [posts, stream, books] = await Promise.all([
-    getPosts(postsFrontMatter.data.slice(0, 15), "posts"),
-    getPosts(streamFrontMatter.data.slice(0, 15), "stream"),
-    getPosts(booksFrontMatter.data.slice(0, 15), "books"),
+    getPosts(postsFrontMatter.slice(0, 15), "posts"),
+    getPosts(streamFrontMatter.slice(0, 15), "stream"),
+    getPosts(booksFrontMatter.slice(0, 15), "books"),
   ]);
 
   posts
     .concat(stream)
     .concat(books)
     .map(post => toFeedItem(post))
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .sort((a, b) => (new Date(b.date)).getTime() - (new Date(a.date)).getTime())
     .forEach(p => feed.item(p));
 
-  fs.writeFileSync("./public/feed.xml", feed.xml({ indent: true }));
+  return feed.xml({ indent: true });
 }
-
-generate();

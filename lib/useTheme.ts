@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const STORAGE_KEY = 'charlesharries_user_theme';
-const COLOR_MODE_KEY = '--color-mode';
+const STORAGE_KEY = "charlesharries_user_theme";
+const COLOR_MODE_KEY = "--color-mode";
 
 export default function useTheme() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("dark");
 
   /**
    * Get the current color theme.
@@ -15,7 +15,7 @@ export default function useTheme() {
     let mode = getComputedStyle(document.documentElement).getPropertyValue(COLOR_MODE_KEY);
 
     if (mode.length) {
-      mode = mode.replace(/"/g, '').trim();
+      mode = mode.replace(/"/g, "").trim();
     }
 
     return mode;
@@ -27,7 +27,7 @@ export default function useTheme() {
    * @return void
    */
   function toggleTheme() {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    setTheme(theme === "dark" ? "light" : "dark");
   }
 
   // Initialise the theme.
@@ -38,11 +38,11 @@ export default function useTheme() {
 
   // Run side effects when the theme is updated.
   useEffect(() => {
-    const $meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    const $meta = document.querySelector<HTMLMetaElement>("meta[name=\"theme-color\"]");
 
     localStorage.setItem(STORAGE_KEY, theme);
-    document.documentElement.setAttribute('data-user-color-scheme', theme);
-    $meta.content = theme === 'dark' ? '#222222' : '#ffffff';
+    document.documentElement.setAttribute("data-user-color-scheme", theme);
+    $meta.content = theme === "dark" ? "#222222" : "#ffffff";
   }, [theme]);
 
   return [theme, toggleTheme];

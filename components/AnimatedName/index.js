@@ -1,4 +1,4 @@
-export default function AnimatedName({ color = '#dadada' }) {
+export default function AnimatedName({ color = "#dadada" }) {
   return (
     <>
       <svg

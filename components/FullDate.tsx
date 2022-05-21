@@ -1,4 +1,4 @@
-import { longDate, time } from '../util/date';
+import { longDate, time } from "../util/date";
 
 export default function FullDate({ datetime }) {
   const date = new Date(datetime);

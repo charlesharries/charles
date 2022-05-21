@@ -29,7 +29,7 @@ export default async function feed(req: NextApiRequest, res: NextApiResponse) {
   const response = await generate();
 
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30');
-  res.setHeader("Content-Type", "application/xml+rss");
+  // res.setHeader("Content-Type", "application/xml+rss");
   res.end(response);
 }
 

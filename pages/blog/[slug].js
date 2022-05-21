@@ -32,7 +32,7 @@ export async function getStaticPaths() {
     paths: posts.map((p) => ({
       params: { slug: p.slug },
     })),
-    fallback: false,
+    fallback: "blocking",
   };
 }
 

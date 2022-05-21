@@ -119,7 +119,13 @@ export async function getStaticProps() {
   const allPosts = [...posts, ...walks, ...books]
     .sort((p1, p2) => (new Date(p1.created_at)) < (new Date(p2.created_at)) ? 1 : -1);
 
-  return { props: { posts: allPosts as (PostFrontMatter | BookFrontMatter)[], headings: {} } };
+  return {
+    props: {
+      posts: allPosts as (PostFrontMatter | BookFrontMatter)[],
+      headings: {}
+    },
+    revalidate: 60,
+  };
 }
 
 export default Blog;

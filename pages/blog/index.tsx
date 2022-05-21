@@ -124,7 +124,7 @@ export async function getStaticProps() {
       posts: allPosts as (PostFrontMatter | BookFrontMatter)[],
       headings: {}
     },
-    revalidate: 60,
+    revalidate: 600,
   };
 }
 

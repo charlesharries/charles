@@ -94,7 +94,7 @@ export async function getStaticProps(): Promise<{ props: Props, revalidate: numb
 
   return {
     props: { fullPostData, frontMatterData },
-    revalidate: 5,
+    revalidate: 600,
   };
 }
 

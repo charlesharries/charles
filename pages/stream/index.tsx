@@ -85,14 +85,17 @@ function populateDate<T extends Response>(post: T): PostType<T> {
   return populated;
 }
 
-export async function getStaticProps(): Promise<{ props: Props }> {
+export async function getStaticProps(): Promise<{ props: Props, revalidate: number }> {
   const frontMatterData = await getAllPosts('stream');
   const fullPostData = await Promise.all(frontMatterData.slice(0, showFull)
     .map(frontMatter => {
       return getPostBySlug('stream', frontMatter.slug)
     }))
 
-  return { props: { fullPostData, frontMatterData } };
+  return {
+    props: { fullPostData, frontMatterData },
+    revalidate: 5,
+  };
 }
 
 export default Stream;

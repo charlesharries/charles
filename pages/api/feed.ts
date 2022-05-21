@@ -2,6 +2,7 @@ import RSS from 'rss';
 import fetch from 'node-fetch';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getAllPosts } from 'lib/api';
+import { Post } from 'lib/types';
 
 async function getPosts(frontMatter, type = 'posts') {
   return (await Promise.all(frontMatter.map(post => {
@@ -9,7 +10,7 @@ async function getPosts(frontMatter, type = 'posts') {
   }))).map(p => ({...p, type }))
 }
 
-function toFeedItem(post) {
+function toFeedItem(post: Post) {
   const section = post.type === 'posts' ? 'blog' : post.type;
   let description = post.body;
 
@@ -32,7 +33,7 @@ export default async function feed(req: NextApiRequest, res: NextApiResponse) {
   // and regenerate in the background. After 10 minutes, just fetch it fresh.
   res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=300');
   res.setHeader("Content-Type", "application/xml");
-  
+
   res.end(response);
 }
 

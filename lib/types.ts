@@ -25,6 +25,10 @@ export interface PostResponse extends PostFrontMatterResponse {
   featured_image: Image[];
   body: string;
   show_title?: boolean
+  error?: {
+    code: number,
+    message: string,
+  }
 }
 
 export interface PostFrontMatter extends PostFrontMatterResponse {

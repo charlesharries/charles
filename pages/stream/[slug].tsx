@@ -27,5 +27,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const post = await getPostBySlug("stream", params.slug);
 
+  if (post.error) {
+    if (post.error.code === 404) return { notFound: true };
+    throw new Error("A server error occurred.");
+  }
+
   return { props: { post } };
 }

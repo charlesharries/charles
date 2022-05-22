@@ -6,12 +6,20 @@
   margin-right: calc(-1 * var(--cluster-spacing));
   margin-bottom: calc(-1 * var(--cluster-spacing));
 
-  & > * {
+  &>* {
     margin-right: var(--cluster-spacing);
     margin-bottom: var(--cluster-spacing);
   }
 
-  & > :not(:last-child) {
+  &--list {
+    display: block;
+
+    &>* {
+      display: inline;
+    }
+  }
+
+  &> :not(:last-child) {
     &::after {
       content: var(--separator);
       margin-left: var(--cluster-spacing);
@@ -22,8 +30,13 @@
     --cluster-spacing: 2rem;
   }
 
-  &--sm { --cluster-spacing: 1rem; }
-  &--lg { --cluster-spacing: 4rem; }
+  &--sm {
+    --cluster-spacing: 1rem;
+  }
+
+  &--lg {
+    --cluster-spacing: 4rem;
+  }
 
   & li {
     list-style: none !important;

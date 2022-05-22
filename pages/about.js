@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function About() {
   return (
@@ -12,7 +12,7 @@ function About() {
       <h2>Tracking</h2>
       <p>
         I didn't bother tracking users for a long time, but I've become a little interested in
-        whether or not people are reading what I write. So I'm tracking visits to this site using{' '}
+        whether or not people are reading what I write. So I'm tracking visits to this site using{" "}
         <a href="https://umami.is/" target="_blank" rel="noreferrer noopener">
           Umami
         </a>

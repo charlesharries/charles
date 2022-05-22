@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import useTheme from '../lib/useTheme.ts';
-import capitalise from '../util/capitalise';
+import { useEffect, useRef } from "react";
+import useTheme from "../lib/useTheme.ts";
+import capitalise from "../util/capitalise";
 
 export default function ThemeToggle() {
   const $toggle = useRef(null);
@@ -9,7 +9,7 @@ export default function ThemeToggle() {
   // If the user doesn't have JS enabled, we don't want to show them
   // this button, since it'll do nothing.
   useEffect(() => {
-    $toggle.current.classList.remove('hidden');
+    $toggle.current.classList.remove("hidden");
   }, []);
 
   return (

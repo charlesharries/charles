@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
-import { shortDate, longDate } from '../../util/date';
+import PropTypes from "prop-types";
+import { shortDate, longDate } from "../../util/date";
 
 function DateComponent({
   children,
   date: dateString,
   short = false,
-  element = 'p',
-  className = '',
+  element = "p",
+  className = "",
 }) {
   const Element = element;
 

@@ -1,8 +1,8 @@
-import { PostHead } from 'components/Head';
-import StreamItem from 'components/StreamItem/index';
-import StreamYear from 'components/StreamYear';
-import { getAllPosts, getPostBySlug } from 'lib/api';
-import { Post, PostFrontMatter, PostFrontMatterResponse, PostResponse } from 'lib/types';
+import { PostHead } from "components/Head";
+import StreamItem from "components/StreamItem/index";
+import StreamYear from "components/StreamYear";
+import { getAllPosts, getPostBySlug } from "lib/api";
+import { Post, PostFrontMatter, PostFrontMatterResponse, PostResponse } from "lib/types";
 
 const showFull = 5;
 
@@ -13,8 +13,8 @@ interface Props {
 
 function Stream({ fullPostData, frontMatterData }: Props) {
   const pageFrontMatter = {
-    title: 'Stream',
-    slug: 'stream',
+    title: "Stream",
+    slug: "stream",
   }
 
   const fullPosts = fullPostData.map((p) => populateDate(p));
@@ -29,7 +29,7 @@ function Stream({ fullPostData, frontMatterData }: Props) {
       <h1 className="Stream__title">Stream</h1>
       <ul>
         {fullPosts.map((post, i) => (
-          <li className={`${i > 0 ? 'mt-lg' : ''}`} key={post.title}>
+          <li className={`${i > 0 ? "mt-lg" : ""}`} key={post.title}>
             <StreamItem post={post} />
           </li>
         ))}
@@ -86,10 +86,10 @@ function populateDate<T extends Response>(post: T): PostType<T> {
 }
 
 export async function getStaticProps(): Promise<{ props: Props, revalidate: number }> {
-  const frontMatterData = await getAllPosts('stream');
+  const frontMatterData = await getAllPosts("stream");
   const fullPostData = await Promise.all(frontMatterData.slice(0, showFull)
     .map(frontMatter => {
-      return getPostBySlug('stream', frontMatter.slug)
+      return getPostBySlug("stream", frontMatter.slug)
     }))
 
   return {

@@ -1,9 +1,9 @@
-import Layout from '../../layouts/index';
-import Date from '../../components/Date';
-import Timings from '../../components/Timings';
-import Emoji from '../../components/Emoji.tsx';
-import { getAllPosts, getPostBySlug } from '../../lib/api';
-import useLightbox from 'lib/useLightbox.tsx';
+import Layout from "../../layouts/index";
+import Date from "../../components/Date";
+import Timings from "../../components/Timings";
+import Emoji from "../../components/Emoji.tsx";
+import { getAllPosts, getPostBySlug } from "../../lib/api";
+import useLightbox from "lib/useLightbox.tsx";
 
 export default function Blog({ post, beforePost = null, afterPost = null, frontMatter = {} }) {
   const allFrontMatter = {
@@ -26,7 +26,7 @@ export default function Blog({ post, beforePost = null, afterPost = null, frontM
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts('posts');
+  const posts = await getAllPosts("posts");
 
   return {
     paths: posts.map((p) => ({
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPostBySlug('posts', params.slug);
+  const post = await getPostBySlug("posts", params.slug);
 
   return { props: { post } };
 }

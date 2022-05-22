@@ -1,6 +1,6 @@
-import { Post, PostFrontMatter } from 'lib/types';
-import Link from 'next/link';
-import { month as fullMonth } from 'util/date';
+import { Post, PostFrontMatter } from "lib/types";
+import Link from "next/link";
+import { month as fullMonth } from "util/date";
 
 interface Props {
   year: string;
@@ -12,7 +12,7 @@ export default function StreamYear({ year, months }: Props): JSX.Element {
 
   // Have to define this explicitly because React.CSSProperties
   // doesn't include custom properties :|
-  const separatorStyle = { '--separator': '"•"' } as React.CSSProperties
+  const separatorStyle = { "--separator": "\"•\"" } as React.CSSProperties
 
   return (
     <div className="StreamYear">

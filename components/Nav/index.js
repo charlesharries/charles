@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import ThemeToggle from '../ThemeToggle';
+import Link from "next/link";
+import ThemeToggle from "../ThemeToggle";
 
 function Nav() {
   return (

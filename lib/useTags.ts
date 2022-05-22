@@ -8,11 +8,11 @@ export default function useTags(posts: (PostFrontMatter|BookFrontMatter)[]) {
   const [filtered, setFiltered] = useState(posts);
 
   function getTagsFromQuery() {
-    if (typeof window === 'undefined') return [];
+    if (typeof window === "undefined") return [];
 
-    const query = (new URL(window.location.href)).searchParams.get('tags');
+    const query = (new URL(window.location.href)).searchParams.get("tags");
     if (query) {
-      return query.split(',');
+      return query.split(",");
     }
 
     return []
@@ -78,9 +78,9 @@ export default function useTags(posts: (PostFrontMatter|BookFrontMatter)[]) {
   }, [posts, activeTags, isPostActive])
 
   useEffect(() => {
-    let query = '';
+    let query = "";
     if (activeTags.length) {
-      query = `?tags=${activeTags.join(',')}`;
+      query = `?tags=${activeTags.join(",")}`;
     };
 
     router.replace(window.location.pathname + query);

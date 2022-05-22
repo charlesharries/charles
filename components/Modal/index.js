@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import { useEffect, useRef } from 'react';
+import PropTypes from "prop-types";
+import { useEffect, useRef } from "react";
 
 function Modal({ children, isOpen, close }) {
   const $button = useRef(null);
@@ -11,15 +11,15 @@ function Modal({ children, isOpen, close }) {
 
   useEffect(() => {
     function handleEsc(e) {
-      if (e.key === 'Escape' && $button.current) {
+      if (e.key === "Escape" && $button.current) {
         $button.current.click();
       }
     }
 
-    document.addEventListener('keydown', handleEsc);
+    document.addEventListener("keydown", handleEsc);
 
     return () => {
-      document.removeEventListener('keydown', handleEsc);
+      document.removeEventListener("keydown", handleEsc);
     };
   }, [$button]);
 

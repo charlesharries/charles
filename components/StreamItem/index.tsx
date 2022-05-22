@@ -1,8 +1,8 @@
-import { Image as CraftImage, Post } from 'lib/types';
-import useLightbox from 'lib/useLightbox';
-import Image from 'next/image';
-import { useRef } from 'react';
-import FullDate from '../FullDate';
+import { Image as CraftImage, Post } from "lib/types";
+import useLightbox from "lib/useLightbox";
+import Image from "next/image";
+import { useRef } from "react";
+import FullDate from "../FullDate";
 
 function StreamItemFeaturedImage({ image }: { image: CraftImage }) {
   return (

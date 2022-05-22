@@ -14,7 +14,7 @@ export default function StreamPost({ post }): JSX.Element {
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts('stream');
+  const posts = await getAllPosts("stream");
 
   return {
     paths: posts.map((p) => ({
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPostBySlug('stream', params.slug);
+  const post = await getPostBySlug("stream", params.slug);
 
   return { props: { post } };
 }

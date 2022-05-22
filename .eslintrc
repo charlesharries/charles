@@ -1,6 +1,7 @@
 {
   "extends": "next",
   "rules": {
+    "quotes": ["error", "double"],
     "indent": ["error", 2],
     "react/prop-types": 0,
     "react/no-unescaped-entities": 0

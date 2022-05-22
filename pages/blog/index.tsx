@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import { InferGetStaticPropsType } from 'next';
-import DateComponent from '../../components/Date';
-import { PostHead } from '../../components/Head';
-import { getAllPosts } from '../../lib/api';
-import useTags from 'lib/useTags';
-import Tag from 'components/Tag';
-import { CSSTransition } from 'react-transition-group';
-import capitalise from 'util/capitalise';
-import { BookFrontMatter, PostFrontMatter } from 'lib/types';
-import Stars from 'components/Stars';
+import Link from "next/link";
+import { InferGetStaticPropsType } from "next";
+import DateComponent from "../../components/Date";
+import { PostHead } from "../../components/Head";
+import { getAllPosts } from "../../lib/api";
+import useTags from "lib/useTags";
+import Tag from "components/Tag";
+import { CSSTransition } from "react-transition-group";
+import capitalise from "util/capitalise";
+import { BookFrontMatter, PostFrontMatter } from "lib/types";
+import Stars from "components/Stars";
 
 interface BookMetaProps {
   rating: number;
@@ -28,8 +28,8 @@ function BookMeta({ rating, publication_year, writer }: BookMetaProps) {
 /**
  * A single blog item.
  */
-function BlogItem({ href, title, created_at: date, summary, type = 'posts', ...rest }) {
-  if (type !== 'posts') href = href.replace('blog', type);
+function BlogItem({ href, title, created_at: date, summary, type = "posts", ...rest }) {
+  if (type !== "posts") href = href.replace("blog", type);
 
   return (
     <li>
@@ -38,12 +38,12 @@ function BlogItem({ href, title, created_at: date, summary, type = 'posts', ...r
           <a className="BlogLink t-para">
             <div className="BlogLink__meta">
               <DateComponent date={date} short element="span" className="BlogLink__date t-xs" />
-              {type !== 'posts' && <p className="badge mb-0 mt-2xs">{type}</p>}
+              {type !== "posts" && <p className="badge mb-0 mt-2xs">{type}</p>}
             </div>
             <div className="BlogLink__text">
               <h3 className="t-para mt-0 font-regular mb-0">{title}</h3>
               <p className="mb-0 t-small text-accent leading-loose">
-                {type === 'books' ? <BookMeta {...rest as BookMetaProps} /> : summary}
+                {type === "books" ? <BookMeta {...rest as BookMetaProps} /> : summary}
               </p>
             </div>
           </a>
@@ -55,8 +55,8 @@ function BlogItem({ href, title, created_at: date, summary, type = 'posts', ...r
 
 function Blog({ posts, headings }: InferGetStaticPropsType<typeof getStaticProps>) {
   const blogMeta = Object.assign({
-    slug: 'blog',
-    title: 'Posts',
+    slug: "blog",
+    title: "Posts",
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
@@ -69,7 +69,7 @@ function Blog({ posts, headings }: InferGetStaticPropsType<typeof getStaticProps
       <h1 className="Blog__title">{blogMeta.title}</h1>
 
       <div className="Blog">
-        {blogMeta.slug === 'blog' ? (
+        {blogMeta.slug === "blog" ? (
           <div className="Blog__filters">
             <h3 className="Blog__title leading-tight mt-sm">Filter</h3>
             <ul className="cluster cluster--sm mt-md">
@@ -111,9 +111,9 @@ function Blog({ posts, headings }: InferGetStaticPropsType<typeof getStaticProps
 
 export async function getStaticProps() {
   const [posts, walks, books] = await Promise.all([
-    getAllPosts('posts'),
-    getAllPosts('walks'),
-    getAllPosts('books'),
+    getAllPosts("posts"),
+    getAllPosts("walks"),
+    getAllPosts("books"),
   ]);
 
   const allPosts = [...posts, ...walks, ...books]

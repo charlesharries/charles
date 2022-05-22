@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import AnimatedName from 'components/AnimatedName';
-import Intro from 'components/Intro';
-import { getAllPosts } from '../lib/api.ts';
-import { byDate } from '../util/sort.js';
-import { longDate } from '../util/date';
+import Link from "next/link";
+import AnimatedName from "components/AnimatedName";
+import Intro from "components/Intro";
+import { getAllPosts } from "../lib/api.ts";
+import { byDate } from "../util/sort.js";
+import { longDate } from "../util/date";
 
 function getLink(post) {
-  if (post.type === 'stream') {
+  if (post.type === "stream") {
     return `/stream#${post.slug}`;
   }
 
@@ -50,8 +50,8 @@ function Home({ latest }) {
 
 export async function getStaticProps() {
   const [posts, stream] = await Promise.all([
-    getAllPosts('posts'),
-    getAllPosts('stream'),
+    getAllPosts("posts"),
+    getAllPosts("stream"),
   ]);
 
   const all = [...posts, ...stream]

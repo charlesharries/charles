@@ -1,6 +1,7 @@
 import { Image as CraftImage, Post } from "lib/types";
 import useLightbox from "lib/useLightbox";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import FullDate from "../FullDate";
 
@@ -38,7 +39,9 @@ export default function StreamItem({ post }: { post: Post }): JSX.Element {
       </div>
 
       <div className="StreamItem__body Post">
-        {post.show_title && <h2 className="t-h3" id={post.slug}>{post.title}</h2>}
+        {post.show_title && <h2 className="t-h3" id={post.slug}>
+          <Link href={`/stream/${post.slug}`}>{post.title}</Link>
+        </h2>}
 
         <div className="mt-sm">
           <FeaturedImages />

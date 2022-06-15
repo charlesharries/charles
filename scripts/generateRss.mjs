@@ -16,6 +16,7 @@ function toFeedItem(post) {
   if (post.featured_image?.length) {
     description = post.featured_image[0].tag + description;
   }
+  
 
   return {
     title: post.title,

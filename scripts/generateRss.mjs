@@ -17,7 +17,6 @@ function toFeedItem(post) {
     description = post.featured_image[0].tag + description;
   }
   
-
   return {
     title: post.title,
     url: `https://charlesharri.es/${section}/${post.slug}`,

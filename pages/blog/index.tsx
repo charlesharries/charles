@@ -96,10 +96,8 @@ function Blog({ posts, headings }: InferGetStaticPropsType<typeof getStaticProps
 
         <div className="Blog__list">
           <ul>
-            {posts.map((meta) => (
-              <CSSTransition key={meta.slug} in={isPostActive(meta)} unmountOnExit timeout={300} classNames="fade-left">
-                <BlogItem key={meta.slug} href={`/${blogMeta.slug}/${meta.slug}`} {...meta} />
-              </CSSTransition>
+            {posts.filter(meta => isPostActive(meta)).map((meta) => (
+              <BlogItem key={meta.slug} href={`/${blogMeta.slug}/${meta.slug}`} {...meta} />
             ))}
           </ul>
         </div>

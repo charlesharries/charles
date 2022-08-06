@@ -5,7 +5,6 @@ import { PostHead } from "../../components/Head";
 import { getAllPosts } from "../../lib/api";
 import useTags from "lib/useTags";
 import Tag from "components/Tag";
-import { CSSTransition } from "react-transition-group";
 import capitalise from "util/capitalise";
 import { BookFrontMatter, PostFrontMatter } from "lib/types";
 import Stars from "components/Stars";
@@ -60,7 +59,7 @@ function Blog({ posts, headings }: InferGetStaticPropsType<typeof getStaticProps
     description: "What I've been up to lately, what's popped into my head.",
   }, headings);
 
-  const { tags, types, isTagActive, isPostActive, toggleTag } = useTags(posts);
+  const { tags, types, isTagActive, isPostActive, toggleTag, filtered } = useTags(posts);
 
   return (
     <>
@@ -96,7 +95,7 @@ function Blog({ posts, headings }: InferGetStaticPropsType<typeof getStaticProps
 
         <div className="Blog__list">
           <ul>
-            {posts.filter(meta => isPostActive(meta)).map((meta) => (
+            {filtered.map((meta) => (
               <BlogItem key={meta.slug} href={`/${blogMeta.slug}/${meta.slug}`} {...meta} />
             ))}
           </ul>
